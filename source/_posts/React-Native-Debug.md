@@ -4,7 +4,7 @@ date: 2017-07-08 22:28:36
 tags: 
   - react-native 
   - debug
-
+categories: React-Native
 ---
 
 ### 1. Image overflow
