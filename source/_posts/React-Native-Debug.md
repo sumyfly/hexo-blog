@@ -31,4 +31,10 @@ position:absolute不在flow中，忽视flex:1布局。其位置,大小由left,ri
 ### 5. borderRadius
 有时候borderRadius设置了，但是只有下半部份有效果，那么设置一下overflow:hidden
 
+### 6. setState
+setState是异步的，在contructor里面初始化this.state={...},然后紧接着设置setState,那么可能初始化值覆盖了后面的setState，所以setState这里并不可靠。放到didMount里面去设置。
+
+### 7. ListView 中的onEndReached
+不能设置contentContainerStyle,不然onEndReached不能再安卓上正确触发(初始化后的第一个onEndReached不能fired)。
+
 
