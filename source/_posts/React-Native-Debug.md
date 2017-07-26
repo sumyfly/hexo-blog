@@ -37,4 +37,8 @@ setState是异步的，在contructor里面初始化this.state={...},然后紧接
 ### 7. ListView 中的onEndReached
 不能设置contentContainerStyle,不然onEndReached不能再安卓上正确触发(初始化后的第一个onEndReached不能fired)。
 
+### 8.子组件和父组件通讯问题
+如果使用ref,那么还可以用state来保证同步状态。如果用this.xx的私有变量，不能保证同步状态。因为显示的时候，可能在diff后不去更换控件，而私有变量就算变化了，也不能取到。
+继续讨论： 我觉得使用ref还是可能会出问题，我应该传props去子控件，那样会保证状态是父组件可以预料的。
+
 
