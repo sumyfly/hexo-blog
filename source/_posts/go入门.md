@@ -15,4 +15,4 @@ import( . “fmt” ) 这个点操作的含义就是这个包导入之后在你�
 ## 3.import f
 import( f “fmt” ) 别名操作调用包函数时前缀变成了重命名的前缀，即f.Println(“hello world”)
 
-<!-- mort -->
+<!-- more -->
