@@ -44,4 +44,44 @@ setState是异步的，在contructor里面初始化this.state={...},然后紧接
 ### 9.ref调用共有方法
 如果使用ref调用子控件的共有方法，那么可以不用bind(this)到子控件。在render函数中调用也不需要bind(this)，但是回调函数需要bind(this)。
 
+### 10.继承和组合
+实际项目中，使用了普通类作为Modal，里面有函数来渲染一些组件，它继承自普通父类，而不是Component。像这样：
+```javascript
+//应该使用Componet， extends Conponet
+class Modal{
+
+}
+
+class SModal extends Modal{
+  validated(){
+    //.....
+    return true // or false
+  }
+  renderComponent(){
+    reutnr (<ValidatedComponent>
+    //....
+    </ValidatedCoponent>
+    )
+  }
+}
+
+class Page extends Component<Props,State>{
+  render(){
+    Modal modal = new SModal()
+    return(
+      <View>
+      {modal.renderComponent()}
+      </View>
+    )
+  }
+}
+```
+
+这样导致的结果是，在容器redner中初始化后，其组件的state与从外部获取不匹配，是因为diff时发现组件props没变，所以没有用刚刚初始化状态的组件替代。所以要加上props传到组件中，并且加上key，这样还不如用Componet的组件保存数据和状态。
+教训：
+1.如果没有渲染，使用普通类型，如果涉及到渲染UI，使用Compoent
+2.优先使用props从父组件往下传递，包括回调函数，而不是this.ref.xx直接调用公开方法
+共享功能时组合和继承选择？
+1.is A 继承， has A 组合。
+2.主动调用方法用继承（依赖构造函数传属性），回调方法用组合（用props传入更加方便）。
 

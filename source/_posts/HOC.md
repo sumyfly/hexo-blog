@@ -18,7 +18,7 @@ A higher-order component is a function that takes a component and returns a new 
 ### 2.加载 卸载顺序
 有2中hoc方式
 
-#### 2.1 嵌套
+#### 2.1 组合
 ``` javascript
 const PopupContainer = (Wrapper) =>
   class WrapperComponent extends Component {
