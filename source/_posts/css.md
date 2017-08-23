@@ -41,6 +41,9 @@ inherit	规定应该从父元素继承 text-decoration 属性的值。
 ####2.9 transform: translate
 参照是变换的边界框的尺寸（等于这个元素自己的border-box尺寸）。例如，一个宽度为150px，高度为100px的元素，定义transform:translate(50%, 50%)的效果是transform:translate(75px, 50px);translate3d对应是还有第三个维度的，但是，经过测试，最后的第3个值不可以使用百分比（否则样式定义无效）。就是没有三维变换， 还是使用translate3d，这个GPU优化过，比translate高效。
 
+####2.10 百分比值的继承
+当百分比值用于可继承属性时，只有结合参照值计算后的绝对值会被继承，而不是百分比值本身。例如，一个元素的font-size是14px，并定义了line-height:150%;，那么该元素的下一级子元素继承到的line-height就是21px，而不会再和子元素自己的font-size有关。
+
 ### 3. transition animation transform 
 1.transition, animation 都是动画范畴。
 transform是静态概念，和top,left, width,height等这些一样。
