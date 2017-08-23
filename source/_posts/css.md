@@ -13,6 +13,8 @@ line-through	定义穿过文本下的一条线。
 blink	定义闪烁的文本。
 inherit	规定应该从父元素继承 text-decoration 属性的值。
 
+<!-- more -->
+
 ###2. CSS 中的百分比
 ####2.1 width height
 参照物是元素包含块，width参照包含块的宽度，height参照包含物的高度。
