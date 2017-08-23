@@ -4,6 +4,7 @@ date: 2017-07-27 17:14:00
 tags:
     - react-native
     - 性能
+categories: React-Native
 ---
 React-Native ListView性能
 ===================================
