@@ -20,6 +20,9 @@ tags:
 #### 1.4 target
 一个管理编译设置和文件引用的配置（.plist文件)，继承project的设置，可以根据需要改写
 
+#### 1.5 开发环境 生产环境 
+默认xcode带有debug和release Configurations(Project->Info),最大区别就是宏Build Settings->Preprocessor Macros DEBUG=1 为DEBUG，即开发环境,否则是生产环境。其它configuration都是duplicate自这两个，还是看这个宏。
+
 <!-- more -->
 
 ### 2. 签名相关
@@ -30,7 +33,7 @@ tags:
 企业开发者证书数量不知道，不可以上架app store，但是可以发布in-house.299$一年
 
 #### 2.2 开发证书，生产证书
-下面以个人或公司账号为例。开发证书只能开发，生产证书可以开发也可以发布。同一个发布证书可以发布不同APP，只要它们具有不同的bundle id。但是只有一个bundle id可以接受App Push Notification Service。也就是最大可以有三个APP具有推送功能。
+下面以个人或公司账号为例。开发证书只能开发，生产证书可以开发也可以发布。同一个发布证书可以发布不同APP，只要它们具有不同的bundle id。
 
 常用的证书类型：
   * iOS App Development。开发、真机调试用
@@ -40,7 +43,8 @@ tags:
   * In-House。企业版发布，需$299才能拥有，还需邓氏编码
 
 #### 2.3 推送
-极光推送需要p12文件，这个可以有开发证书或者生产证书导出，对应相应的环境。但是用生产证书导出比较方便，因为用TestFight时，是用的生产证书。开发证书只能对应100个设备(ad-hoc)。
+推送需要Apple Push Notification service SSL (Sandbox)或者Apple Push Notification service SSL (Production)证书。这个证书绑定了一个bundle id,我不知道最多可以申请几个APNS证书，可能是最大APP数。
+极光推送需要p12文件，这个可以由上述的开发环境推送证书或者生产环境推送证书导出，对应相应的环境。但是用生产环境推送证书导出比较方便，可以用于开发也可以用于生产。TestFight 用的是ad-hoc,打包签名是Distribute证书，环境是生产，最大设备数量100。
 
 #### 2.4 .mobileprovison
 .mobileprovision : 对应app 的配置文件。Xcode 其实最终也是需要 这个文件 来进行 对应的app 打包。这个是苹果认证中心签名，个人无法签名，里面存储了可以安装的设备ID,这些设备需要事先添加到苹果MC（Member Center）的Devices里面。对于开发时候的真机调试，原理差不多。都是通过mobileprovision的条目4来做到的。而苹果对于调试和测试用机的数量限制为100台！
