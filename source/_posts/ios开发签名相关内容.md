@@ -20,10 +20,15 @@ tags:
 #### 1.4 target
 一个管理编译设置和文件引用的配置（.plist文件)，继承project的设置，可以根据需要改写
 
-#### 1.5 开发环境 生产环境 
+#### 1.5 provisioning profiles
+该文件将App ID、开发者证书、设备绑定到一块儿，在开发者中心配置好后可以添加到Xcode上，也可以直接在Xcode上连接开发者中心生成，真机调试时需要在PP文件中添加真机的UDID。
+
+#### 1.6 开发环境 生产环境 
 默认xcode带有debug和release Configurations(Project->Info),最大区别就是宏Build Settings->Preprocessor Macros DEBUG=1 为DEBUG，即开发环境,否则是生产环境。其它configuration都是duplicate自这两个，还是看这个宏。
 
 <!-- more -->
+参考：
+http://www.wenghengcong.com/2016/07/iOS%E8%AF%81%E4%B9%A6%E4%B8%80%E8%A7%88/
 
 ### 2. 签名相关
 
