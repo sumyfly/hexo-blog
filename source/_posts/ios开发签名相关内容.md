@@ -43,7 +43,7 @@ tags:
   * In-House。企业版发布，需$299才能拥有，还需邓氏编码
 
 #### 2.3 推送
-推送需要Apple Push Notification service SSL (Sandbox)或者Apple Push Notification service SSL (Production)证书。这个证书绑定了一个bundle id,我不知道最多可以申请几个APNS证书，可能是最大APP数。
+推送需要Apple Push Notification service SSL (Sandbox)或者Apple Push Notification service SSL (Production)证书。这个证书绑定了一个bundle id,我不知道最多可以申请几个APNS证书，也不知道APNS证书和签名证书有什么关系(应该没关系，相互独立), ios只是认bundle id。
 极光推送需要p12文件，这个可以由上述的开发环境推送证书或者生产环境推送证书导出，对应相应的环境。但是用生产环境推送证书导出比较方便，可以用于开发也可以用于生产。TestFight 用的是ad-hoc,打包签名是Distribute证书，环境是生产，最大设备数量100。
 
 #### 2.4 .mobileprovison
