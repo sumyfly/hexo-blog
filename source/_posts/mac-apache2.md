@@ -9,6 +9,8 @@ tags:
 
 在Mac上使用apche2
 ==============
+
+### 1.基本命令
 Mac上自带apache2，它的安装目录是`/etc/apach2`， 文档目录在`/Library/WebServer/Documents/`
 
 ``` bash
@@ -21,3 +23,6 @@ sudo apachectl restart
 ```
 
 <!-- more -->
+
+### 2.设置用户配置
+https://medium.com/@JohnFoderaro/how-to-set-up-apache-in-macos-sierra-10-12-bca5a5dfffba
