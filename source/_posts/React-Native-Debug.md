@@ -85,3 +85,15 @@ class Page extends Component<Props,State>{
 1.is A 继承， has A 组合。
 2.主动调用方法用继承（依赖构造函数传属性），回调方法用组合（用props传入更加方便）。
 
+### 10.requestAnimationFrame
+使用requestAnimationFrame要注意，在componentWillReceiveProps中,不要使用requestAnimationFrame中setState，因为此时可能导致这个setState在render之后，导致多了一次render，所以在componentWillReceiveProps中，不使用requestAnimationFrame中setState。
+``` javascript
+ componentWillReceiveProps(nextProps) {
+    if (!nextProps.refreshing && this.props.rowSource != nextProps.rowSource) {
+        // requestAnimationFrame(() => { //不要加上这个，否则导致额外的render
+          this.setState({ showActivityIndicator: true })
+        // })
+    }
+  }
+```
+
