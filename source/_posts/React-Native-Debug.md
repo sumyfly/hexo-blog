@@ -12,15 +12,46 @@ Image是可以overflow:display,这个在android和ios都有效果。而View在an
 
 <!-- more -->
 ### 2. flex layout
+
+#### 2.1 yoga
+RN使用的layout引擎是yoga，https://github.com/facebook/yoga， 跨平台的，实现flexbox。
+RN默认是display:flex，block和inner-block都是有效的，in-line无效。
+
+#### 2.2 BFC
+BFC blcok Formatting Context，这个文档流是相互隔离的盒子，所以margin不会合并而是并加，
+这个可以都能通过overflow:hidden来设置，其实设置方式有很多，满足以下条件的任何一条都是BFC
+  * float不为none
+  * position 的值不为 static 或者 relative
+  * display 的值为 table-cell , table-caption , inline-block , flex , 或者 inline-flex 中的其中一个
+  * overflow 的值不为 visible
+
+RN默认IOS overflow:visiable, Android是overflow:hidden，但是它们都是display:flex, 所以都是用的BFC，相互隔离的盒子。
+https://segmentfault.com/a/1190000009139500
+
+#### 2.3 RN CSS继承
+注意：CSS都是强制继承的，但是RN不是。React Native still has the concept of style inheritance, but limited to text subtrees.RN的继承只有Text。
+
+
+#### 2.4 RN flex
+flex在网页CSS中是flex-grow,flex-shrink,flex-basis的简写，默认值是0 1 auto，后两个属性可选；RN中flex是布局用
+
 宽高度应该是确定的，或者是可以推断的，如子节点宽高度，父容器宽高度。如果父节点、子节点皆不能推断，那么显示就会不确定，有问题。
 
 父节点->子节点
-1)子节点如果没有设置flex布局（alignItems,justifyContent），那么宽度为其父节点宽度,高度由内容决定。
-2)子节点如果设置了flex布局，那么宽高度为其内容宽高度。
+1)子节点如果没有设置(alignItems,justifyContent），那么宽度为其父节点宽度,高度由内容决定。
+2)子节点如果设置了(alignItems,justifyContent），那么宽高度为其内容宽高度。
 3)子节点设置了宽高度，那么以此宽高度为准。
 
 父节点flex:1
 1)如果父节点flex:1不能推断大小，那么子节点flex:1也没有效果
+
+如果父节点是position:absolute,那么子元素忽视flex:1
+
+#### 2.5 style覆盖
+flex：1会覆盖width,height设置。
+
+marginTop，mrginBootom 会覆盖marginVertical；marginLeft, marginRight会覆盖marginHorizontal;
+paddingTop, paddingBottom会覆盖paddingVertical;paddingLeft, paddingRight会覆盖paddingHorizontal。
 
 ### 3. postion:absolute
 position:absolute不在flow中，忽视flex:1布局。其位置,大小由left,right,top,bottom设置，大小也可以由内容大小确定。
