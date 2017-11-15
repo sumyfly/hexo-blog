@@ -128,3 +128,6 @@ class Page extends Component<Props,State>{
   }
 ```
 
+### 12. .gitignore
+.gitignore 没有起效，是因为我使用了 import '../../smile-shared/xx' 应该是使用 'smile-shared/xxx',这个是引用的问题，tsc运行时，output结果错误。
+
