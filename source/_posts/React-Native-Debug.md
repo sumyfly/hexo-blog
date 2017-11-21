@@ -131,3 +131,5 @@ class Page extends Component<Props,State>{
 ### 12. .gitignore
 .gitignore 没有起效，是因为我使用了 import '../../smile-shared/xx' 应该是使用 'smile-shared/xxx',这个是引用的问题，tsc运行时，output结果错误。
 
+### 13. import require外部文件
+web在src文件夹里面的文件，不可以import那些在src外的其它文件，但是可以用require。比如在src文件夹外面的libs文件夹。

@@ -11,3 +11,9 @@ https://stackoverflow.com/questions/27431681/why-is-my-font-face-adding-space-at
 
 ###2. mobile字体 mobile web字体
 mobile字体不一定能用于mobile web字体，不知道为什么。因为我用的一个字体可以用于react-native,但是不能用于mobile web，格式是ttf。
+
+###3. 远程手机浏览器调试
+1.adb forward tcp:9224 localabstract:chrome_devtools_remote
+然后localhost:9224
+
+2.chrome://inspect
