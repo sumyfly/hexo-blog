@@ -48,3 +48,6 @@ try{
   console.log(e) //e 就是reject的实参值
 }
 ```
+
+### 5. dot
+Use &middot; · for a dot or &bull; • for a thicker, bulleted list style dot.
