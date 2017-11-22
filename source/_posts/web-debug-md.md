@@ -5,15 +5,27 @@ tags:
   - web
 ---
 
-###1. 字体居中
+### 1.字体居中
 我设置了flex, justifyContent: 'center',还是没用，后来发现是字体格式的问题，我用的HelveticaNeueLTPro-Cn.otf,这个字体的字下面有空白，所以居中不对，后来用了PingFangSC-Regular就好了，我就不知道为什么下面有空白？
 https://stackoverflow.com/questions/27431681/why-is-my-font-face-adding-space-at-the-baseline
 
-###2. mobile字体 mobile web字体
+### 2.mobile字体 mobile web字体
 mobile字体不一定能用于mobile web字体，不知道为什么。因为我用的一个字体可以用于react-native,但是不能用于mobile web，格式是ttf。
 
-###3. 远程手机浏览器调试
+### 3.远程手机浏览器调试
 1.adb forward tcp:9224 localabstract:chrome_devtools_remote
 然后localhost:9224
 
 2.chrome://inspect
+
+### 4.微信公众号支付
+JSSDK和下单的appId要一样，chooseWXPay的签名，后台签名用timeStamp，前端用timestamp.url签名，不含#
+如果微信支付提示{"errMsg":"chooseWXPay:fail"}，一种可能是签名错误，一种可能是授权目录错误。
+http://tieba.baidu.com/p/3961646394
+https://example.com/weixin/pay#/home/xxx，支付授权目录要配置到home那一级，或者带个在#前加?来阻隔这个问题，这应该是微信的BUG。
+
+> 我用的是hashHistory,所以要配置到/setting/:
+https://app-test.gotogameday.com/auth/webapp/index.html#/setting/
+
+> 有时候微信里打开链接，会自己加上参数?from=singlemessage&install=0,这个时候就可以用
+https://app-tesst.gotogameday.com/auth/webapp
