@@ -25,7 +25,26 @@ http://tieba.baidu.com/p/3961646394
 https://example.com/weixin/pay#/home/xxx，支付授权目录要配置到home那一级，或者带个在#前加?来阻隔这个问题，这应该是微信的BUG。
 
 > 我用的是hashHistory,所以要配置到/setting/:
-https://app-test.gotogameday.com/auth/webapp/index.html#/setting/
+https://app-test.xxx.com/auth/webapp/index.html#/setting/
 
 > 有时候微信里打开链接，会自己加上参数?from=singlemessage&install=0,这个时候就可以用
-https://app-tesst.gotogameday.com/auth/webapp
+https://app-tesst.xxx.com/auth/webapp
+
+### 4.Promise
+``` js
+async asyncFun(){
+  return new Promise((resolve, reject)=>{
+    if(a){
+      resolve(n)
+    }else{
+      reject() //在安卓微信浏览器中，reject(), reject(undefined)都将导致await 等待，直至超时。这个应该是bug;reject(123)参数不为undeefined就可以。
+    }
+  })
+}
+
+try{
+  const a = await asyncFun() // 如果是resolve, resolve的实参值赋给a,如果是reject,a为初始值
+} catch(e){
+  console.log(e) //e 就是reject的实参值
+}
+```
