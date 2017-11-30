@@ -152,3 +152,14 @@ Text如果不设置宽度，会导致在flexDirection:row中，计算错误，�
   <Text >This is a long contetn.</Text>
 </View>
 ```
+
+### 45. yield
+ 调用generator时，没有yield会造成generator没有预期行为，比如yield call没有阻塞调用
+``` js
+import { takeLatest, delay } from 'redux-saga'
+import { put, call, fork, take, race, select } from 'redux-saga/effects'
+
+function* mySaga(){
+  yield call(delay, 1000) 
+}
+``` 
