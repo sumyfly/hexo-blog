@@ -48,6 +48,6 @@ inherit	规定应该从父元素继承 text-decoration 属性的值。
 
 ### 3. transition animation transform 
 1.transition, animation 都是动画范畴。
-transform是静态概念，和top,left, width,height等这些一样。
+transform是静态概念(含有translate,translate3d)，和top,left, width,height等这些一样。
 
 2.transition是缓动动画，animation是幁动画。
