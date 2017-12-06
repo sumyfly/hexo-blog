@@ -30,6 +30,12 @@ https://app-test.xxx.com/auth/webapp/index.html#/setting/
 > 有时候微信里打开链接，会自己加上参数?from=singlemessage&install=0,这个时候就可以用
 https://app-tesst.xxx.com/auth/webapp
 
+> ios微信浏览器路径识别到
+https://app-test.xxx.com/auth/webapp/index.html#/
+
+最终配置了三个路径
+![微信授权目录配置](/images/wechat_pay.png)
+
 ### 4.Promise
 ``` js
 async asyncFun(){
