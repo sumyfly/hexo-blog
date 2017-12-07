@@ -66,3 +66,6 @@ post 的body要进行JSON.stringify处理，
     return typeof data == 'object' ? JSON.stringify(data) : data
   }, // change RequestBody before fetch
 ```
+
+### 7. Object.assign
+Object.assign({}, res),如果res是个array,那么结果就是一个object，所以在Object.assign前，要确定是否需要一个array.
