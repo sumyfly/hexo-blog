@@ -67,5 +67,5 @@ post 的body要进行JSON.stringify处理，
   }, // change RequestBody before fetch
 ```
 
-### 7. Object.assign
+### 7. Object.assign 参数有个数组
 Object.assign({}, res),如果res是个array,那么结果就是一个object，所以在Object.assign前，要确定是否需要一个array.
