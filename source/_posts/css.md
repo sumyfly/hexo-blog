@@ -51,3 +51,6 @@ inherit	规定应该从父元素继承 text-decoration 属性的值。
 transform是静态概念(含有translate,translate3d)，和top,left, width,height等这些一样。
 
 2.transition是缓动动画，animation是幁动画。
+
+### 4. marginTop top
+marginTop计算盒模型时，看边框的位置。relative下top计算盒模型时，先计算不含top的盒模型，再做偏移，原位置空间还是被占用。
