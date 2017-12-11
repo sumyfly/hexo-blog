@@ -164,5 +164,5 @@ function* mySaga(){
 }
 ``` 
 
-### 46. moment
+### 46. moment format 'M-D'
 在排序时，没有考虑跨年的问题，只是按'M-D'排序，应该按'YYYY-M-D'排序。
