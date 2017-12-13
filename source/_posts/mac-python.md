@@ -43,7 +43,7 @@ install-option=--prefix=~/.local
 ```
 
 然后pip的库就安装到用户目录下的.local下面了
-![ref](http://jyd.me/linux/pip-install-to-different-home/)
+[ref](http://jyd.me/linux/pip-install-to-different-home/)
 
 
 
@@ -73,5 +73,5 @@ deactivate
 
 ```
 
-![ref](https://www.tensorflow.org/install/install_mac)
+[ref](https://www.tensorflow.org/install/install_mac)
 
