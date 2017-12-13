@@ -35,6 +35,18 @@ brew 安装pyton2.7 python3都是相互独立的，直接brew install python2 �
 
 理论上它们是共享的，多个python 2.7版本会共享一个目录，python 3也同理。
 
+解决方法，设置pip的指定包安装目录,同时需要把此目录添加到PYTONPATH。我不推荐此解决方法，因为需要设置PYTHONPATH，我推荐使用virtualenv或者Docker。
+> 用户目录下面，.pip目录下建立pip.conf文件。
+``` 
+[install]
+install-option=--prefix=~/.local
+```
+
+然后pip的库就安装到用户目录下的.local下面了
+![ref](http://jyd.me/linux/pip-install-to-different-home/)
+
+
+
 ### 4.使用virtualenv
 如果想要一个独立的python环境，可以使用virtualenv.它们的python, 包都是独立的，相互不影响。Docker也可以做到同样的事情。
 
@@ -62,5 +74,4 @@ deactivate
 ```
 
 ![ref](https://www.tensorflow.org/install/install_mac)
-
 
