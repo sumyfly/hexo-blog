@@ -14,6 +14,8 @@ MAC OS会自带python, 通常我们不需要使用和修改它，我们自己安
 
 注意：系统自带的python没有pip，我们也不需要安装pip到系统自带的python中。
 
+<!-- more -->
+
 ### 2.使用brew安装python
 brew 安装pyton2.7 python3都是相互独立的，直接brew install python2 或者brew intall python3.
 > python 2.7路径
