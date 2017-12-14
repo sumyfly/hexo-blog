@@ -164,5 +164,11 @@ function* mySaga(){
 }
 ``` 
 
+### 46. RCTNativeAppEventEmitter vs DeviceEventManagerModule.RCTDeviceEventEmitter
+RN中这两个Emitter应该没什么区别，我没有接受到消息，是因为我拼写中大小写有错误，浪费时间在寻找这两个Emitter区别。
+``` java
+  private static final String RCTInmobiEventName = "Inmobi_Resp";
+```
+
 ### 46. moment format 'M-D'
 在排序时，没有考虑跨年的问题，只是按'M-D'排序，应该按'YYYY-M-D'排序。
