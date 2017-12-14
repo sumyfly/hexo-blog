@@ -153,7 +153,7 @@ Text如果不设置宽度，会导致在flexDirection:row中，计算错误，�
 </View>
 ```
 
-### 45. yield
+### 15. yield
  调用generator时，没有yield会造成generator没有预期行为，比如yield call没有阻塞调用
 ``` js
 import { takeLatest, delay } from 'redux-saga'
@@ -164,7 +164,7 @@ function* mySaga(){
 }
 ``` 
 
-### 46. RCTNativeAppEventEmitter vs DeviceEventManagerModule.RCTDeviceEventEmitter
+### 16. RCTNativeAppEventEmitter vs DeviceEventManagerModule.RCTDeviceEventEmitter
 RN中这两个Emitter应该没什么区别，我没有接受到消息，是因为我拼写中大小写有错误，浪费时间在寻找这两个Emitter区别。
 ``` java
   private static final String RCTInmobiEventName = "Inmobi_Resp";
