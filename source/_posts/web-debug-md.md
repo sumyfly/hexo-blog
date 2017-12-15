@@ -56,7 +56,7 @@ try{
 ```
 
 ### 5. dot
-Use &middot; · for a dot or &bull; • for a thicker, bulleted list style dot.
+Use `&middot;` · for a dot or `&bull;` • for a thicker, bulleted list style dot.
 
 ### 6. post
 post 的body要进行JSON.stringify处理，   
