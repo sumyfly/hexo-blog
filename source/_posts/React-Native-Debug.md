@@ -170,10 +170,10 @@ RN中这两个Emitter应该没什么区别，我没有接受到消息，是因�
   private static final String RCTInmobiEventName = "Inmobi_Resp";
 ```
 
-### 46. moment format 'M-D'
+### 17. moment format 'M-D'
 在排序时，没有考虑跨年的问题，只是按'M-D'排序，应该按'YYYY-M-D'排序。
 
-### 47. 键盘
+### 18. 键盘
 RN的键盘输入，比较麻烦，不是很方便。
 
 * android 用padding， ios用position。
@@ -231,3 +231,20 @@ import {KeyboardAvoidingView} from 'react-native'
   {children}
 </KeyboardAvoidingView>
 ```
+
+### 19.Image dimension
+Image source如果是本地，需要设置width,或者height.如果是NetWorkImage
+
+### 19.1 使用Image.getSize(url, (width,height)=>{}, error=>{})
+在回调中setState({widht, height})
+
+### 19.2 使用flex:1 或者 position='absolute'
+``` js
+<Image source={{uri: url}} style={{flex: 1, width: null, height: null}} resizeMode='contain'/>
+
+//使用position='absolute'
+<Image source={{uri: url}} style={{position: 'absolute', left: 0, top: 0, right: 0, bottom: 0}} resizeMode='contain'/>
+```
+
+如果Image的height，width不固定，用Image.getSize回调。如果容器size固定，用flex:1,posiiton='absolute'。
+    
