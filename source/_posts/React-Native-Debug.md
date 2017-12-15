@@ -172,3 +172,62 @@ RN中这两个Emitter应该没什么区别，我没有接受到消息，是因�
 
 ### 46. moment format 'M-D'
 在排序时，没有考虑跨年的问题，只是按'M-D'排序，应该按'YYYY-M-D'排序。
+
+### 47. 键盘
+RN的键盘输入，比较麻烦，不是很方便。
+
+* android 用padding， ios用position。
+* padding是在后面添加一个键盘的高度，position应该是修改了position。所以padding在一个高度固定的View中，而不是ScrollView，就需要考虑控件后面的空白问题。
+* 安卓计算Modal的flex:1时，扣除了键盘高度，IOS没有扣除键盘高度。
+
+> 如果焦点变化了，并且当前焦点不可以输入，键盘自动隐藏。就像`this._textInput.blur()`这样。
+
+> 如果使用KeyboardAvoidingView behavior='padding',它的容器高度会变话，比如Modal，那么在在ScrollView中，并且顶部有个flex:1的View，它的高度包含了键盘高度。需要去掉这个高度，使用`View`包含它，这个其实就是不需要KeyboardAvoidingView了。
+```js
+renderContent() {
+    return (
+      <KeyboardAvoidingView behavior={IsAndroid ? 'padding' : 'position'}>
+        {this.renderFooter()}
+      </KeyboardAvoidingView>
+    )
+}
+render (){
+  return (
+      <Modal
+        visible={fullType == currentModal}
+        animationType="fade"
+        transparent={true}
+        onRequestClose={() => this.closeModal()}>
+        <View style={{ flex: 1 }}>
+          <ScrollView
+            style={{ flex: 1 }}
+            contentContainerStyle={{ flex: 1 }}
+            showsVerticalScrollIndicator={false}
+            automaticallyAdjustContentInsets={false}
+          >
+            <TouchableOpacity
+              style={styles.empty}
+              onPress={() => this.closeModal()}>
+            </TouchableOpacity>
+            {
+              IsAndroid ?
+                <View>
+                  {this.renderContent()}
+                </View> :
+                this.renderContent()
+            }
+          </ScrollView>
+        </View>
+      </Modal>
+  )
+}
+```
+
+``` js
+import {KeyboardAvoidingView} from 'react-native'
+<KeyboardAvoidingView
+  style={{ paddingBottom: IsAndroid ? 260 * heightScale : 160 * widthScale }}
+  behavior={IsAndroid ? 'padding' : 'position'}>
+  {children}
+</KeyboardAvoidingView>
+```
