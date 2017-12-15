@@ -246,5 +246,5 @@ Image source如果是本地，需要设置width,或者height.如果是NetWorkIma
 <Image source={{uri: url}} style={{position: 'absolute', left: 0, top: 0, right: 0, bottom: 0}} resizeMode='contain'/>
 ```
 
-如果Image的height，width不固定，用Image.getSize回调。如果容器size固定，用flex:1,posiiton='absolute'。
+如果Image的height，width不固定，用Image.getSize回调。如果容器size固定(不一定有width,height，而是可以是flex布局)，用flex:1,posiiton='absolute'。
     
