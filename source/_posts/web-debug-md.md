@@ -69,3 +69,14 @@ post 的body要进行JSON.stringify处理，
 
 ### 7. Object.assign 参数有个数组
 Object.assign({}, res),如果res是个array,那么结果就是一个object，所以在Object.assign前，要确定是否需要一个array.
+
+### 8. div的文本没有自动换行
+默认情况下，一个 DIV或者其他元素的文本，如果都是无文字分隔符，无空格，则不会自动换行，比如:
+``` html
+<div class='div-test'>012345555555555555555555555555555555555555555555555555555555</div>
+
+<!--加上下面的样式即可解决-->
+.div-test {
+  word-break: break-all;
+}
+```
