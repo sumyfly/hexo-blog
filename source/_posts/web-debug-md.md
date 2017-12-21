@@ -18,6 +18,8 @@ mobile字体不一定能用于mobile web字体，不知道为什么。因为我�
 
 2.chrome://inspect
 
+<!-- more -->
+
 ### 4.微信公众号支付
 JSSDK和下单的appId要一样，chooseWXPay的签名，后台签名用timeStamp，前端用timestamp.url签名，不含#
 如果微信支付提示{"errMsg":"chooseWXPay:fail"}，一种可能是签名错误，一种可能是授权目录错误。
