@@ -235,10 +235,10 @@ import {KeyboardAvoidingView} from 'react-native'
 ### 19.Image dimension
 Image source如果是本地，需要设置width,或者height.如果是NetWorkImage
 
-### 19.1 使用Image.getSize(url, (width,height)=>{}, error=>{})
+#### 19.1 使用Image.getSize(url, (width,height)=>{}, error=>{})
 在回调中setState({widht, height})
 
-### 19.2 使用flex:1 或者 position='absolute'
+#### 19.2 使用flex:1 或者 position='absolute'
 ``` js
 <Image source={{uri: url}} style={{flex: 1, width: null, height: null}} resizeMode='contain'/>
 
@@ -247,4 +247,17 @@ Image source如果是本地，需要设置width,或者height.如果是NetWorkIma
 ```
 
 如果Image的height，width不固定，用Image.getSize回调。如果容器size固定(不一定有width,height，而是可以是flex布局)，用flex:1,posiiton='absolute'。
+
+### 20. tricky of ListView
+ListView在ScrollView中，那么ListView不设置style={flex:1}, 那么ListView 和ScrollView的滑动事件很完美结合，表现为整体滑动。react-native-web中，Chrome表现和mobile一样，safari不行，ListView的父节点必须有个高度，手工计算它的高度，这个高度必须大于等于ListView content 的height, 那样滑动起来就像是一个整体，不然就会是局部滑动。
+``` js
+<ScrollView>
+  <View style={{flex:1}} {/*这个flex:1在mobile app和chrome环境下会忽视，但是safari不行 */}> 
+    <ListView
+      dataSource={dataSource}
+      renderRow={this.renderRow}
+    />
+  </View>
+</ScrollView>
+```
     
