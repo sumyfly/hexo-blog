@@ -77,3 +77,7 @@ deactivate
 
 [ref](https://www.tensorflow.org/install/install_mac)
 
+### 5.visual code 中设置交互命令
+在 "name": "Python: Terminal (external)"下，设置cwd的值为工作目录
+"cwd": "${workspaceFolder}",
+
