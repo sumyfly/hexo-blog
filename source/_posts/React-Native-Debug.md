@@ -273,6 +273,6 @@ List of devices attached
 react-native run-android --deviceId 85EABNGMFABC #这样可以成功安装到真机
 ```
 
-（github issue)[https://github.com/facebook/react-native/issues/9498]
+[github issue](https://github.com/facebook/react-native/issues/9498)
 
     
