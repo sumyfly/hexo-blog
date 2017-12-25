@@ -260,4 +260,19 @@ ListView在ScrollView中，那么ListView不设置style={flex:1}, 那么ListView
   </View>
 </ScrollView>
 ```
+
+### 21. react-native run-android真机调试
+Failed to install all. run-android on device
+一种情况是真机没连上或者同时开了模拟器
+第二种就是要这样执行
+``` bash
+adb devices
+List of devices attached
+85EABNGMFABC    device
+
+react-native run-android --deviceId 85EABNGMFABC #这样可以成功安装到真机
+```
+
+（github issue)[https://github.com/facebook/react-native/issues/9498]
+
     
