@@ -275,4 +275,11 @@ react-native run-android --deviceId 85EABNGMFABC #这样可以成功安装到真
 
 [github issue](https://github.com/facebook/react-native/issues/9498)
 
+### 22. flex布局中，子元素的宽高度
+#### 22.1 flexDirection:'column'
+子元素的宽度通常内容决定的，高度是固定高度或flex布局。
+
+#### 22.2 flexDirection: 'row'
+子元素的高度通常是**容器高度**，宽度是固定宽度或flex布局。但这个有意外，可能是父容器设置了`alignItems:'center'`，所以当此时子元素高度不是父容器高度时，按需要可以设置`alignSelf:'stretch'`。
+
     

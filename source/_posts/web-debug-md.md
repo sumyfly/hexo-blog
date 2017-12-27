@@ -82,3 +82,6 @@ Object.assign({}, res),如果res是个array,那么结果就是一个object，所
   word-break: break-all;
 }
 ```
+
+### 9. 文本空白符处理
+使用`whiteSpace: 'pre-wrap'`,但此时有个问题，`textIndent`无效。
