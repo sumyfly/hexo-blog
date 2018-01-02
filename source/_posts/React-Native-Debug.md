@@ -282,4 +282,6 @@ react-native run-android --deviceId 85EABNGMFABC #这样可以成功安装到真
 #### 22.2 flexDirection: 'row'
 子元素的高度通常是**容器高度**，宽度是固定宽度或flex布局。但这个有意外，可能是父容器设置了`alignItems:'center'`，所以当此时子元素高度不是父容器高度时，按需要可以设置`alignSelf:'stretch'`。
 
+#### 23. lipo
+有时候第三方sdk不支持x86_64（模拟器architecture),所以不能再模拟器上运行。查看skd支持的cpu的architecture，lipo -inof xxsdk.o
     
