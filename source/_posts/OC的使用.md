@@ -24,4 +24,19 @@ Core Foundation框架 (CoreFoundation.framework) 是一组C语言接口，它们
 > __bridge_retained 是编译器替我们做了 retain 操作，而 __bridge_transfer 是替我们做了 release。
 
 [Core Foundation框架详解](https://www.jianshu.com/p/5c98ac2dab58)
+
+### 1.2 Cocoa Foundation
+Foundation框架定义的是OC类的基础层,它的根是NSObject类，（和NSObject及NSCopying协议一起）定义了基本的对象属性和行为。除了提供一组有用的基本对象类之外，它还引入了一些OC语言不涵盖的功能的范例。Foundation预期实现以下几个功能：
+
+* 提供少量的基本的实用工具类；
+* 为了降低开发的难度，引入了一些统一的约定，比如dealloc函数；
+* 支持Unicode字符串、对象持久性和对象分布；
+* 提供了一个标准的操作系统独立,提高可移植性。
+
 <!--more -->
+
+### 2 ViewController 中回调
+* 使用delegate （weak delegate, 在外面传进来  xx.delegate = self or something, 先要定义protocol)
+* 使用block (外面传block, 先要定义block type)
+* 使用property
+* 使用带参数消息
