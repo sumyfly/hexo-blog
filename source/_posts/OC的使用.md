@@ -35,8 +35,34 @@ Foundation框架定义的是OC类的基础层,它的根是NSObject类，（和NS
 
 <!--more -->
 
-### 2 ViewController 中回调
+### 2. ViewController 中回调
 * 使用delegate （weak delegate, 在外面传进来  xx.delegate = self or something, 先要定义protocol)
 * 使用block (外面传block, 先要定义block type)
 * 使用property
 * 使用带参数消息
+
+### 3. 增加子ViewControlller
+ViewController是管理View的，View就是一个UI。
+增加子ViewController的正确方法是先增加子ViewController，再增加子View，目的是保证ViewController的history.Modal不用此方法。
+``` objective-c
+  [self.leftSidebarContainerViewController addChildViewController:self.leftSidebarViewController];
+  [self.leftSidebarContainerViewController.view addSubview:self.leftSidebarViewController.view];
+```
+
+### 4. modal
+modal 使用presentViewController呈现，（需要一个容器ViewController?可能是）。
+那么取消呢？
+使用modal view 自身的dismissViewControllerAnimated或者它容器的dismissViewControllerAnimated。效果是一样的,最终都是容器去执行。
+
+> Modal View Controller
+When a View Controller is presented modally, you can dismiss it (from the second view controller) by calling
+
+``` objective-c
+[self dismissViewControllerAnimated:YES completion:nil];
+```
+
+> The presenting view controller is responsible for dismissing the view controller it presented. If you call this method on the presented view controller itself, UIKit asks the presenting view controller to handle the dismissal.
+
+So it works for the presented view controller to call it on itself.
+
+[stack overflow](https://stackoverflow.com/questions/14636891/dismissing-a-presented-view-controller/14637067#14637067)
