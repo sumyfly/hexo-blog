@@ -282,7 +282,35 @@ react-native run-android --deviceId 85EABNGMFABC #这样可以成功安装到真
 #### 22.2 flexDirection: 'row'
 子元素的高度通常是**容器高度**，宽度是固定宽度或flex布局。但这个有意外，可能是父容器设置了`alignItems:'center'`，所以当此时子元素高度不是父容器高度时，按需要可以设置`alignSelf:'stretch'`。
 
-#### 23. lipo
+#### 23. lipo ios的库查询
 有时候第三方sdk不支持x86_64（模拟器architecture),所以不能再模拟器上运行。查看skd支持的cpu的architecture，lipo -inof xxsdk.o
 
 > ios release app, Project->Build Settings->Build Acitve Architecture Only,在release下是false,表示build出的.iap支持多个CPU架构。而通常debug下我们只需要x86_64（模拟器）的CPU架构就够了，或者当前真机的CPU架构。
+
+#### 24. js class vs object
+> 区别就是有没有逗号
+如果是class
+``` js
+class A {
+  fun1 = (a){
+    console.warn(a)
+  }
+  //没有逗号','
+  fun2 = (b){
+    console.warn(b)
+  }
+
+}
+```
+
+如果是object
+``` js
+const A = {
+  fun1(a){
+    console.warn(a)
+  },
+  fun2(b){
+    console.warn(b)
+  }
+}
+```
