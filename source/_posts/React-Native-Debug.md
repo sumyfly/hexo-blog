@@ -319,39 +319,66 @@ const A = {
 发现自己写的react-native inmobi广告模块有问题，build.gradle的build tools版本不匹配
 解决，使用和主build tool一致的版本号
 造成冲突的原因，应该是此模块和主程序都使用了支持包
+
+主build.gradle
+
 ``` gradle
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 22
+        ...
+    }
+    ...
+}
+
+dependencies {
+    ...
+    compile "com.android.support:appcompat-v7:23.0.1"
+
+}
+```
+
+react-native第三方模块的build.gradle
+``` gradle
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 22
+        ...
+    }
+    ...
+}
+
 ext {
     androidSupportLibVersion = "23.0.1"
 }
 
 dependencies {
-    compile 'com.facebook.react:react-native:+'
-    compile files('libs/InMobi-7.0.1.jar')
-    // compile "com.inmobi.monetization:inmobi-ads:7.0.1"
+    ...
     compile "com.android.support:design:${androidSupportLibVersion}"
     compile "com.android.support:appcompat-v7:${androidSupportLibVersion}"
     compile "com.android.support:recyclerview-v7:${androidSupportLibVersion}"
-
-    compile "com.google.android.gms:play-services:+"
-    compile "com.squareup.picasso:picasso:2.5.2"
-    compile 'com.android.support:multidex:1.0.1'
 } 
 
 ```
 
+修改第三方模块的build.gradle
 ``` gradle
  android {
 -    compileSdkVersion 23
 -    buildToolsVersion "23.0.1"
-+    compileSdkVersion 25
-+    buildToolsVersion "25.0.2"
++    compileSdkVersion 25 //改成和主build.gradle一样
++    buildToolsVersion "25.0.2" //改成和主build.gradle一样
  
      defaultConfig {
          minSdkVersion 16
--        targetSdkVersion 23
-+        targetSdkVersion 22
-         versionCode 1
-         versionName "1.0"
-         multiDexEnabled true // add this to enable multi-dex
-
+        targetSdkVersion 22
+     }
 ```
