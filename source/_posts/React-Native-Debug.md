@@ -384,7 +384,7 @@ dependencies {
 ```
 
 ### 26.读取Anroid的AndroidManifest.xml中的meta-data
-meta-data会根据其android:value的值推断类型，所以我期望是一个String,但是值是一个float,不会自动类型转换。
+meta-data的值读的时候不会自动类型转换，比如你要一个String,实际value是一个float，那么就会报警，返回一个null。
 ``` java
 //metaData.getString如果读到了float就会报警告，返回一个null
 metaData.get(metaDataKey).toString();
