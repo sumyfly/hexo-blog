@@ -33,7 +33,7 @@ brew 安装pyton2.7 python3都是相互独立的，直接brew install python2 �
 /usr/local/lib/python2.7
 
 > python 3的包
-/usr/local/lib/python3
+/usr/local/lib/python3.6 #按版本号区分
 
 理论上它们是共享的，多个python 2.7版本会共享一个目录，python 3也同理。
 
