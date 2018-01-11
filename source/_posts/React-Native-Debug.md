@@ -389,3 +389,4 @@ meta-data的值读的时候不会自动类型转换，比如你要一个String,�
 //metaData.getString如果读到了float就会报警告，返回一个null
 metaData.get(metaDataKey).toString();
 ```
+我遇到的是grovey的问题，它读取一个Long的值，toString时变成了科学计数法，没有办法就只有加个前缀了，我觉得它应该有个方法toString时是直接String，不改变表示方法的。
