@@ -48,7 +48,7 @@ pip install jupyter
 先生成一个config.py文件，`jupyter notebook --generate-config`,在~/.jupyter下面就会有一个jupyter_notebook_config.py文件，修改其中的参数。
 
 ##### 4.1.1. 修改密码 
-from notebook.auth import passwd; passwd(),输入一个你想使用的密码，会产生一个长的字符串结果，拷贝这个字符串到c.NotebookApp.password的值中
+`from notebook.auth import passwd; passwd()`,输入一个你想使用的密码，会产生一个长的字符串结果，拷贝这个字符串到c.NotebookApp.password的值中
 
 ``` python
 c.NotebookApp.password='' #这个不是原始密码，而是靠notebo.auth.passwd生成的。
@@ -63,6 +63,7 @@ c.NotebookApp.port = 7812
 ``` bash
 openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mykey.key -out mycert.pem
 ``` 
+
 
 * 修改jupyter_notebook_config.py
 ``` python
@@ -82,7 +83,8 @@ c.NotebookApp.ip = '*'
 2. M-x ein: notebooklist-open,输入port,成功后会有一个缓冲区对于jupyter notebook服务器消息。
 3. 在第二步中的缓冲区中，先选择Kernel，python 3，移动到那个 `( ) python 3`,按下enter键;移动光标到`[New Notebook]`,按下回车键。就会出现ipython的交互窗口，这里就是一个cell,可以输入python,然后按C-c C-c，就会提交到jupyter notebook服务器，然后返回执行结果。
 
-*注意*：Emacs的terminal版本(Emacs -new)不支持matplot的图片结果，GUI版本（Emacs)支持,所以先用GUI版本试试。
+*注意*：Emacs的terminal版本(Emacs -new)不支持matlabplot的图片结果，GUI版本（Emacs)支持,所以先用GUI版本试试。
 
 #### 5.1 ein的快捷键
+TODO:
 
