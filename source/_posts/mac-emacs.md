@@ -13,7 +13,7 @@ brew install emacs --with-cocoa
 ```
 
 ### 2. 配置emacs
-原来是用的[purcell](https://github.com/purcell/emacs.d),后来发现太重，反应有点慢。因为我主要是为了python，所以重新配置。参考了几篇文章:
+原来是用的[prelude](https://github.com/bbatsov/prelude),后来发现太重，反应有点慢。因为我主要是为了python，所以重新配置。参考了几篇文章:
 * [Emacs：最好的Python编辑器？](http://codingpy.com/article/emacs-the-best-python-editor/)
 注意有几处不同，elpy的ipython配置现在是
 ``` elisp
@@ -25,6 +25,26 @@ brew install emacs --with-cocoa
 
 ### 2.1 elpy
 看elpy的配置，M-X elpy-config，查看python的版本，package的情况。
+
+### 2.2 emacs 临时文件和备份文件
+* 临时文件(Auto-Save file)
+Emacs的临时文件的文件名是使用“#”包围，这种文件一般是在Emacs中编辑时，emacs自动保存的文件，他在编辑文件的同一个目录内生成一个以#file-name#这样的文件，这个文件会在我们保存文件之后被emacs删除。这个文件的作用是为了防止在进行编辑的时候异常退出造成的损失。
+
+* 备份文件（Backup files）
+备份文件是在第一次保存的时候，如果保存的文件已经存在，Emacs会自动将当前已经存在的文件重命名作为备份文件，并将当前buffer的内容写入同名的文件中来替代原来的文件。而备份文件使用的是一个“～”作为后缀(如：file-name~)。
+
+https://www.emacswiki.org/emacs/AutoSave
+``` lisp
+    (defconst emacs-tmp-dir (expand-file-name (format "emacs%d" (user-uid)) temporary-file-directory))
+    (setq backup-directory-alist
+        `((".*" . ,emacs-tmp-dir)))
+    (setq auto-save-file-name-transforms
+        `((".*" ,emacs-tmp-dir t)))
+    (setq auto-save-list-file-prefix
+        emacs-tmp-dir)
+```
+
+[Emacs的临时文件和备份文件](http://blog.useasp.net/archive/2014/07/18/emacs-temporary-files-and-backup-files-for-edited-file.aspx)
 
 #### 3 emacs 快捷键
 
