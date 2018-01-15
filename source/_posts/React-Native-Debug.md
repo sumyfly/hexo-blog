@@ -385,6 +385,7 @@ dependencies {
 
 ### 26.读取Anroid的AndroidManifest.xml中的meta-data
 meta-data的值读的时候不会自动类型转换，比如你要一个String,实际value是一个float，那么就会报警，返回一个null。
+比如build.gradle中SomeValue值类型是int,那么AndroidMainfest.xml中的"${SomeValue}就是int,读取时就不能用getString.
 ``` java
 //metaData.getString如果读到了float就会报警告，返回一个null
 metaData.get(metaDataKey).toString();
