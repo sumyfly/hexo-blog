@@ -103,7 +103,7 @@ c.NotebookApp.ip = '*'
 2. M-x ein: notebooklist-open,输入port,成功后会有一个缓冲区对于jupyter notebook服务器消息。
 3. 在第二步中的缓冲区中，先选择Kernel，python 3，移动到那个 `( ) python 3`,按下enter键;移动光标到`[New Notebook]`,按下回车键。就会出现ipython的交互窗口，这里就是一个cell,可以输入python,然后按C-c C-c，就会提交到jupyter notebook服务器，然后返回执行结果。
 
-*注意*：Emacs的terminal版本(Emacs -new)不支持matlabplot的图片结果，GUI版本（Emacs)支持,所以先用GUI版本试试。
+*注意*：Emacs的terminal版本(Emacs -new)不支持matplotlib的图片结果，GUI版本（Emacs)支持,所以先用GUI版本试试。
 
 #### 5.1 ein的快捷键
 TODO:
