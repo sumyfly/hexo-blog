@@ -51,7 +51,11 @@ https://www.emacswiki.org/emacs/AutoSave
 ##### 3.1 C-j 执行lisp
 打开一个emacs的缓冲区，如默认的临时缓冲区scratch,输入lisp命令 (xxx),在末尾 C-j就会执行。
 
-##### 3.2 C-c C-c 执行python
+##### 3.2 C-c C-c 
+执行python
+
+##### 3.3 C-c ! v 
+in python-file buffer and see that flake8 imported from virtualenv
 
 
 ### 4. jupyter
