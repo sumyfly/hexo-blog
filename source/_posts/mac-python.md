@@ -81,3 +81,24 @@ deactivate
 在 "name": "Python: Terminal (external)"下，设置cwd的值为工作目录
 "cwd": "${workspaceFolder}",
 
+### 6.python的调试工具
+#### 6.1 pdb,ipdb
+默认是pdb,增强版ipdb，使用
+``` python
+pip install ipdb
+python -m ipdb test.py
+#python -m pdb test.py
+```
+在emacs中运行:
+* M-x pdb RET
+* ptyon -m ipdb test.py
+* 在ipdb的buffer中操作，设置断点需要插入代码，调试完再删除。
+http://wenshanren.org/?p=348，参考这个。
+
+#### pudb
+如果需要GUI,可以使用[pudb](https://pypi.python.org/pypi/pudb)
+``` python 
+pip install pudb
+python -m pudb.run test.py
+```
+
