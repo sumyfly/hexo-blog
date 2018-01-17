@@ -122,5 +122,6 @@ TODO:
 * 在ipdb的buffer中操作，设置断点需要插入代码(`import ipdb; ipdb.set_trace()`)，调试完再删除。
 
 http://wenshanren.org/?p=348，参考这个。
+http://wikemacs.org/wiki/Python
 
 
