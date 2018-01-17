@@ -90,10 +90,33 @@ python -m ipdb test.py
 #python -m pdb test.py
 ```
 
-#### pudb
+#### 6.2 pudb
 如果需要GUI,可以使用[pudb](https://pypi.python.org/pypi/pudb)
 ``` python 
 pip install pudb
 python -m pudb.run test.py
 ```
+
+### 6.3 crash_on_ipy
+
+create `crash_on_ipy.py` :
+``` python
+import sys
+creat 
+class ExceptionHook:
+    instance = None
+
+    def __call__(self, *args, **kwargs):
+        if self.instance is None:
+            from IPython.core import ultratb
+            self.instance = ultratb.FormattedTB(mode='Plain',
+                 color_scheme='Linux', call_pdb=1)
+        return self.instance(*args, **kwargs)
+
+sys.excepthook = ExceptionHook()
+```
+链接：https://www.zhihu.com/question/21572891/answer/26046582
+
+如果要调试某个文件，import crash_on_ipy,只要有异常，就会自动进入ipdb
+
 
