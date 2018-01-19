@@ -24,7 +24,9 @@ brew install emacs --with-cocoa
 <!-- more -->
 
 ### 2.1 elpy
-看elpy的配置，M-X elpy-config，查看python的版本，package的情况。
+
+* 看elpy的配置，M-x elpy-config，查看python的版本，package的情况。
+* 激活virtualenv, M-x pyvenv-activate, 输入你的virtualenv目录即可，不需要到它的bin目录
 
 ### 2.2 emacs 临时文件和备份文件
 * 临时文件(Auto-Save file)
