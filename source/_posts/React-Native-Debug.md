@@ -233,12 +233,23 @@ import {KeyboardAvoidingView} from 'react-native'
 ```
 
 ### 19.Image dimension
-Image source如果是本地，需要设置width,或者height.如果是NetWorkImage
+Image source如果是本地，需要设置width,或者height.
 
-#### 19.1 使用Image.getSize(url, (width,height)=>{}, error=>{})
+### 19.1 本地图片
+
+#### 19.1.1 只设置width，或者只设置height,然后加上resizeMode:'contain'
+之前这么用，大部分没什么问题，但是如果这样用，图片显示没问题，但是图片占用的空间不是显示的大小。比如图片大小是100*50,
+``` js
+<Image style={{width:80,resizeMode:'contain'}} source={require(...)}>
+```
+如上，没有设置height,但是这个Image的实际高度是50,然后垂直居中显示。这样导致图片的相邻元素的位置不对。
+
+#### 19.2 网络图片
+
+#### 19.2.1 使用Image.getSize(url, (width,height)=>{}, error=>{})
 在回调中setState({widht, height})
 
-#### 19.2 使用flex:1 或者 position='absolute'
+#### 19.2.2 使用flex:1 或者 position='absolute'
 ``` js
 <Image source={{uri: url}} style={{flex: 1, width: null, height: null}} resizeMode='contain'/>
 
@@ -246,7 +257,8 @@ Image source如果是本地，需要设置width,或者height.如果是NetWorkIma
 <Image source={{uri: url}} style={{position: 'absolute', left: 0, top: 0, right: 0, bottom: 0}} resizeMode='contain'/>
 ```
 
-如果Image的height，width不固定，用Image.getSize回调。如果容器size固定(不一定有width,height，而是可以是flex布局)，用flex:1,posiiton='absolute'。
+如果Image的height，width不固定，用Image.getSize回调。如果容器size固定(不一定有width,height，而是可以是flex布局)，用flex:1或posiiton='absolute'。
+
 
 ### 20. tricky of ListView
 ListView在ScrollView中，那么ListView不设置style={flex:1}, 那么ListView 和ScrollView的滑动事件很完美结合，表现为整体滑动。react-native-web中，Chrome表现和mobile一样，safari不行，ListView的父节点必须有个高度，手工计算它的高度，这个高度必须大于等于ListView content 的height, 那样滑动起来就像是一个整体，不然就会是局部滑动。
