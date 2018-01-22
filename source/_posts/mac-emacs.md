@@ -59,6 +59,21 @@ https://www.emacswiki.org/emacs/AutoSave
 ##### 3.3 C-c ! v 
 in python-file buffer and see that flake8 imported from virtualenv
 
+##### 3.4 剪切，复制，粘贴
+剪切 C-w
+复制 M-w
+粘贴 C-y
+
+##### 3.5 矩形操作
+开头都是C-x r,先选中起点,C-@,然后移动光标到对角线。
+C-x r r 复制一个矩形块
+C-x r k 剪切一个矩形块
+C-x r y 粘贴一个矩形块
+C-x r o 插入一个矩形块
+C-x r c 清除一个矩形块，使其变成空白
+C-x r t 在选定的区域的所有列前插入光标，输入字符
+
+
 
 ### 4. jupyter
 jupyter notebook 原来是ipython notebook，因为原来支持ipython,现在的支持语言多了，有了一个kernel的概念，用pip3下载，默认就是python3。
