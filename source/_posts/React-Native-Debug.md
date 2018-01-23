@@ -144,7 +144,7 @@ Text如果不设置宽度，默认是一直延伸的，不会换行。默认占�
 在Text中的嵌套View,Image都要设置width,height。可能是因为Text的样式会继承。
 
 #### 14.3 Text在View中布局
-Text如果不设置宽度，会导致在flexDirection:row中，计算错误，会穿透本容器，到上一层容器(换行位置不对)。
+Text如果不设置宽度，会导致在flexDirection:row中，计算错误，会穿透本组件，到上一层容器(换行位置不对)。
 
 ``` js
 <View style={{flexDirection: 'row'}}>
@@ -293,6 +293,10 @@ react-native run-android --deviceId 85EABNGMFABC #这样可以成功安装到真
 
 #### 22.2 flexDirection: 'row'
 子元素的高度通常是**容器高度**，宽度是固定宽度或flex布局。但这个有意外，可能是父容器设置了`alignItems:'center'`，所以当此时子元素高度不是父容器高度时，按需要可以设置`alignSelf:'stretch'`。
+
+#### 22.3 alignItmes:'center', flexDirection:'column'
+`marginLeft: 20`，实际偏移10，因为alignItems:'center'的原因。
+`left:10`,实际偏移10。
 
 #### 23. lipo ios的库查询
 有时候第三方sdk不支持x86_64（模拟器architecture),所以不能再模拟器上运行。查看skd支持的cpu的architecture，lipo -inof xxsdk.o
