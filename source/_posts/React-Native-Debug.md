@@ -413,3 +413,9 @@ metaData.get(metaDataKey).toString();
 
 ### 28.Component bind this
 Component中的回调如果是用了this.props或者**this.renderxxx()**，都是需要bind this的。
+
+### 29. padStart(6, '')
+Android对TypeScript`padStart(6, '')`不支持，还是改用
+``` js
+("0000"+str).slice(-4)
+```
