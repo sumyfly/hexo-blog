@@ -419,3 +419,6 @@ Android对TypeScript`padStart(6, '')`不支持，还是改用
 ``` js
 ("0000"+str).slice(-4)
 ```
+
+### 30. lineHeight
+Android的lineHeight要求是Integer，不能是Double。IOS没问题。
