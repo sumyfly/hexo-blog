@@ -422,3 +422,6 @@ Android对TypeScript`padStart(6, '')`不支持，还是改用
 
 ### 30. lineHeight
 Android的lineHeight要求是Integer，不能是Double。IOS没问题。
+
+### 31. StyleSheet.hairlineWidth
+这个在iPhone5上，不能和backgroundColor一起使用。所以当前View不设backgroundColor,父容器设置backgroundColor。
