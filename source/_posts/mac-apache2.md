@@ -26,3 +26,5 @@ sudo apachectl restart
 
 ### 2.设置用户配置
 https://medium.com/@JohnFoderaro/how-to-set-up-apache-in-macos-sierra-10-12-bca5a5dfffba
+支持gzip
+https://www.garron.me/en/linux/enable-gzip-mod_deflate-compression-apache.html
