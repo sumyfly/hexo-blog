@@ -127,7 +127,12 @@ c.NotebookApp.ip = '*'
 *注意*：Emacs的terminal版本(Emacs -new)不支持matplotlib的图片结果，GUI版本（Emacs)支持,所以先用GUI版本试试。
 
 #### 5.1 ein的快捷键
-TODO:
+
+##### 5.1.1 保存notebook
+C-x C-s
+
+##### 5.1.2 重命名notebook
+C-x C-w
 
 ### 6. python debug
 方法有print, logging, pdb, ipdb, assert
