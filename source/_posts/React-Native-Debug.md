@@ -425,3 +425,6 @@ Android的lineHeight要求是Integer，不能是Double。IOS没问题。
 
 ### 31. StyleSheet.hairlineWidth
 这个在iPhone5上，不能和backgroundColor一起使用。所以当前View不设backgroundColor,父容器设置backgroundColor。
+
+### 32. react-native-svg ui polish
+在Android平台，如果svg使用width: 12 * widthScale，那么可能出现icon的截边，所以使用固定宽度 6 来解决。
