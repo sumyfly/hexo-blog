@@ -298,8 +298,8 @@ react-native run-android --deviceId 85EABNGMFABC #这样可以成功安装到真
 子元素的高度通常是**容器高度**，宽度是固定宽度或flex布局。但这个有意外，可能是父容器设置了`alignItems:'center'`，所以当此时子元素高度不是父容器高度时，按需要可以设置`alignSelf:'stretch'`。
 
 #### 22.3 alignItmes:'center', flexDirection:'column'
-`marginLeft: 20`，实际偏移10，因为alignItems:'center'的原因。
-`left:10`,实际偏移10。
+`marginLeft: 20`，实际偏移10，因为alignItems:'center'的原因。这个是layout，影响占有空间。
+`left:10`,实际偏移10。left一般和position:'relative'和position:'absolute'一起使用。注意在relative时候，原有位置空间不会消失。也会影响占有空间。
 
 #### 23. lipo ios的库查询
 有时候第三方sdk不支持x86_64（模拟器architecture),所以不能再模拟器上运行。查看skd支持的cpu的architecture，lipo -inof xxsdk.o
