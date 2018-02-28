@@ -182,7 +182,7 @@ RN的键盘输入，比较麻烦，不是很方便。
 
 > 如果焦点变化了，并且当前焦点不可以输入，键盘自动隐藏。就像`this._textInput.blur()`这样。
 
-> 如果使用KeyboardAvoidingView behavior='padding',它的容器高度会变话，比如Modal，那么在在ScrollView中，并且顶部有个flex:1的View，它的高度包含了键盘高度。需要去掉这个高度，使用`View`包含它，这个其实就是不需要KeyboardAvoidingView了。
+> 如果使用KeyboardAvoidingView behavior='padding',它的容器高度可能会变化，比如Modal，那么在ScrollView中，并且顶部有个flex:1的View，它的高度包含了键盘高度。需要去掉这个高度，使用`View`包含它，这个其实就是不需要KeyboardAvoidingView了。
 ```js
 renderContent() {
     return (
