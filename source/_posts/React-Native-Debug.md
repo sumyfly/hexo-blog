@@ -260,6 +260,8 @@ Image source如果是本地，需要设置width,或者height.
 
 如果Image的height，width不固定，用Image.getSize回调。如果容器size固定(不一定有width,height，而是可以是flex布局)，用flex:1或posiiton='absolute'。
 
+> 注意本地图片如果也这么用，最好在外面加上一个View作为container, 这个container使用absolute或者flex:1。
+
 
 ### 20. tricky of ListView
 ListView在ScrollView中，那么ListView不设置style={flex:1}, 那么ListView 和ScrollView的滑动事件很完美结合，表现为整体滑动。react-native-web中，Chrome表现和mobile一样，safari不行，ListView的父节点必须有个高度，手工计算它的高度，这个高度必须大于等于ListView content 的height, 那样滑动起来就像是一个整体，不然就会是局部滑动。
