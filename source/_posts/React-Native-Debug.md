@@ -139,7 +139,7 @@ web在src文件夹里面的文件，不可以import那些在src外的其它文�
 ### 14. Text 布局
 
 ### 14.1 Text 宽度
-Text如果不设置宽度，默认是一直延伸的，不会换行。默认占满容器宽度。可以设置固定宽度，flex:1，或给它容器设置可计算宽度。
+Text如果不设置宽度，默认是一直延伸的，不会换行。默认占满容器宽度。可以设置固定宽度，或flex:1，或给它容器设置可计算宽度。
 
 #### 14.2 Text中嵌套View,要设置width,height
 在Text中的嵌套View,Image都要设置width,height。可能是因为Text的样式会继承。
@@ -155,13 +155,13 @@ Text如果不设置宽度，会导致在flexDirection:row中，计算错误，�
 ```
 
 ### 15. yield
- 调用generator时，没有yield会造成generator没有预期行为，比如yield call没有阻塞调用
+ 调用generator时，没有yield会造成generator没有预期行为，比如直接使用saga effects的call没有阻塞调用
 ``` js
 import { takeLatest, delay } from 'redux-saga'
 import { put, call, fork, take, race, select } from 'redux-saga/effects'
 
 function* mySaga(){
-  yield call(delay, 1000) 
+  yield call(delay, 1000) // don't less yield call(delay, 1000)
 }
 ``` 
 
