@@ -302,7 +302,7 @@ react-native run-android --deviceId 85EABNGMFABC #这样可以成功安装到真
 `left:10`,实际偏移10。left一般和position:'relative'和position:'absolute'一起使用。注意在relative时候，原有位置空间不会消失。也会影响占有空间。
 
 #### 23. lipo ios的库查询
-有时候第三方sdk不支持x86_64（模拟器architecture),所以不能再模拟器上运行。查看skd支持的cpu的architecture，lipo -inof xxsdk.o
+有时候第三方sdk不支持x86_64（模拟器architecture),所以不能在模拟器上运行。查看skd支持的cpu的architecture，lipo -inof xxsdk.o
 
 > ios release app, Project->Build Settings->Build Acitve Architecture Only,在release下是false,表示build出的.iap支持多个CPU架构。而通常debug下我们只需要x86_64（模拟器）的CPU架构就够了，或者当前真机的CPU架构。
 
