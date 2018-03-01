@@ -431,3 +431,8 @@ Android的lineHeight要求是Integer，不能是Double。IOS没问题。
 
 ### 32. react-native-svg ui polish
 在Android平台，如果svg使用width: 12 * widthScale，那么可能出现icon的截边，所以使用固定宽度 6 来解决。
+
+### 33. genymotion 修改时区
+运行`adb shell`进入Android的shell环境。
+查看当前时区 cat /data/property/persist.sys.timezone
+修改当前时区 setprop persist.sys.timezone Asia/Shanghai
