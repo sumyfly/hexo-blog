@@ -25,6 +25,9 @@ sudo apachectl restart
 <!-- more -->
 
 ### 2.设置用户配置
+#### 2.1 一般配置
 https://medium.com/@JohnFoderaro/how-to-set-up-apache-in-macos-sierra-10-12-bca5a5dfffba
-支持gzip
+路径是http://localhost/~xxx.qian/smile-web-app/,为什么有~?
+
+#### 2.2 支持gzip
 https://www.garron.me/en/linux/enable-gzip-mod_deflate-compression-apache.html
