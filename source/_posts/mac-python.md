@@ -57,9 +57,9 @@ install-option=--prefix=~/.local
 pip install --upgrade virtualenv 
 
 # for Python 2.7, $your_target_directory like tensorflow
-virtualenv --system-site-packages $your_target_directory
+# virtualenv --system-site-packages $your_target_directory
 # for Python 3.n
-# virtualenv --system-site-packages -p python3 $your_target_directory 
+virtualenv --system-site-packages -p python3 $your_target_directory 
 
 # go into $your_target_directory 
 cd $your_target_directory
