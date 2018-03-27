@@ -436,3 +436,21 @@ Android的lineHeight要求是Integer，不能是Double。IOS没问题。
 运行`adb shell`进入Android的shell环境。
 查看当前时区 cat /data/property/persist.sys.timezone
 修改当前时区 setprop persist.sys.timezone Asia/Shanghai
+
+### 34. ScrollView tricky
+
+``` js
+<View style={styles.flexOne}>
+    <ScrollView
+      style={styles.flexOne}
+      showsVerticalScrollIndicator={false}
+      scrollEventThrottle={16}>
+      <View style={{ flex: 1, alignItems: 'center' }}>
+        {matchUp}
+        {answersBox}
+      </View>
+      {this.renderFooter()}
+    </ScrollView>
+</View>
+```
+注意这里不能设置contentContainerStyle的高度或者flex,这个是内容撑开的。但是这里奇怪的地方是ScrollView内部的第一View用的是flex:1,这个flex:1对应的是ScrollView的高度，不是contentContainerStyle的高度，有点像minHeight。 所以renderFooter（）就会在内容不够长的时候在底部。内容足够长的时候在可以滑动下面。
