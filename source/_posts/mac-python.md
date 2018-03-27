@@ -119,4 +119,8 @@ sys.excepthook = ExceptionHook()
 
 如果要调试某个文件，import crash_on_ipy,只要有异常，就会自动进入ipdb
 
+### 7. pipenv
+pipenv和npm yarn很像，一个项目一个环境。等于是pip+virtual的功能结合。但是我觉得这样有点冗余，而且对IDE支持不佳，要把项目的路径包含到python的环境中。
+http://www.itboth.com/d/aIrM3u/python
+
 
