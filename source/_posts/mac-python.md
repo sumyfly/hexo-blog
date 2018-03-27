@@ -102,7 +102,7 @@ python -m pudb.run test.py
 create `crash_on_ipy.py` :
 ``` python
 import sys
-creat 
+
 class ExceptionHook:
     instance = None
 
