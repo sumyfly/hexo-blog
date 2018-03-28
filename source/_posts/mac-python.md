@@ -47,7 +47,7 @@ install-option=--prefix=~/.local
 然后pip的库就安装到用户目录下的.local下面了
 [ref](http://jyd.me/linux/pip-install-to-different-home/)
 
-
+> 使用brew安装的pip,pip3安装模块时，不要带`sudo`,不然安装的模块权限是root，不是当前用户，以后安装依赖此模块的新模块会再度需要root权限。
 
 ### 4.使用virtualenv
 如果想要一个独立的python环境，可以使用virtualenv.它们的python, 包都是独立的，相互不影响。Docker也可以做到同样的事情。
