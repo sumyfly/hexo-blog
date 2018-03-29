@@ -454,3 +454,8 @@ Android的lineHeight要求是Integer，不能是Double。IOS没问题。
 </View>
 ```
 注意这里不能设置contentContainerStyle的高度或者flex,这个是内容撑开的。但是这里奇怪的地方是ScrollView内部的第一View用的是flex:1,这个flex:1对应的是ScrollView的高度，不是contentContainerStyle的高度，有点像minHeight。 所以renderFooter（）就会在内容不够长的时候在底部。内容足够长的时候在可以滑动下面。
+
+### 35. tips
+  - 1. minHeight对于不同内容而保存相同布局有奇效
+  - 2. 注意action要是绑定后的action，而不是原始的action.就是要有dispatch。
+  - 3. 请求时主要refreshing字段的使用，变换authToken要强制刷新。

@@ -3,6 +3,7 @@ title: React-Native-Web-Debug
 date: 2017-12-19 20:15:00
 tags:
  - react-native-web
+categories: React-Native
 ---
 
 ### 1.Image
