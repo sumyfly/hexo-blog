@@ -121,6 +121,8 @@ sys.excepthook = ExceptionHook()
 
 ### 7. pipenv
 pipenv和npm yarn很像，一个项目一个环境。等于是pip+virtual的功能结合。但是我觉得这样有点冗余，而且对IDE支持不佳，要把项目的路径包含到python的环境中。
+pipenv install 会创建一个virtualenv，目录在~/.local/share/virtualenvs/xxxx。当使用pipenv install django后，就会在这个目录下面安装moudle。我觉得如果在本地项目目录就好了，和node一样。否则这样删除项目还要去~/.loda/sahre/virtualenvs/里面再删除一次module。
+
 http://www.itboth.com/d/aIrM3u/python
 
 
