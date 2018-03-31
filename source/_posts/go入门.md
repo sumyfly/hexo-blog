@@ -28,3 +28,9 @@ Actor模型广义上讲与CSP模型很相似。但两种模型就提供的原语
 ### 5. visual code中go extension的调试功能
 需要手动安装delve,MacOS需要下载源码，然后`make install`。然后就可以打断点调试了。
 https://github.com/derekparker/delve/blob/master/Documentation/installation/osx/install.md
+
+### 6. $GOPATH 多个目录
+设置了GOPATH 之后，将 `$GOPATH/bin` 加入 PATH 中，这样可以方便的运行 go install 好的二进制程序。然而，当存在 GOPATH 中存在多个路径时，这种写法只会将最后一个路径跟上bin。在mac或linux下可以通过这种方式解决：
+`${GOPATH//://bin:}/bin`
+
+https://www.cnblogs.com/52php/p/6246858.html
