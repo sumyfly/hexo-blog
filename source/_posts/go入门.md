@@ -34,3 +34,6 @@ https://github.com/derekparker/delve/blob/master/Documentation/installation/osx/
 `${GOPATH//://bin:}/bin`
 
 https://www.cnblogs.com/52php/p/6246858.html
+
+### 7. go的package引用路径
+go的package都是从`$GOPATH`下面一个目录一个目录的找到，不可以使用相对路径。（如果项目在`$GOPATH`之外，可以使用。？）
