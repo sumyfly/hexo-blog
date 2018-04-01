@@ -37,3 +37,27 @@ https://www.cnblogs.com/52php/p/6246858.html
 
 ### 7. go的package引用路径
 go的package都是从`$GOPATH`下面一个目录一个目录的找到，不可以使用相对路径。（如果项目在`$GOPATH`之外，可以使用。？）
+
+### 8. go package manager
+
+#### 8.1 glide
+下载 `go get github.com/Masterminds/glide` 
+安装 `go install github.com/Masterminds/glide`
+初始化 新建项目录，然后进去`glide init`,产生glide.yaml
+使用 `glide get github.com/bitly/go-simplejson`,然后glide.yaml中packagez中有这条记录。
+安装包 `glide install`
+更新 `glide update | up`
+列表 `glide list`
+
+https://github.com/Masterminds/glide
+
+#### 8.2 dep
+目前安装有点麻烦，我使用的是源码。
+https://golang.github.io/dep/docs/installation.html
+
+
+初始化 `dep init`
+安装 `dep ensure`
+安装新包 `dep ensure -add github.com/dropbox/godropbox/time2`,这里有个限制条件，必须此目录下面有go文件，不然安装不了。
+查看安装信息 `dep status`
+
