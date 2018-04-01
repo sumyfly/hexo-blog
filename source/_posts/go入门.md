@@ -39,6 +39,7 @@ https://www.cnblogs.com/52php/p/6246858.html
 go的package都是从`$GOPATH`下面一个目录一个目录的找到，不可以使用相对路径。（如果项目在`$GOPATH`之外，可以使用。？）
 
 ### 8. go package manager
+之前go都是在$GOPATH下安装包，所有的包安装在一个统一目录下，有方便的地方，也有不方便的地方。方便的地方是引用时简单，就像一个Global环境。但是不方便的是包的版本冲突，go 1.5之后有了vendor，依赖的包就可以放到项目目录下面的vendor文件夹中，每个项目的依赖都是独立的。和node的npm, python的virtualenv、pipenv都是一个路子了，看来依赖管理还是必须是本地依赖才最优。
 
 #### 8.1 glide
 下载 `go get github.com/Masterminds/glide` 
@@ -47,12 +48,12 @@ go的package都是从`$GOPATH`下面一个目录一个目录的找到，不可�
 使用 `glide get github.com/bitly/go-simplejson`,然后glide.yaml中packagez中有这条记录。
 安装包 `glide install`
 更新 `glide update | up`
-列表 `glide list`
+列表 `glide list`， 这个命令我执行失败了。
 
 https://github.com/Masterminds/glide
 
 #### 8.2 dep
-目前安装有点麻烦，我使用的是源码。
+目前安装有点麻烦，我使用的是源码。要求go版本大于1.9。
 https://golang.github.io/dep/docs/installation.html
 
 
@@ -60,4 +61,6 @@ https://golang.github.io/dep/docs/installation.html
 安装 `dep ensure`
 安装新包 `dep ensure -add github.com/dropbox/godropbox/time2`,这里有个限制条件，必须此目录下面有go文件，不然安装不了。
 查看安装信息 `dep status`
+
+> 对比一下，dep更加易用，它使用分支。glide也推荐使用dep.
 
