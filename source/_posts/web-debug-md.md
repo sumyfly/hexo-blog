@@ -82,12 +82,13 @@ Object.assign({}, res),如果res是个array,那么结果就是一个object，所
   word-break: break-all;
 }
 ```
+http://www.alloyteam.com/2016/05/css-word-for-word-breaker-do-you-really-understand/
 
 ### 9. 文本空白符处理
 使用`whiteSpace: 'pre-wrap'`,但此时有个问题，`textIndent`无效。
 
 ### 10. 置换元素
-> CSS里，可替换元素（replaced element）的展现不是由CSS来控制的。这些元素是一类外观渲染独立于CSS的 外部对象。典型的可替换元素有`<img>、 <object>、 <video> 和 表单元素，如<textarea>、 <input> `。某些元素只在一些特殊情况下表现为可替换元素，例如 `<audio>` 和 `<canvas>` 。 通过 CSS content 属性来插入的对象 被称作 匿名可替换元素（anonymous replaced elements）。
+> CSS里，可替换元素（replaced element）的展现不是由CSS来控制的。这些元素是一类外观渲染独立于CSS的 外部对象。典型的可替换元素有`<img>`、 `<object>`、 `<video>` 和 表单元素，如`<textarea>`、 `<input>`。某些元素只在一些特殊情况下表现为可替换元素，例如 `<audio>` 和 `<canvas>` 。 通过 CSS content 属性来插入的对象 被称作 匿名可替换元素（anonymous replaced elements）。
 
 **canvas不是块级元素。**
 
@@ -95,3 +96,90 @@ Object.assign({}, res),如果res是个array,那么结果就是一个object，所
 例如：浏览器根据`<img>`标签的src属性显示图片。根据标签的type属性决定显示输入框还是按钮。置换元素在其显示中生成了框，这也就是有的内联元素能够设置宽高的原因。这些置换元素往往没有实际内容，即是一个空元素。
 
 > 非置换元素,浏览器中的大多数元素都是不可置换元素，即其内容直接展示给浏览器。
+
+### 11.块元素 内联元素
+#### 11.块元素
+|标签名称|用途|
+|-|:-:|
+|address | 地址||
+|blockquote | 块引用|
+|center | 举中对齐块|
+|dir | 目录列表|
+|div | 常用块级容易，也是css layout的主要标签|
+|dl | 定义列表|
+|fieldset | form控制组|
+|form | 交互表单|
+|h1 | 大标题|
+|h2 | 副标题|
+|h3 | 3级标题|
+|h4 | 4级标题|
+|h5 | 5级标题|
+|h6 | 6级标题|
+|hr | 水平分隔线|
+|isindex | input prompt|
+|menu | 菜单列表|
+|noframes | frames可选内容（对于不支持frame的浏览器显示此区块内容）|
+|noscript | 可选脚本|内容（对于不支持script的浏览器显示此内容）|
+|ol | 排序列表|
+|p | 段落|
+|pre | 格式化文本|
+|table | 表格|
+|ul | 非排序列表|
+
+#### 11.2 内联元素
+|标签名称|用途|
+|-|:-:|
+|a | 锚点|
+|abbr | 缩写|
+|acronym | 首字|
+|b | 粗体（不推荐）|
+|bdo | bidi override|
+|big | 大字体|
+|br | 换行|
+|cite | 引用|
+|code | 计算机代码（在引用源码的时候需要）|
+|dfn | 定义字段|
+|em | 强调|
+|font | 字体设定（不推荐）|
+|i | 斜体|
+|img | 图片|
+|input | 输入框|
+|kbd | 定义键盘文本|
+|label | 表格标签|
+|q | 短引用|
+|s | 中划线（不推荐）|
+|samp | 定义范例计算机代码|
+|select | 项目选择|
+|small | 小字体文本|
+|span | 常用内联容器，定义文本内区块|
+|strike | 中划线|
+|strong | 粗体强调|
+|sub | 下标|
+|sup | 上标|
+|textarea | 多行文本输入框|
+|tt | 电传文本|
+|u | 下划线|
+|var | 定义变量|
+|textarea|多行的文本输入|
+|canvas|画布|
+|video|视频|
+|audio|音频|
+
+#### 11.3块级元素和内联元素之间的转换：
+- 1.display
+    块元素默认display:block;
+    行内非替换元素(a,span)默认为display:inline;
+    **行内替换元素(input)默认为display:inline-block;**
+
+    a.display:none;不显示该元素，也不会保留该元素原先占有的文档流位置。
+    b.display:block;转换为块级元素。
+    c.display:inline;转换为行内元素。
+    d.display:inline-block;转换为行内块级元素。
+
+- 2.float
+  当把行内元素设置完float:left/right后，该行内元素的display属性会被赋予block值，且拥有浮动特性。行内元素去除了之间的莫名空白。
+
+- 3.position
+  当为行内元素进行定位时，position:absolute与position:fixed.都会使得原先的行内元素变为块级元素。
+
+https://www.jianshu.com/p/d69878549d92
