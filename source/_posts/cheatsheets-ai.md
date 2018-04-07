@@ -2,6 +2,7 @@
 title: cheatsheets-ai
 date: 2018-04-07 14:21:25
 tags:
+ - AI
 ---
 
 ### 1.Keras
