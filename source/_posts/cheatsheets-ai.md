@@ -7,6 +7,8 @@ tags:
 ### 1.Keras
 ![Keras](/images/ai/keras-1.jpeg)
 
+<!-- more -->
+
 ### 2.Numpy
 ![Numpy](/images/ai/numpy-1.png)
 
