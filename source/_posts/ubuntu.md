@@ -23,3 +23,4 @@ GRANT ALL PRIVILEGES on *.* TO `debian-sys-maint`@`localhost` IDENTIFIED BY 'you
 - [StackOverflow](https://serverfault.com/questions/9948/what-is-the-debian-sys-maint-mysql-user-and-more?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)
 
 之后还是手工升级保险一点。
+<!-- more -->
