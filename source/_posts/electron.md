@@ -14,6 +14,8 @@ tags:
 - Electron的启动文件是一个js文件,在里面load一个index.html；NW.js是一个index.html。这是设计上的区别，Electron实现是不改chromium+node；NW.js修改chromium，以支持node的接口。
 - Electron的代码只可以混淆；NW.js可以改原生chromium的代码，安全性比Electron高。
 
+<!-- more -->
+
 #### 1.3 Electron的用户
 - VS Code
 - Slack

@@ -24,3 +24,10 @@ GRANT ALL PRIVILEGES on *.* TO `debian-sys-maint`@`localhost` IDENTIFIED BY 'you
 
 之后还是手工升级保险一点。
 <!-- more -->
+
+### 2. Ubuntu16.04升级内核
+原因是系统自动升级4.4内核时失败了，我还得重新设置EasyBCD启动（Widows7+Ubuntu）。我想安装Docker，看到Overlay2需要kernel4+版本支持，所以升级4.6.2。内核不是最新就最好，而是稳定最好。
+升级内核一般按照CPU是64位还是32位下载相应.deb文件，有2个headers,一个image，headers是因为可以从源码编译安装软件时需要。下载好之后安装重启即可。
+```bash
+uname -ar # 查看当前kernel
+```
