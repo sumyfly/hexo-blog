@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 ```
 https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded#Related_Events
 
-### 2. onclick
+### 3. onclick
 三种方法:
 ``` js
 function handler(e){}
@@ -42,5 +42,5 @@ document.getElementById('foo').addEventListener('click', handler)
 #### 4.2 stopPropagation
 stopPropagation、stopImedaitePropgation都是取消冒泡，不向DOM tree冒泡了。
 
-#### 4.3 React
+#### 4.3 React中的事件
 React中的事件是虚拟事件，不同于DOM中的事件，所以不需要preventDefault和stopPropagation。React应该用的是全局监听，我的猜测？
