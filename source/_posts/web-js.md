@@ -33,7 +33,7 @@ $('#foo').click(handler)
 // 3. document.addEventListener
 document.getElementById('foo').addEventListener('click', handler)
 ```
-第二种方式只能增加一个handler,而第一种和第三种可以绑定多个handler。jquery还有缓存。addEventListener第三个参数`useCapture`是说事件是capture阶段还是bubble阶段。
+第二种方式只能增加一个handler,而第一种~~和第三种~~可以绑定多个handler。jquery还有缓存。addEventListener第三个参数`useCapture`是说事件是capture阶段还是bubble阶段。
 
 ### 4. preventDefault, stopPropagation
 #### 4.1 preventDefault
