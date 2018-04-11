@@ -38,7 +38,7 @@ https://app-test.xxx.com/auth/webapp/index.html#/
 最终配置了三个路径
 ![微信授权目录配置](/images/wechat_pay.png)
 
-### 4.Promise
+### 5.Promise
 ``` js
 async asyncFun(){
   return new Promise((resolve, reject)=>{
@@ -57,10 +57,10 @@ try{
 }
 ```
 
-### 5. dot
+### 6. dot
 Use `&middot;` · for a dot or `&bull;` • for a thicker, bulleted list style dot.
 
-### 6. post
+### 7. post
 post 的body要进行JSON.stringify处理，   
 
 ``` js
@@ -69,10 +69,10 @@ post 的body要进行JSON.stringify处理，
   }, // change RequestBody before fetch
 ```
 
-### 7. Object.assign 参数有个数组
+### 8. Object.assign 参数有个数组
 Object.assign({}, res),如果res是个array,那么结果就是一个object，所以在Object.assign前，要确定是否需要一个array.
 
-### 8. div的文本没有自动换行
+### 9. div的文本没有自动换行
 默认情况下，一个 DIV或者其他元素的文本，如果都是无文字分隔符，无空格，则不会自动换行，比如:
 ``` html
 <div class='div-test'>012345555555555555555555555555555555555555555555555555555555</div>
@@ -84,10 +84,10 @@ Object.assign({}, res),如果res是个array,那么结果就是一个object，所
 ```
 http://www.alloyteam.com/2016/05/css-word-for-word-breaker-do-you-really-understand/
 
-### 9. 文本空白符处理
+### 10. 文本空白符处理
 使用`whiteSpace: 'pre-wrap'`,但此时有个问题，`textIndent`无效。
 
-### 10. 置换元素
+### 11. 置换元素
 > CSS里，可替换元素（replaced element）的展现不是由CSS来控制的。这些元素是一类外观渲染独立于CSS的 外部对象。典型的可替换元素有`<img>`、 `<object>`、 `<video>` 和 表单元素，如`<textarea>`、 `<input>`。某些元素只在一些特殊情况下表现为可替换元素，例如 `<audio>` 和 `<canvas>` 。 通过 CSS content 属性来插入的对象 被称作 匿名可替换元素（anonymous replaced elements）。
 
 **canvas不是块级元素。**
@@ -97,8 +97,8 @@ http://www.alloyteam.com/2016/05/css-word-for-word-breaker-do-you-really-underst
 
 > 非置换元素,浏览器中的大多数元素都是不可置换元素，即其内容直接展示给浏览器。
 
-### 11.块元素 内联元素
-#### 11.块元素
+### 12.块元素 内联元素
+#### 12.1块元素
 |标签名称|用途|
 |-|:-:|
 |address | 地址||
@@ -126,7 +126,7 @@ http://www.alloyteam.com/2016/05/css-word-for-word-breaker-do-you-really-underst
 |table | 表格|
 |ul | 非排序列表|
 
-#### 11.2 内联元素
+#### 12.2 内联元素
 |标签名称|用途|
 |-|:-:|
 |a | 锚点|
@@ -165,7 +165,7 @@ http://www.alloyteam.com/2016/05/css-word-for-word-breaker-do-you-really-underst
 |video|视频|
 |audio|音频|
 
-#### 11.3块级元素和内联元素之间的转换：
+#### 12.3块级元素和内联元素之间的转换：
 - 1.display
     块元素默认display:block;
     行内非替换元素(a,span)默认为display:inline;
