@@ -3,7 +3,7 @@ title: web-js
 date: 2018-04-11 23:49:49
 tags:
  - web
- - js
+ - javascript
 ---
 ### 1.事件三个阶段
 - capture，从DOM tree到节点target

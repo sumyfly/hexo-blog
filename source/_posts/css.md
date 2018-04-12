@@ -54,3 +54,10 @@ transform是静态概念(含有translate,translate3d)，和top,left, width,heigh
 
 ### 4. marginTop top
 marginTop计算盒模型时，看边框的位置。relative下top计算盒模型时，先计算不含top的盒模型，再做偏移，原位置空间还是被占用。
+
+### 5. CSS的覆盖顺序
+如果同一个标签的style属性被不同样式赋值，如width:
+- 不同级别的优先级: 标签属性样式 > 内联样式 > 外联样式
+- 同级别，按出现的先后顺序
+- 更精确的查找覆盖其它查找，如id覆盖类，如联合查找覆盖单独的查找
+- 加上!important，这个覆盖所有其它的，以这个为准
