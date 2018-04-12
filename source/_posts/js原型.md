@@ -13,7 +13,7 @@ function Foo(a){
   }
   this.name = a
 }
-var foo = new Foo('foo') //这里加不加new一样，但是最后加，不能保证每个构造函数都会check instance
+var foo = new Foo('foo') //这里加不加new一样，但是推荐加，不能保证每个人的构造函数都会check instance
 ```
 我记得构造函数首字母要大写，但是发现现在不大写也可以，最好大写吧。
 new 的作用：
