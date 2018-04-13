@@ -11,6 +11,8 @@ tags:
 
 - 打印公钥，签名用的公钥
 `keytool -printcert -file CERT.RSA -rfc`，或者导出到一个文件`keytool -printcert -file CERT.RSA -rfc > my_pub.key`
+
+相同的签名的不同版本APK应用相同的md5，sha1,sha256指纹，代表同一个公钥签名。
  
 
 ### 2. 查看public key的指纹
