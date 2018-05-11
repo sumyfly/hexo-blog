@@ -459,3 +459,11 @@ Android的lineHeight要求是Integer，不能是Double。IOS没问题。
   - 1. minHeight对于不同内容而保存相同布局有奇效
   - 2. 注意action要是绑定后的action，而不是原始的action.就是要有dispatch。
   - 3. 请求时主要refreshing字段的使用，变换authToken要强制刷新。
+
+### 36. flexWrap
+我之前这么用, container有个`containerWidth`，item的`itemWidth`就是containerWidth / columns,看似没问题，但是在IphonePlus或者其它情况下，itemWidth的值四舍五入了，和加在一起大于contaienrWidth，那么就换行了。
+解决方法：
+- itemWidth = Math.floor(containerWidth / columns)
+- itemWidth的值小于contaienrWidth，itemWidth = (containerWidth - 10) / columns, 然后container的style, justifyContent: 'space-between', alignItems: 'center, 但是要注意不能太小，以致一行比原来可以多放一个item.
+
+推荐第一种方法
