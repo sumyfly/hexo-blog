@@ -183,3 +183,16 @@ http://www.alloyteam.com/2016/05/css-word-for-word-breaker-do-you-really-underst
   当为行内元素进行定位时，position:absolute与position:fixed.都会使得原先的行内元素变为块级元素。
 
 https://www.jianshu.com/p/d69878549d92
+
+### 13. encodeURI和encodeURIComponent
+
+#### 13.1 相同点
+都是编码URL，替换特殊字符为16进制数，如空格替换为%20,'/'替换为%2F。
+
+#### 13.2 不同点
+##### 13.2.1 编码范围不同
+encodeURL方法**不会**对下列字符编码 ASCII字母、数字、~!@#$&*()=:/,;?+'
+endoceURLComponent方法**不会**对下列字符编码 ASCII字母、数字、~!*()'
+所以encodeURLComponent的编码范围更大，适合编码http url中的参数部分,因为:/都被编码了
+
+https://www.cnblogs.com/season-huang/p/3439277.html
