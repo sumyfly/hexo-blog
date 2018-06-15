@@ -196,3 +196,16 @@ endoceURLComponent方法**不会**对下列字符编码 ASCII字母、数字、~
 所以encodeURLComponent的编码范围更大，适合编码http url中的参数部分,因为:/都被编码了
 
 https://www.cnblogs.com/season-huang/p/3439277.html
+
+### 14.<a> 
+ a本身会触发一个链接，a的onclick会触发一个链接，onclick事件执行后会触发a本身的链接，为了阻止a本身链接的触发，需要对onclick事件的函数返回false。
+return true：返回正常的处理结果。
+return false：返回错误的处理结果;终止处理;阻止提交表单;阻止执行默认的行为。
+return：把控制权返回给页面。
+``` html
+若将html代码中的
+ <a href="linkPage"><img src="images/banner1.gif" id="adBanner" alt="ad banner"></a>
+改为：
+ <a href="#"><img src="images/banner1.gif" id="adBanner" alt="ad banner"></a>
+ ```
+此时去掉js代码中的return false，也可以实现同样的效果。
