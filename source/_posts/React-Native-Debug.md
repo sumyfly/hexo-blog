@@ -470,3 +470,10 @@ Android的lineHeight要求是Integer，不能是Double。IOS没问题。
 
 ### 37. 在reduce中使用staete.mergeDeep
 immutable mergeDeep(action.payload), 如果action.payload中有数组，那么是不会merge成功的，所以我直接返回了fromJS(action.payload),这个对参数有要求，就是要全面。
+
+### 38. ToucchableOpacity vs TouchableWithoutFeedback
+TouchableOpacity如果设置activityOpacity={1},那么表现和TouchableWithoutFeedback.
+
+#### 不同点
+- TouchableOpacity布局上更像是View，没有children也可以，TouchableWithoutFeedback必须要有个children，children不能为空。
+- 在容器flexWrap:'wrap',TouchableWithoutFeedback中不能正常显示，使用TouchableOpacity能正常显示。所以TouchableOpacity更像View，而TouchableWithoutFeedback布局功能有所欠缺。
