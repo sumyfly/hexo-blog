@@ -252,6 +252,7 @@ Image source如果是本地，需要设置width,或者height.
 
 #### 19.2.2 使用flex:1 或者 position='absolute'
 ``` js
+// 注意：容器中不能设置justifyContent和alignItems,不然图片不显示
 <Image source={{uri: url}} style={{flex: 1, width: null, height: null}} resizeMode='contain'/>
 
 //使用position='absolute'
