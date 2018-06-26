@@ -45,7 +45,7 @@ go的package都是从`$GOPATH`下面一个目录一个目录的找到，不可�
 下载 `go get github.com/Masterminds/glide` 
 安装 `go install github.com/Masterminds/glide`
 初始化 新建项目录，然后进去`glide init`,产生glide.yaml
-使用 `glide get github.com/bitly/go-simplejson`,然后glide.yaml中packagez中有这条记录。
+使用 `glide get github.com/bitly/go-simplejson`,然后glide.yaml中package中有这条记录。
 安装包 `glide install`
 更新 `glide update | up`
 列表 `glide list`， 这个命令我执行失败了。
