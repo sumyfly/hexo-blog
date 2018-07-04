@@ -478,3 +478,6 @@ TouchableOpacity如果设置activityOpacity={1},那么表现和TouchableWithoutF
 #### 不同点
 - TouchableOpacity布局上更像是View，没有children也可以，TouchableWithoutFeedback必须要有个children，children不能为空。
 - 在容器flexWrap:'wrap',TouchableWithoutFeedback中不能正常显示，使用TouchableOpacity能正常显示。所以TouchableOpacity更像View，而TouchableWithoutFeedback布局功能有所欠缺。
+
+### 39. border 虚线
+RN 支持borderStyle: 'dotted'，所以不需要用图片来代替虚线了。
