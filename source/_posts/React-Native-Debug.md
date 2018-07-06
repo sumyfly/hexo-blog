@@ -469,8 +469,8 @@ Android的lineHeight要求是Integer，不能是Double。IOS没问题。
 
 推荐第一种方法
 
-### 37. 在reduce中使用staete.mergeDeep
-immutable mergeDeep(action.payload), 如果action.payload中有数组，那么是不会merge成功的，所以我直接返回了fromJS(action.payload),这个对参数有要求，就是要全面。
+### 37. 在reduce中使用state.mergeDeep
+immutable mergeDeep(action.payload), 如果action.payload中有数组，那么是不会merge成功的(只有新的数组，没有旧的数组)，所以我直接返回了fromJS(action.payload),这个对参数有要求，就是要全面。
 
 ### 38. ToucchableOpacity vs TouchableWithoutFeedback
 TouchableOpacity如果设置activityOpacity={1},那么表现和TouchableWithoutFeedback.
