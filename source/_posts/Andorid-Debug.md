@@ -15,3 +15,14 @@ org.gradle.jvmargs=-Xmx2048M
 这样gradle就不报错了，执行react-native run-android成功安装到模拟器。
 其实一开始按照提示来做，就不会有问题，只是我认为之前一直没有改gradle配置，也可以运行，并且./gradlew assembleRelease打包也没问题，只有debug有问题，所以认为是模拟器问题。最终还是gradle的问题，下次先按提示来改，这个提示还是正确的，并不是误报。
 <!-- more -->
+
+### 2.Gradle下载的依赖包位置
+- Mac系统默认下载到：
+/Users/(用户名)/.gradle/caches/modules-2/files-2.1
+或
+~/.gradle/caches/modules-2/files-2.1
+
+- Windows系统默认下载到：
+C:\Users\(用户名)\.gradle\caches\modules-2\files-2.1
+
+- 或者在android studio中切换到project下，右键 -> Library Properties....
