@@ -33,4 +33,9 @@ nginx的缓存设置成{expires -1},意思是永不缓存。
   - 在`<View>`上，加上一个div，设置它的style，display:flex
 
 ### 6. search param 传一个数组
-如果serch param是空数组，传到新页面是undefined,所以需要做空检查。
+如果serch param是空数组或者是undefined，传到新页面是undefined,所以需要做w未定义检查。
+> 空数组传不过去，只能做未定义检查。
+``` js
+// lodash map 总会返回一个数组，无论参数是否为空
+const a = map(undefined, v => v) // a = []
+```
