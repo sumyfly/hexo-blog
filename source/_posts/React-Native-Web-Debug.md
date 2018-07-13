@@ -31,3 +31,6 @@ nginx的缓存设置成{expires -1},意思是永不缓存。
 
   - 设置固定width,height
   - 在`<View>`上，加上一个div，设置它的style，display:flex
+
+### 6. search param 传一个数组
+如果serch param是空数组，传到新页面是undefined,所以需要做空检查。
