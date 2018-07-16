@@ -481,3 +481,6 @@ TouchableOpacity如果设置activityOpacity={1},那么表现和TouchableWithoutF
 
 ### 39. border 虚线
 RN 支持borderStyle: 'dotted'，所以不需要用图片来代替虚线了。
+
+### 40. Text
+RN Text的默认字体大小是12.
