@@ -8,7 +8,7 @@ tags:
 ### 1.事件三个阶段
 - capture，从DOM tree到节点target
 - target, 处理事件
-- bubble，事件冒泡，如果不stopPropagation或stopImmediatePropgation,那么一直到DOM
+- bubble，事件冒泡，如果不stopPropagation或stopImmediatePropagation,那么一直到DOM
 > preventDefaut()这里的Default会stopPropagation,不让冒泡。冒泡有时候很有用，如监听页面的点击，做分析报告。另一个好处是可以动态添加和移除节点，同时可以对它的事件监听。
 
 <!-- more -->
@@ -42,7 +42,7 @@ document.getElementById('foo').addEventListener('click', handler)
 取消标签默认动作，如`<input type="submit">`的submit，`<input type="checkbox">`的toggling事件,如果取消这个Default的运行的话，继续冒泡,直到事件被处理或者到DOM tree。
 
 #### 4.2 stopPropagation
-stopPropagation、stopImedaitePropgation都是取消冒泡，不向DOM tree冒泡了。
+stopPropagation、stopimmediatepropagation都是取消冒泡，不向DOM tree冒泡了。
 
 #### 4.3 React中的事件
 React中的事件是虚拟事件，不同于DOM中的事件，所以不需要preventDefault和stopPropagation。React应该用的是全局监听，我的猜测？
