@@ -109,7 +109,7 @@ class Page extends Component<Props,State>{
 }
 ```
 
-这样导致的结果是，在容器redner中初始化后，其组件的state与从外部获取不匹配，是因为diff时发现组件props没变，所以没有用刚刚初始化状态的组件替代。所以要加上props传到组件中，并且加上key，这样还不如用Componet的组件保存数据和状态。另外一个方法是用componentWillReceiveProps中去判断某个props改变了，然后setState.
+这样导致的结果是，在容器redner中初始化后，其组件的state与从外部获取不匹配，是因为diff时发现组件props没变，所以没有用刚刚初始化状态的组件替代。所以要加上props传到组件中，并且加上key，这样还不如用Componet的组件保存数据和状态。（如果是Componet那么还有另外一个方法是用componentWillReceiveProps中去判断某个props改变了，然后setState.）
 教训：
 1.如果没有渲染，使用普通类型，如果涉及到渲染UI，使用Compoent
 2.优先使用props从父组件往下传递，包括回调函数，而不是this.ref.xx直接调用公开方法
