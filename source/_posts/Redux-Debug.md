@@ -14,6 +14,14 @@ tags:
 
 ``` plantuml
 @startuml
-alice->bob: hello
+|Brower|
+start
+:点击领取按钮;
+|WebServer|
+:领取勋章;
+|Cache|
+:更新缓存;
+|DB|
+:更新DB;
 @enduml
 ```
