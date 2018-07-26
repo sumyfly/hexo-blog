@@ -11,3 +11,9 @@ tags:
 2. 多个修改合并到一个action
 我先选择#2
 <!-- more -->
+
+``` plantuml
+@startuml
+alice->bob: hello
+@enduml
+```
