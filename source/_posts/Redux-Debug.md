@@ -10,9 +10,8 @@ tags:
 1. 多个action修改不同部分
 2. 多个修改合并到一个action
 我先选择#2
-<!-- more -->
 
-``` plantuml
+``` puml
 @startuml
 |Brower|
 start
@@ -23,5 +22,11 @@ start
 :更新缓存;
 |DB|
 :更新DB;
+@enduml
+```
+
+``` puml
+@startuml
+class A
 @enduml
 ```
