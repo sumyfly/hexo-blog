@@ -129,4 +129,6 @@ http://www.itboth.com/d/aIrM3u/python
 ### 8. vs code debug时卡在imp.py
 在 .vscode/launch.json 中修改 "type":"python" 为 "type":"pythonExperimental"。
 [github issue imp.py](https://github.com/Microsoft/vscode-python/issues)
+或者把stopOnEntry设置成false
+https://stackoverflow.com/questions/45229745/debugging-django-in-vscode-fails-on-imp-py
 
