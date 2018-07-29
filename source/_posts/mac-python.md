@@ -147,7 +147,7 @@ https://stackoverflow.com/questions/45229745/debugging-django-in-vscode-fails-on
 from . import string or from ..myMoudle import myFunc
 
 #### 9.2 相对路径
-相对导入使用模块的__name__属性来决定模块在包结构中的位置。当__name__属性不包含包信息（i.e. 没有用'.'表示的层次结构，比如`__main__`），则相对导入将模块解析为顶层模块，而不管模块在文件系统中的实际位置。
+相对导入使用模块的__name__属性来决定模块在包结构中的位置。当__name__属性不包含包信息（i.e. 没有用'.'表示的层次结构，比如`__main__`），**则相对导入将模块解析为顶层模块，而不管模块在文件系统中的实际位置。**, 比如python -m test.testIsland,就不会去查找test的上层模块(如src.leetCode)。
 
 #### 9.3 package
 文件夹被python解释器视作package需要满足两个条件：
