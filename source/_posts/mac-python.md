@@ -133,6 +133,7 @@ http://www.itboth.com/d/aIrM3u/python
 https://stackoverflow.com/questions/45229745/debugging-django-in-vscode-fails-on-imp-py
 
 ### 9. python import路径
+python中，文件是module, 文件夹是package(必须要__init__.py),所以一般是packageName.moudleName.functionName。
 #### 9.1 绝对路径，相对路径
     app/
         __init__.py
