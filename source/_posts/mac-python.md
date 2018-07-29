@@ -132,3 +132,32 @@ http://www.itboth.com/d/aIrM3u/python
 或者把stopOnEntry设置成false
 https://stackoverflow.com/questions/45229745/debugging-django-in-vscode-fails-on-imp-py
 
+### 9. python import路径
+#### 9.1 绝对路径，相对路径
+    app/
+        __init__.py
+        mod.py
+        string.py
+- 绝对导入，按照sys.path顺序搜索，先主目录（sys.path中第一项''），然后PYTHONPATH环境变量、标准库路径、pth指定路径等。
+- 相对导入，在模块所在同一个包内搜索，注意该包目录与主目录的区别。
+
+> 当在app/目录下执行python mod.py时为绝对导入，当在app上层目录执行python -m app.mod时为相对导入。
+
+> 在python3.3中默认只搜索绝对路径，要使用相对导入，执行以下语句：
+from . import string or from ..myMoudle import myFunc
+
+#### 9.2 相对路径
+相对导入使用模块的__name__属性来决定模块在包结构中的位置。当__name__属性不包含包信息（i.e. 没有用'.'表示的层次结构，比如`__main__`），则相对导入将模块解析为顶层模块，而不管模块在文件系统中的实际位置。
+
+#### 9.3 package
+文件夹被python解释器视作package需要满足两个条件：
+　　1、文件夹中必须有__init__.py文件，该文件可以为空，但必须存在该文件。
+　　2、不能作为顶层模块来执行该文件夹中的py文件（即不能作为主函数的入口）。
+> 补充：在"from YY import XX"这样的代码中，无论是XX还是YY，只要被python解释器视作package，就会首先调用该package的__init__.py文件。如果都是package，则调用顺序是YY，XX。
+
+> 另外，练习中“from . import XXX”和“from .. import XXX”中的'.'和'..'，可以等同于linux里的shell中'.'和'..'的作用，表示当前工作目录的package和上一级的package。
+
+https://blog.csdn.net/liberize/article/details/8882659
+https://www.cnblogs.com/ArsenalfanInECNU/p/5346751.html
+
+
