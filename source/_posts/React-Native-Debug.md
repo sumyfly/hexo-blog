@@ -484,3 +484,14 @@ RN 支持borderStyle: 'dotted'，所以不需要用图片来代替虚线了。
 
 ### 40. Text
 RN Text的默认字体大小是12.
+
+### 41. TouchableOpacity, TouchableWithouFeedback的onPress回调函数
+我遇到一个错误，`Malformed call from JS: field size are different`
+原因是给react-native-navigation的navigator传错参数了。
+它们的回调函数有参数event,比如我定义一个
+```js 
+onPressHandler =(title)=>{
+  this.props.jump('xxx.xx', {title})
+}
+```
+这里的title应该是一个string，但是实参是一个event的对象。所以在闭包中，一定要注意默认参数，比如onPress的。
