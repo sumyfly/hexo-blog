@@ -11,22 +11,4 @@ tags:
 2. 多个修改合并到一个action
 我先选择#2
 
-``` puml
-@startuml
-|Brower|
-start
-:点击领取按钮;
-|WebServer|
-:领取勋章;
-|Cache|
-:更新缓存;
-|DB|
-:更新DB;
-@enduml
-```
-
-``` puml
-@startuml
-class A
-@enduml
-```
+<!-- more -->

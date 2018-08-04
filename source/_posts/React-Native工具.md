@@ -20,9 +20,9 @@ const composeFuncs = [applyMiddleware(
 
 if (__DEV__) {
   // to integrate React Native Debugger
-  composeFuncs.push(
+  window.__REDUX_DEVTOOLS_EXTENSION__ && composeFuncs.push(
     // __REDUX_DEVTOOLS_EXTENSION__ this is React Native Debugger added
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 }
 ```
@@ -34,7 +34,7 @@ if (__DEV__) {
 redux-devtools和redux-devtools-extension是2个不同的框架。 
 
 * redux-devtools是侵入式的，是开发环境下开发redux一个强大的开发工具。它使用monitor实时监听您的store。需要安装模块。 
-* 如果你不想安装任何模块，侵入你的项目里。Redux DevTools Extension是个很好的选择，它支持chrome，Firefox以及360浏览器,它提供了大部分常用的监听器去配置你的项目，不需要安装任何模块。
+* 如果你不想安装任何模块侵入你的项目里。Redux DevTools Extension是个很好的选择，它支持chrome，Firefox以及360浏览器,它提供了大部分常用的监听器去配置你的项目，不需要安装任何模块。
 
 #### 2.1 redux-devtools
 DevTools for Redux with hot reloading, action replay, and customizable UI.To use Redux DevTools, you need to choose a “monitor”—a React component that will serve as a UI for the DevTools. Different tasks and workflows require different UIs, so Redux DevTools is built to be flexible in this regard. We recommend using `LogMonitor` for inspecting the state and time travel, and wrap it in a `DockMonitor` to quickly move it across the screen. 
