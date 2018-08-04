@@ -20,7 +20,7 @@ const composeFuncs = [applyMiddleware(
 
 if (__DEV__) {
   // integrate React Native Debugger
-  typeof window ==== 'object' && window.__REDUX_DEVTOOLS_EXTENSION__ && composeFuncs.push(
+  typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION__ && composeFuncs.push(
     // __REDUX_DEVTOOLS_EXTENSION__ this is React Native Debugger added
     window.__REDUX_DEVTOOLS_EXTENSION__()
   )
