@@ -17,6 +17,7 @@ org.gradle.jvmargs=-Xmx2048M
 <!-- more -->
 
 ### 2.Gradle下载的依赖包位置
+#### 2.1 下载包的位置
 - Mac系统默认下载到：
 /Users/(用户名)/.gradle/caches/modules-2/files-2.1
 或
@@ -26,3 +27,8 @@ org.gradle.jvmargs=-Xmx2048M
 C:\Users\(用户名)\.gradle\caches\modules-2\files-2.1
 
 - 或者在android studio中切换到project下，右键 -> Library Properties....
+
+#### 2.2 com.android.support:appcompat-v7
+如果我在build.gradle中没有设置`maven { url "https://maven.google.com"}`,那么搜索com.android.support:appcompat-v7时，E而是到Android SDK下:`/Library/Android/sdk/extras/android/m2repository/com/android/support/`，没有到~/.gradle/caches/modules-2/files-2.1中，导致一直报错找不到这个依赖。
+
+> 如果设置了`maven { url "https://maven.google.com"}`,那么就不需要用Android SDK Manager下载suport包和buildTools，gralde会自动下载到自己的本地缓存中。
