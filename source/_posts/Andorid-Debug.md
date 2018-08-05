@@ -32,3 +32,10 @@ C:\Users\(用户名)\.gradle\caches\modules-2\files-2.1
 如果我在build.gradle中没有设置`maven { url "https://maven.google.com"}`,那么搜索com.android.support:appcompat-v7时，E而是到Android SDK下:`/Library/Android/sdk/extras/android/m2repository/com/android/support/`，没有到~/.gradle/caches/modules-2/files-2.1中，导致一直报错找不到这个依赖。
 
 > 如果设置了`maven { url "https://maven.google.com"}`,那么就不需要用Android SDK Manager下载suport包和buildTools，gralde会自动下载到自己的本地缓存中。
+
+### 3. 实用命令
+- 查找依赖: ./gradlew :app:dependencies --configuration compile
+- clean: ./gradlew clean
+- install debug: ./gradlew installDebug
+- check: ./gradlew check
+- dependencies: ./gradlew androidDependencies
