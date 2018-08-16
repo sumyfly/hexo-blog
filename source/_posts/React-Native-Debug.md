@@ -495,3 +495,19 @@ onPressHandler =(title)=>{
 }
 ```
 这里的title应该是一个string，但是实参是一个event的对象。所以在闭包中，一定要注意默认参数，比如onPress的。
+
+### 42. Trying to add a 'RCTRawText [text: >]' to a 'RCTView'
+这个是因为在JSX语法中，多了一个'>',这个是写代码不小心造成的。JSX所有代码都要在标签里。Android会导致crash,iOS不会crash.改正习惯`>`不能单独一行。
+```js
+//crash示例
+render(){
+  return (
+    <View
+      style={styles.container}>
+      > //culprit
+      <Text>示例</Text>
+    </View>
+  )
+}
+
+```
