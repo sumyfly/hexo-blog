@@ -498,6 +498,7 @@ onPressHandler =(title)=>{
 
 ### 42. Trying to add a 'RCTRawText [text: >]' to a 'RCTView'
 这个是因为在JSX语法中，多了一个'>',这个是写代码不小心造成的。JSX所有代码都要在标签里。Android会导致crash,iOS不会crash.改正习惯`>`不能单独一行。
+
 ```js
 //crash示例
 render(){
