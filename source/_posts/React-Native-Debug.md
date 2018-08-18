@@ -512,3 +512,9 @@ render(){
 }
 
 ```
+
+### 43. 模块设计
+
+- 不用使用一个Page(Container)来共享逻辑，这让重构复杂。
+- 有时候我想用数据代替逻辑处理props，比如数据model中有个字段是type,那么使用这个model时就可以自处理，而不用把逻辑(用props传递函数)从外部传入。增加数据的自描述能力，功能函数尽量无状态。
+- 有顺序要求，使用Array，不用Object,因为Object.Keys()的顺序不是guaranntee。
