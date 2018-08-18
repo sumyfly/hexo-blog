@@ -518,3 +518,11 @@ render(){
 - 不用使用一个Page(Container)来共享逻辑，这让重构复杂。
 - 有时候我想用数据代替逻辑处理props，比如数据model中有个字段是type,那么使用这个model时就可以自处理，而不用把逻辑(用props传递函数)从外部传入。增加数据的自描述能力，功能函数尽量无状态。
 - 有顺序要求，使用Array，不用Object,因为Object.Keys()的顺序不是guaranntee。
+
+### 44. RN中使用setImmediate
+好像和browser、node中的表现不完全一样。相同的部分都是在执行栈结束后添加事件到任务队列。
+不同点:
+- browser、node中嵌套的setImmediate会在两个EventLoop中执行
+- RN中嵌套的setImmediate还是会在同一个EventLoop中执行，来自官网0.56版本。
+
+> TODO: setTImeout在app后台运行时应该也是起效的。
