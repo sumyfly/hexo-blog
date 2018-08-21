@@ -530,3 +530,5 @@ render(){
 ### 45. iOS的启动脚本中的/bin/sh
 https://apple.stackexchange.com/questions/208408/profile-is-not-loaded-on-non-login-bin-sh
 > /bin/sh速度比/bin/bash要快，但是/bin/sh只有登录的session有读取~/.profile，其它的session是不读~/.profile。所以加上env ENV=$HOME/.profile /bin/sh
+
+https://www.cnblogs.com/EasonJim/p/6850319.html
