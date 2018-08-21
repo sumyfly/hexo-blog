@@ -525,4 +525,8 @@ render(){
 - browser、node中嵌套的setImmediate会在两个EventLoop中执行
 - RN中嵌套的setImmediate还是会在同一个EventLoop中执行，来自官网0.56版本。
 
-> TODO: setTImeout在app后台运行时应该也是起效的。
+> TODO: setTImeout在app后台运行时应该也是起效的。被OS杀死就是重置了。
+
+### 45. iOS的启动脚本中的/bin/sh
+https://apple.stackexchange.com/questions/208408/profile-is-not-loaded-on-non-login-bin-sh
+> /bin/sh速度比/bin/bash要快，但是/bin/sh只有登录的session有读取~/.profile，其它的session是不读~/.profile。所以加上env ENV=$HOME/.profile /bin/sh
