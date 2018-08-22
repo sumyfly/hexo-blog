@@ -7,13 +7,13 @@ tags:
 categories: mac
 ---
 
-### rvm
+### 1.rvm
 管理不同的ruby版本。
 ``` bash
 rvm list #列出不同的ruby版本
 rvm use 2.4.1 --default #使用ruby 2.4.1做为默认版本
 ```
-### gem
+### 2.gem
 管理ruby的库文件。
 ``` bash
 gem install cocoapods #安装cocoapods到全局环境
@@ -25,7 +25,7 @@ https://blog.csdn.net/u014621915/article/details/62221705
 
 <!-- more -->
 
-### bundler
+### 3.bundler
 管理gem的依赖关系，使用Gemfile和Gemfile.lock。
 先在Gemfile中写好需要安装的gem的版本比如
 ``` ruby
@@ -35,4 +35,10 @@ gem 'cocoapods', '~> 1.5', '>= 1.5.3'
 然后执行`bundler install`
 ``` bash
 bundler install # 从Gemfile.lock中安装gem
+```
+
+### 3.cocoapods
+这个是管理iOS的第三方依赖包的，管理文件是Podfile。
+``` bash
+pod install # 安装第三方库，安装之后使用.xcworkspace打开项目。不要使用.xcodeproj
 ```
