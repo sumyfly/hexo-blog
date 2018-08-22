@@ -21,6 +21,8 @@ gem environment # gem的环境，看gem的安装目录
 gem list --local #看gem中库的版本，如果看到一个库有2个不同版本，说明在2个路径都可以查到，比如/usr/local/bin和$HOME/.rvm/gems/ruby-2.4.1/bin/bundler
 ```
 
+https://blog.csdn.net/u014621915/article/details/62221705
+
 <!-- more -->
 
 ### bundler
