@@ -530,5 +530,18 @@ render(){
 ### 45. iOS的启动脚本中的/bin/sh
 https://apple.stackexchange.com/questions/208408/profile-is-not-loaded-on-non-login-bin-sh
 > /bin/sh速度比/bin/bash要快，但是/bin/sh只有登录的session有读取~/.profile，其它的session是不读~/.profile。所以加上env ENV=$HOME/.profile /bin/sh
+我遇到的问题好像是node在xcode的Bundle React Native code and images中没能识别node
+``` bash
+export NODE_BINARY=node
+../node_modules/react-native/scripts/react-native-xcode.sh
+```
+一开始我是想给sh加上node环境，发现其实我的sh是有node的，但是没有nvm，我以为是nvm问题，后来发现不是nvm的问题，而是我的sh的node不是nvm管理的node路径，是有brew安装yarn是安装了一个node的10.x的版本，解决方案:先卸载yarn，brew uninstall yarn,然后brew install yarn --without-node，发现环境现在OK了，sh不需要nvm,只需要node。
 
 https://www.cnblogs.com/EasonJim/p/6850319.html
+
+### 46. xcode 的文件夹Group和Reference
+- xcode创建Resources时，用的Create Group with folder,右侧属性 Location是relative to Grup.这种是没有文件夹，只是一个引用，相当于内部的一个软连接，因为在项目文件夹下是看不到这Resources的。
+
+- add Files一般的文件，可以选择Group和Reference,Group是黄色的，Reference是蓝色的。一般勾上"Copy Items if needed"
+
+- 添加项目，用add Files，我是用的Reference,选中的项目文件.xcodeproj。
