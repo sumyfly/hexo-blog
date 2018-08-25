@@ -25,4 +25,25 @@ Android需要下载Google-Service,这个是Firebase导出的，事实上我们�
 
 解决方案: 使用了最新的1.0.0-rc3，然后iOS就可以了，Android把Google Service的版本降低了。下次集成先集成iOS，Android相对容易些。
 
+配置中，Android使用了webClientId，iOS使用了iOSClientId和webClientId.
+``` ts
+import { GoogleSignin, GoogleSigninButton } from 'react-native-google-signin'
+
+  if (IsAndroid) {
+      GoogleSignin.configure({
+        // scopes: ["https://www.googleapis.com/auth/drive.readonly"], // what API you want to access on behalf of the user, default is email and profile 
+        webClientId: androidWebClientId,
+        offlineAccess: false,// if you want to access Google API on behalf of the user FROM YOUR SERVER
+        forceConsentPrompt: true // [Android] if you want to show the authorization prompt at each login
+      })
+    } else {
+      GoogleSignin.configure({
+        iosClientId: iosClientId, // only for iOS
+        webClientId: iOSWebClientId, // required, shoudle use same project name as iosClientId
+        offlineAccess: false,// if you want to access Google API on behalf of the user FROM YOUR SERVER
+      })
+    }
+
+```
+
 <!-- more -->
