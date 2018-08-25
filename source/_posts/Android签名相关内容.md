@@ -32,3 +32,65 @@ openssl x509 -noout -fingerprint -SHA256 -inform pem -in my_pub.key
 
 ### 4. 给apk签名
 `jarsigner -verbose -keystore my.keystore -signedjar ma_app_signed.apk my.apk myAlias`
+
+### 5. Android Studio Debug签名
+默认Android Stuido Debug时会自动签名(这个是IDE生成的，gradle命令行不会自动生成签名)，用的keystore是没有密码的，但是有时候我们调试第三方登录，需要固定的签名，所以就自己生成签名，覆盖默认的Debug的签名。
+
+#### 5.1 生成Debug签名
+`$ keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "C=US, O=Android, CN=Android Debug"
+`
+https://gist.github.com/henriquemenezes/70feb8fff20a19a65346e48786bedb8f
+
+#### 5.2 设置keystore.properties
+
+keystore.properties
+``` groovy 
+storePassword=myStorePassword
+keyPassword=mykeyPassword
+keyAlias=myKeyAlias
+storeFile=myStoreFileLocation
+```
+
+#### 5.3 设置app/build.gradle
+模块的build.gradle
+``` groovy
+// 在模块的 build.gradle 文件中，于 android {} 块的前面添加用于加载 keystore.properties 文件的代码。
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+
+// Initialize a new Properties() object called keystoreProperties.
+def keystoreProperties = new Properties()
+
+// Load your keystore.properties file into the keystoreProperties object.
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+android {
+   signingConfigs {
+        debug {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+    ...
+  }
+```
+这样设置后，debug签名就更换成我们设置的签名了。但是`./graldew assembleRelease`还是要设置buildTypes才能使用release签名。
+``` groovy
+buildTypes {
+    release {
+        minifyEnabled enableProguardInReleaseBuilds
+        proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        signingConfig signingConfigs.release
+    }
+}
+```
+
+https://developer.android.com/studio/publish/app-signing
+https://blog.csdn.net/zouchengxufei/article/details/48747803
