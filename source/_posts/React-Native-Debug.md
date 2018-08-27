@@ -545,3 +545,6 @@ https://www.cnblogs.com/EasonJim/p/6850319.html
 - add Files一般的文件，可以选择Group和Reference,Group是黄色的，Reference是蓝色的。一般勾上"Copy Items if needed"
 
 - 添加项目，用add Files，我是用的Reference,选中的项目文件.xcodeproj。
+
+### 47.Text不占满父元素
+设置父元素`alignItems: 'flex-start'`,因为默认父元素是`alignItems: 'stretch'`。
