@@ -57,6 +57,8 @@ try{
 }
 ```
 
+> async 函数返回值是一个Promise，如果需要得到resolve的值，需要async await或者then。
+
 ### 6. dot
 Use `&middot;` · for a dot or `&bull;` • for a thicker, bulleted list style dot.
 
