@@ -548,3 +548,6 @@ https://www.cnblogs.com/EasonJim/p/6850319.html
 
 ### 47.Text不占满父元素
 设置父元素`alignItems: 'flex-start'`,因为默认父元素是`alignItems: 'stretch'`。
+
+### 48.  Malformed calls from JS: field sizes are different.
+这个是JS调用函数时的参数类型不对，检查参数类型。
