@@ -551,3 +551,7 @@ https://www.cnblogs.com/EasonJim/p/6850319.html
 
 ### 48.  Malformed calls from JS: field sizes are different.
 这个是JS调用函数时的参数类型不对，检查参数类型。
+
+### 50.尽量不适用数组的index作为key
+iOS上Google地图上的markers会有闪烁的问题，一开始我以为是原生地图的绘制问题。后来我发现是<Marker>的key设置问题，我使用了数组的index，但是当新的markers数组请求到，用的还是同一个index，所以Dom diff时候，<Marker>会漂移，因为被当做了同一个组件（相同的key）。我一开始是在fetch的onSuccess的callback中手动关闭Callout，但是体验不好，Callout会消失，需要重新点开，最好在请求结束后保持打开状态，也就是组件不要被Dom diff后替代。
+解决方案：使用maker的_id作为key,这是mongoDB的存储键，是唯一的，完美解决闪烁问题。Dom diff效率还是很高的,选择合适的key会解决这种漂移闪烁问题。
