@@ -148,7 +148,7 @@ python中，文件是module, 文件夹是package(必须要__init__.py),所以一
 from . import string or from ..myMoudle import myFunc
 
 #### 9.2 相对路径
-相对导入使用模块的__name__属性来决定模块在包结构中的位置。当__name__属性不包含包信息（i.e. 没有用'.'表示的层次结构，比如`__main__`），**则相对导入将模块解析为顶层模块，而不管模块在文件系统中的实际位置。**, 比如python -m test.testIsland,就不会去查找test的上层模块(如src.leetCode)。
+相对导入使用模块的__name__属性来决定模块在包结构中的位置。当__name__属性不包含包信息（i.e. 没有用'.'表示的层次结构，比如`__main__`），**则相对导入将模块解析为顶层模块，而不管模块在文件系统中的实际位置。**, 比如python -m unittest test.testIsland,就不会去查找test的上层模块(如src.leetCode)，如果testIsland代码用到了，就会报错（ValueError: attempted relative import beyond top-level package），应该到src的上层目录使用`python -m unittest src.test.testIsland`。
 
 #### 9.3 package
 文件夹被python解释器视作package需要满足两个条件：
