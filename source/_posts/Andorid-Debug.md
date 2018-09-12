@@ -46,4 +46,4 @@ C:\Users\(用户名)\.gradle\caches\modules-2\files-2.1
 做地图功能时，需要zoom in,zoom out，是按住鼠标右键，移动鼠标左键。
 https://docs.genymotion.com/latest/Content/03_Virtual_Devices/Interacting_with_virtual_devices/Multi_touch_simulation.htm
 
-Android Studio自带的模拟器，现在是速度快了，按时RN打印PixelRatio时，打印了2.65,我就晕了，这个不是正常的device，所以我又换回了Genymotion。
+Android Studio自带的模拟器，现在是速度快了，按时RN打印PixelRatio时，1920 * 1080打印了2.625,TODO:这个是什么原因，不是2，不是3，是2.625？
