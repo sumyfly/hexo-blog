@@ -483,7 +483,7 @@ TouchableOpacity如果设置activityOpacity={1},那么表现和TouchableWithoutF
 RN 支持borderStyle: 'dotted'，所以不需要用图片来代替虚线了。
 
 ### 40. Text
-RN Text的默认字体大小是12.
+RN Text的默认字体大小是14,ios上是14.TODO:android, 系统设置默认字体？
 
 ### 41. TouchableOpacity, TouchableWithouFeedback的onPress回调函数
 我遇到一个错误，`Malformed call from JS: field size are different`
