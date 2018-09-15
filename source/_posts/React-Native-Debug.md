@@ -555,3 +555,7 @@ https://www.cnblogs.com/EasonJim/p/6850319.html
 ### 50.尽量不适用数组的index作为key
 iOS上Google地图上的markers会有闪烁的问题，一开始我以为是原生地图的绘制问题。后来我发现是<Marker>的key设置问题，我使用了数组的index，但是当新的markers数组请求到，用的还是同一个index，所以Dom diff时候，<Marker>会漂移，因为被当做了同一个组件（相同的key）。我一开始是在fetch的onSuccess的callback中手动关闭Callout，但是体验不好，Callout会消失，需要重新点开，最好在请求结束后保持打开状态，也就是组件不要被Dom diff后替代。
 解决方案：使用maker的_id作为key,这是mongoDB的存储键，是唯一的，完美解决闪烁问题。Dom diff效率还是很高的,选择合适的key会解决这种漂移闪烁问题。
+
+### 51.flexible and reusable
+我觉得flexible可能更加重要些，或者说优先级高些，原因是我实际项目中，更改需求是非常常见的，所以代码要求非常灵活，以应对各种变化（UI,排版，数据格式）。项目时间长了，又要重构，以去除冗余代码，让代码可重用性高，但是在项目初期阶段，很难写出可重用性高的代码，因为对于未来的需求变化一无所知。所以在项目初期阶段，写一下面条代码也是可以的，对于细微的组件还是需要单独分开，以便将来重构。
+flexible和reusable初期阶段可能对立，当长期来看，是互补的。
