@@ -584,6 +584,7 @@ TODO:如果用multer模块会在body中？应该是按照FormData的type来确�
 https://blog.csdn.net/foolish0421/article/details/73302336
 https://www.cnblogs.com/xuehaoyue/p/6639029.html
 
+> Fetch在Browser环境中不能设置ContentType:'multi/form-data',会报没有bundary的错误。因为Fetch上传文件时会自动设置这个ContentType,还会加上bundary.
 ### 53. cocoaPosd
 现在RN的第三方模块都开始支持cocoaPods,如果是数组target，需要在Podfile中写ruby.
 ``` ruby
