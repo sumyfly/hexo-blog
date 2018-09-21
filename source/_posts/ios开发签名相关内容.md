@@ -64,3 +64,20 @@ ios只是认bundle id，所以签名打包后，只要bundle id没变，APNS 证
 </dict>
 ```
 这里的aps-enviroment，网上说发布时不需要改成production，会自动更改, 参考http://www.jianshu.com/p/3bb79bdaf87a。
+
+### 3.自动签名
+自动签名使用team，就不用去走手动签名的过程，只要打包之前，去Perferences->Accounts->Download Manual Profiles.这样就可以了。
+Archive之后，Export的四个选项，App Store, Ad Hoc都需要dispatch 证书，Ad Hoc的环境是和App Store的环境一模一样，是上App Store前的准备，TestFlight可以直接移动过去提交App Store.Enterpise是企业证书，发布In-House时使用。Development只需要Developer证书。
+
+### 4.手动签名
+#### 4.1导入证书
+先创建一个CSR，
+去苹果管理中心，提交CSR，创建开发者证书
+下载开发者证书，双击导入的KeyChain
+#### 4.2下载profile
+去苹果管理中心，创建一个application id
+去profile管理页面里生成一个profile(刚创建的application id)
+下载这个profile，双击安装到xcode
+在Build Settings->Singing中的Provision Profile中选择你的profile, Code Signing Identity也选择profile中的证书
+
+> Profile中有三个东西: 证书，设备，application id(bundle id), 这样设备就可以下载这个ipa运行了。这个文件打包后在.ipa->.app->embedded.mobileprovision。

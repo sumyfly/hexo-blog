@@ -559,3 +559,40 @@ iOS上Google地图上的markers会有闪烁的问题，一开始我以为是原�
 ### 51.flexible and reusable
 我觉得flexible可能更加重要些，或者说优先级高些，原因是我实际项目中，更改需求是非常常见的，所以代码要求非常灵活，以应对各种变化（UI,排版，数据格式）。项目时间长了，又要重构，以去除冗余代码，让代码可重用性高，但是在项目初期阶段，很难写出可重用性高的代码，因为对于未来的需求变化一无所知。所以在项目初期阶段，写一下面条代码也是可以的，对于细微的组件还是需要单独分开，以便将来重构。
 > flexible和reusable初期阶段可能对立，当长期来看，是互补的。
+
+### 52.image picke 集成
+react-native-image-crop-picker，返回path没有“file://"前缀也可以使用在FormData中的uri.FormData中name不能是数字，也不能是null，必须是一个字符串值，没有值我用String(Date.now())。
+上传图片，不能用Debug Remote，那个时候的JS的运行环境是brower，而RN运行时是用的JCore，所以不能Debug.RN内置的fetch用的内置的XmlHttpRequest，所以axios也是可以用的(都是封装XmlHttpRequest)。
+``` js
+const form = new FormData()
+form.append('image', {
+  uri: $filePath, // 'Private/xxx/xx.../xx.jpeg' 
+  type: $mime, // 'image/jpeg'
+  name: $name
+})
+```
+后台node server中可以得到这个FormData,用的fileuplaod模块那么在req.files。
+TODO:如果用multer模块会在body中？应该是按照FormData的type来确定。
+
+一开始我Debug Remote时，文件是在是在body中，不在req.files里，关了Debug Remote时就进req.files.
+
+很有帮助：https://github.com/g6ling/React-Native-Tips/tree/master/How_to_upload_photo%2Cfile_in%20react-native
+
+> FormData 是XmlHttpRequest中新增的，File继承自Blob。Blob有两个属性:size和type。Blob.size (只读),Blob 对象中所包含数据的大小（字节）;Blob.type (只读),一个字符串，表明该Blob对象所包含数据的MIME类型,如果类型未知，则该值为空字符串。如果分块上传，使用有blob.slice(),那个用的Transfer-Encoding: chunked这个Header.
+
+较全:https://deliciousbrains.com/using-javascript-file-api-to-avoid-file-upload-limits/
+https://blog.csdn.net/foolish0421/article/details/73302336
+https://www.cnblogs.com/xuehaoyue/p/6639029.html
+
+### 53. cocoaPosd
+现在RN的第三方模块都开始支持cocoaPods,如果是数组target，需要在Podfile中写ruby.
+``` ruby
+targetArray = ['sample-develop', 'sample-production']
+targetArray.each  do |t|
+  target t do
+  end
+end
+```
+增加了新的pod要去PROJECT->Configurations->Debug/Release中把配置都设置为None,然后执行pod install,那么新的配置文件就设置好了。
+> 如果出现了pod的链接错误，去Link Binary With Libraries中删除无效的xx.a文件。
+
