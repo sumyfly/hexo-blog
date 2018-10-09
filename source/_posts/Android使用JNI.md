@@ -36,4 +36,9 @@ android {
 }
 ```
 
+### 2. Android Studio
+#### 2.1智能提示
+有时候第三方的jar包放到libs下时，不会智能提示，gradlew clean也没有用，这个时候就是之前设置有过问题，去File->Invalidate Caches/Restart -> Invalidate and Restart, 然后就修复了。
+https://blog.csdn.net/Sailor_luo/article/details/80277695
+
 https://blog.csdn.net/ToBeTheOnlyOne/article/details/78491024
