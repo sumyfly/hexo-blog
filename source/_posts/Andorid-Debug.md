@@ -71,3 +71,7 @@ Android Stuido 3.2自带的测试apk启动类是`android.support.test.AndroidJUn
     }
 ```
 > 被@Text注解的方法不需要以'test'开头做前缀。
+
+### 6 Androd Studio "no module"错误
+导入工程后，File -> Sync Project With Gradle File。我发现了一个错误，testApplicationId不能与主ApplicationId一样。删掉这个就testApplicationId就可以了。
+https://blog.csdn.net/cjm2484836553/article/details/69334941
