@@ -2,6 +2,9 @@
 title: Android-Kotlin
 date: 2018-07-12 11:14:34
 tags:
+  - Android
+  - Kotlin
+categories: Android
 ---
 
 ### 1.APT

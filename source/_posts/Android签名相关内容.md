@@ -2,6 +2,9 @@
 title: Android签名相关内容
 date: 2018-04-13 15:37:27
 tags:
+    - Android
+    - 签名
+categories: Android
 ---
 ### 1. 查看签名
 - 提取签名

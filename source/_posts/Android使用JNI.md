@@ -2,7 +2,8 @@
 title: Android使用JNI
 date: 2018-08-05 18:34:11
 tags:
-- JNI
+  - Android
+  - JNI
 categories: Android
 ---
 
