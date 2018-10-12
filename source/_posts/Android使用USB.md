@@ -8,7 +8,7 @@ categories: Android
 ---
 ### 1. USB2.0标准
 USB2.0标准的子类。
-![USB2.0](/images/usb/usb2.0.png)
+![USB2.0](/images/usb/Usb2.0.png)
 
 <!-- more -->
 
