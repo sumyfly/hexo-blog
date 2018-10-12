@@ -37,4 +37,6 @@ https://blog.csdn.net/weijory/article/details/75570597
 
 #### 3.1 相关USB转COM芯片
 - CP21XX
-- 
+- Ch34x
+- Ftdi
+- Prolific
