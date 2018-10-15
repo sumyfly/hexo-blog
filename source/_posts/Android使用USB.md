@@ -56,3 +56,6 @@ https://blog.csdn.net/sunjing_/article/details/51889801
 - CDC直接通讯
 
 https://blog.csdn.net/sunjing_/article/details/51889801
+
+### 5. Device code
+https://www.usb.org/defined-class-codes
