@@ -58,4 +58,8 @@ https://blog.csdn.net/sunjing_/article/details/51889801
 https://blog.csdn.net/sunjing_/article/details/51889801
 
 ### 5. Device code
+`device.getInterface(iInterface).getInterfaceClass()`可以获取class code,列表在下面:
+https://developer.android.com/reference/kotlin/android/hardware/usb/UsbConstants#USB_CLASS_APP_SPEC%3Akotlin.Int
+
+`device.getInterface(iInterface).getInterfaceSubclass()`这个sub class，Android官网没有说明说明值，可以从下面usb.org官网找到，比如`07h`printer只有一个sub class `01h`.
 https://www.usb.org/defined-class-codes
