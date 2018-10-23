@@ -170,6 +170,8 @@ RN中这两个Emitter应该没什么区别，我没有接受到消息，是因�
 ``` java
   private static final String RCTInmobiEventName = "Inmobi_Resp";
 ```
+Both DeviceEventEmitterand NativeAppEventEmitter are deprecated, you should use NativeEventEmitter instead.
+https://stackoverflow.com/questions/36692416/deviceeventemitter-vs-nativeappeventemitter
 
 ### 17. moment format 'M-D'
 在排序时，没有考虑跨年的问题，只是按'M-D'排序，应该按'YYYY-M-D'排序。
