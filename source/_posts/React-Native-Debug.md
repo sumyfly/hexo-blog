@@ -166,12 +166,86 @@ function* mySaga(){
 ``` 
 
 ### 16. RCTNativeAppEventEmitter vs DeviceEventManagerModule.RCTDeviceEventEmitter
-RN中这两个Emitter应该没什么区别，我没有接受到消息，是因为我拼写中大小写有错误，浪费时间在寻找这两个Emitter区别。
-``` java
-  private static final String RCTInmobiEventName = "Inmobi_Resp";
+RN中这两个Emitter应该没什么区别，我没有接受到消息，是因为我拼写中大小写有错误，浪费时间在寻找这两个Emitter区别。RCTNativeAppEventEmitter: Module that handles global application events.
+
+- iOS: RCTEventEmitter <RCTBridgeModule>
+``` Objective-C
+@interface CalendarManager : RCTEventEmitter <RCTBridgeModule>
+
+@end
+
+@implementation CalendarManager
+[self sendEventWithName:@"EventReminder" body:@{@"name": eventName}];
 ```
-Both DeviceEventEmitterand NativeAppEventEmitter are deprecated, you should use NativeEventEmitter instead.
-https://stackoverflow.com/questions/36692416/deviceeventemitter-vs-nativeappeventemitter
+``` js
+import { NativeEventEmitter, NativeModules } from 'react-native';
+const { CalendarManager } = NativeModules;
+
+const calendarManagerEmitter = new NativeEventEmitter(CalendarManager);
+
+const subscription = calendarManagerEmitter.addListener(
+  'EventReminder',
+  (reminder) => console.log(reminder.name)
+);
+```
+
+- iOS: bridge
+``` Objective-C
+@interface RNInmobi : NSObject <RCTBridgeModule>
+
+@end
+
+@implementation RNInmobi
+@synthesize bridge = _bridge;
+[self.bridge.eventDispatcher sendAppEventWithName:RCTInmobiEventName body:body];
+```
+```js
+import { NativeModules, Platform, DeviceEventEmitter } from 'react-native';
+DeviceEventEmitter.addListener('Inmobi_Resp', resp => {
+  const callback = savedCallback;
+  savedCallback = undefined;
+  callback && callback(resp);
+});
+```
+
+- Android: RCTDeviceEventEmitter
+https://facebook.github.io/react-native/docs/native-modules-android
+``` java
+private void sendEvent(ReactContext reactContext,
+                       String eventName,
+                       @Nullable WritableMap params) {
+  reactContext
+      .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+      .emit(eventName, params);
+}
+...
+WritableMap params = Arguments.createMap();
+...
+sendEvent(reactContext, "keyboardWillShow", params);
+```
+``` js
+import { DeviceEventEmitter } from 'react-native';
+...
+   DeviceEventEmitter.addListener('keyboardWillShow', 
+                      this.scrollResponderKeyboardWillShow);
+```
+- Android: RCTNativeAppEventEmitter
+``` java
+ getReactApplicationContext()
+                .getJSModule(RCTNativeAppEventEmitter.class)
+                .emit("QQ_Resp", resultMap);
+```
+
+``` js
+import {NativeModules, NativeAppEventEmitter} from 'react-native';
+NativeAppEventEmitter.addListener('QQ_Resp', resp => {
+    const callback = savedCallback;
+    savedCallback = undefined;
+    callback && callback(resp);
+});
+```
+
+总结: 原生中iOS用 RCTEventEmitter <RCTBridgeModule>， Android 用RCTDeviceEventEmitter。JS端用DeviceEventEmitter or NativeEventEmitter.
 
 ### 17. moment format 'M-D'
 在排序时，没有考虑跨年的问题，只是按'M-D'排序，应该按'YYYY-M-D'排序。
