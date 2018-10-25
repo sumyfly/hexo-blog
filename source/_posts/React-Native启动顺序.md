@@ -12,7 +12,7 @@ categories: React-Native
 2. MainApplication->mReactNativeHost.getPackages()
 3. ScannerPackage->Scanner.initScannerModule
 <!-- More -->
-所以在ReactActivity->onCreate()中取不到ScannerModule.getInstance(),是异步加载Packages.
+所以在ReactActivity->onCreate()中取不到ScannerModule.getInstance(),是在mCreateReactContextThread异步加载Packages.
 
 https://www.jianshu.com/p/af4cb096785b
 ReactActivity--->
