@@ -8,6 +8,11 @@ categories: React-Native
 ---
 
 ### 1.RN的通讯原理
-RN是单向通讯，由本地主动调起，取得JS端数据，然后执行本地代码。
-
 <!-- more -->
+js调用native实际上是有两种机制的:
+
+native向jscontext的 global注入全局对象，同时注册相应的回调，如nativeFlushQueueImmediate，js函数被调用，对应native回调被响应
+js组成消息队列，native调用flushedQueue主动去取
+
+https://www.jianshu.com/p/f49b798299b6
+
