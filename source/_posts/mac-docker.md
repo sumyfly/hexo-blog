@@ -95,6 +95,9 @@ docker rmi -f $(docker images --format "{{.Repository}}" |grep "^test_*")
 docker rmi $(docker images -q -f dangling=true)
 ```
 
+### 4. docker-compose
+docker-compose up启动的容器会自动在后面加上`_1`，这个是为了scale。因为docker-compose是编排工具，不是只管理单个镜像。
+
 
 
 
