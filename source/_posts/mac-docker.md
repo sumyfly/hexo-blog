@@ -122,3 +122,4 @@ https://stackoverflow.com/questions/33715499/what-is-the-difference-between-dock
 不过我执行`docker-compose down`后，默认就把容器给删除了，下次还是只能用`docker-compose up`.在`docker-compose up`后，运行`docker-compose stop`可以停用容器，之后可以用`docker-compose start`再次启用容器。
 
 > docker-compose up会读取docker-compose.yaml，所以它会更新配置，它也会关闭正在运行的容器，创建新容器。而docker-compose start是启用已有容器，不会更新容器。
+https://www.cnblogs.com/ityouknow/p/8648467.html
