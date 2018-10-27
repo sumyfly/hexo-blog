@@ -11,6 +11,8 @@ tags:
 ### 2. Storyboard的导航
 有两个导航`Navigation Controller`和`Tab Bar Controller`,这两个在Editor-Embed In->Navigation Controller/Tab Bar Controller.加上去之后，根组件就会变成这两个。`self.navigationController`才会有值，不然是nil。
 
+<!-- more -->
+
 ### 3.不用StoryBoard
 ``` oc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
