@@ -39,3 +39,4 @@ tags:
     return YES;
 }
 ```
+https://stackoverflow.com/questions/7767049/self-navigationcontroller-is-null
