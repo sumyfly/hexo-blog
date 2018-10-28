@@ -40,3 +40,6 @@ tags:
 }
 ```
 https://stackoverflow.com/questions/7767049/self-navigationcontroller-is-null
+
+### 4. First Responder
+页面的第一个响应者，比如Button, Text
