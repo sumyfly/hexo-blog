@@ -42,3 +42,15 @@ bundler install # 从Gemfile.lock中安装gem
 ``` bash
 pod install # 安装第三方库，安装之后使用.xcworkspace打开项目。不要使用.xcodeproj
 ```
+
+> 1.当执行 bundle install 后，默认是将gem安装到哪个目录下的呢？
+默认 bundle install 就装在 ruby 所在的目录了, 例如 ~/.rvm/gems/ruby-2.1.5/gems/rspec-rails-3.2.1
+
+>2.如果我把gemfile.lock 删除后，在执行bundle install 是不是会安装最新gem（gemfile未指定版本号）
+删了 lock 后, bundle install 会先从本地已经安装的 gem 找本地最新版本来依赖.
+
+>3.如果用gem install gem_name 安装相关gem后，bundle install 还会安装吗？
+gem install 之后, bundle install 会复用, 不会重新安装.
+以上所有行为都是默认情况下, 基本上都可以指派参数来调整缺省行为.
+
+https://ruby-china.org/topics/24703?page=2
