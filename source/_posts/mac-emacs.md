@@ -84,6 +84,9 @@ pip install jupyter
 
 安装成功后配置，先配置jupyter server
 
+卸载`jupyter`
+https://stackoverflow.com/questions/33052232/how-to-uninstall-jupyter
+
 #### 4.1 jupyter server 配置文件
 
 先生成一个config.py文件，`jupyter notebook --generate-config`,在~/.jupyter下面就会有一个jupyter_notebook_config.py文件，修改其中的参数。
