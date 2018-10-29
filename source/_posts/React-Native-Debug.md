@@ -673,3 +673,10 @@ end
 增加了新的pod要去PROJECT->Configurations->Debug/Release中把配置都设置为None,然后执行pod install,那么新的配置文件就设置好了。
 > 如果出现了pod的链接错误，去Link Binary With Libraries中删除无效的xx.a文件。
 
+### 54. react-naitve link match error
+比如我用`react-native link react-native-config` ,iOS部分出现`Error: Cannot read property 'match' of undefined`。原因是iOS的中已经适应了CocoaPods 如果你的iOS项目使用的是CocoaPods(包含Podfile)，链接库有podspec文件，那么反应式本地链接将使用Podfile链接库. 那么此时需要在 Podfile文件end 前加入你的pod,这个必须在执行link命令前添加。
+``` ruby
+    pod 'react-native-config', :path => '../node_modules/react-native-config' # dot env file config
+
+```
+https://www.jianshu.com/p/b41037546ef9

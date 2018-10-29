@@ -65,7 +65,7 @@ https://golang.github.io/dep/docs/installation.html
 > 对比一下，dep更加易用，它使用分支。glide也推荐使用dep.
 
 ### 9. defer
-当defer关键字声明的代码不止一行的时候，就引入了defer下压栈的特性，这也是Go比骄强大的地方，根据下压栈的特点，后压入的那行代码会在上层函数执行完毕后先执行。
+当defer关键字声明的代码不止一行的时候，就引入了defer下压栈的特性，这也是Go比较强大的地方，根据下压栈的特点，后压入的那行代码会在上层函数执行完毕后先执行。
 ``` go
 package main
 
