@@ -31,6 +31,9 @@ docker images
 
 # 查看所有镜像,其中包含中间镜像
 docker images -a
+
+# 进入正在运行的容器
+docker exec -it $container_id /bin/bash
 ```
 <!-- more -->
 
