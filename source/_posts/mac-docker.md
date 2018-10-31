@@ -144,3 +144,4 @@ docker volume prune # 我清空了大约4.1G
 ```
 https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes
 > 查看mount映射信息,`docker inspect $container_id`，就可以发现volume的路径。
+TODO:如果在`docker-compose.yml`中不指定ports,默认是不会导到宿主机器的，但是容器之间通讯是可以的。我的mysql连接不到，`lsof -i tcp:3306`，就是因为没有导出端口。
