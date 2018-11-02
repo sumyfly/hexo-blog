@@ -8,6 +8,9 @@ tags:
 
 ### 1. 基本命令
 ``` bash
+# 运行镜像
+docker run -t -i ubuntu:14.04 /bin/bash 
+
 # 查看运行的容器
 docker ps
 
@@ -34,6 +37,9 @@ docker images -a
 
 # 进入正在运行的容器
 docker exec -it $container_id /bin/bash
+
+# 给iamge改名
+docker tag IMAGEID(镜像id) REPOSITORY:TAG（仓库：标签）
 ```
 <!-- more -->
 
