@@ -10,3 +10,5 @@ tags:
 //issue: don't add Object.defineProperty(exports, "__esModule", { value: true }); 
 //https://github.com/Microsoft/TypeScript/issues/14351
 
+#### 2. noEmit
+`"noEmit":true`这个配置就不会产生输出文件了。
