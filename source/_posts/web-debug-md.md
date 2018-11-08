@@ -57,7 +57,7 @@ try{
 }
 ```
 
-> async 函数返回值是一个Promise，如果需要得到resolve的值，需要async await或者then。
+> async 函数返回值是一个Promise，如果需要得到resolve的值，需要async await或者then。当 async 函数返回一个值时，Promise 的 resolve 方法会负责传递这个值；当 async 函数抛出异常时，Promise 的 reject 方法也会传递这个异常值。如果 async 函数没有返回值，它会返回 Promise.resolve(undefined)。
 
 ### 6. dot
 Use `&middot;` · for a dot or `&bull;` • for a thicker, bulleted list style dot.
