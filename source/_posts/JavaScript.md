@@ -36,7 +36,7 @@ for (let p in objectA){
 ### 2. slice splice
 - slice 从数组返回选定的元素,比如浅拷贝slice(0),返回的也是一个数组。
 >arrayObject.slice(start,end)
-- splice 对数组中添加/删除项目，然后返回被删除的项目。这个会修改原数组。
+- splice 对数组中添加/删除项目，然后返回**被删除的项目**。这个会修改原数组。
 >arrayObject.splice(index,howmany,item1,.....,itemX)
 > 这两个都是返回被选定的from start to end，或者length长度的数组。不是返回修改后的数组,也不是参数。
 
