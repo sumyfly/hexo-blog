@@ -98,3 +98,15 @@ buildTypes {
 https://developer.android.com/studio/publish/app-signing
 https://blog.csdn.net/zouchengxufei/article/details/48747803
 https://www.cnblogs.com/littleatp/p/5922362.html
+
+### 获取私钥
+jks文件中的私钥不能直接得到，需要通过openssl将jks文件转换成pfx格式后再进行提取。
+执行如下命令将server.jks文件转换成server.pfx文件：
+
+``` bash
+keytool -v -importkeystore -srckeystore server.jks -srcstoretype jks -srcstorepass 123456 -destkeystore server.p12 -deststoretype pkcs12 -deststorepass 123456 -destkeypass abc123
+
+openssl pkcs12 -in server.pfx -nocerts -nodes -out server.key
+```
+
+https://jingyan.baidu.com/article/066074d61de50cc3c21cb0ba.html
