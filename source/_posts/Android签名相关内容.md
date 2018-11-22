@@ -99,7 +99,7 @@ https://developer.android.com/studio/publish/app-signing
 https://blog.csdn.net/zouchengxufei/article/details/48747803
 https://www.cnblogs.com/littleatp/p/5922362.html
 
-### 获取私钥
+### 6.获取私钥
 jks文件中的私钥不能直接得到，需要通过openssl将jks文件转换成pfx格式后再进行提取。
 执行如下命令将server.jks文件转换成server.pfx文件：
 
@@ -110,3 +110,6 @@ openssl pkcs12 -in server.pfx -nocerts -nodes -out server.key
 ```
 
 https://jingyan.baidu.com/article/066074d61de50cc3c21cb0ba.html
+
+### 7.多个alias
+https://www.cnblogs.com/whatlonelytear/p/7654689.html
