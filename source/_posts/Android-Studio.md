@@ -8,6 +8,9 @@ tags:
 ### 1.快捷键
 #### 1.1 打开关闭side tool window
 Ctrl + Cmd + F12
+
+#### 1.2 toggle terminal
+Alt + F12
 <!-- more -->
 
 ### 2.设置

@@ -680,3 +680,6 @@ end
 
 ```
 https://www.jianshu.com/p/b41037546ef9
+
+### 55. FlatList onEndReached 的触发问题
+如果在FlatList中的items不能占满整个空间时，mounted后会触发onEndReached两次，第一次会渲染items,第二次会得到没有更多的信息（数据为空数组）。但是`刷新`中只会触发onEndReached`一次`，如果有判断条件依赖第二次fetch的结果（空数组）就会有bug,这部分逻辑在refresh是不起效。
