@@ -16,3 +16,18 @@ Alt + F12
 ### 2.设置
 生成serialVersionUID
 https://blog.csdn.net/anyanyan07/article/details/78721247
+
+### 3.新建module
+在项目中，打开File->New->New Module,这个方法创建的module在当前目录下面。如果想单独一个module文件夹，可以创建之后，把它移到项目的同级目录。然后修改settings.gradle,在其中指定路径。
+``` groovy
+include ':app', ':mylibrary', ':testlib'
+
+include ':utils'
+project(':utils').projectDir = new File(rootProject.projectDir,'../Utils')
+```
+application和library的区别
+ - library中，没有settings.gradle.
+ - 也没有app/src目录，直接就是src目录，
+ - src下面也没有build.gradle.一共只有一个build.gradle.
+ - build.gradle没有applicationId
+ - AndroidManifest.xml中没有Application.
