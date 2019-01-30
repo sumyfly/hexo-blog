@@ -78,7 +78,11 @@ Android Stuido 3.2自带的测试apk启动类是`android.support.test.AndroidJUn
 
 # 查找Android运行时依赖
 ./gradlew -q dependencies app:dependencies --configuration debugRuntimeClasspath
+
+# 查找compile依赖
+./gradlew -q dependencies app:dependencies --configuration compile
 ```
+
 
 ### 6 Androd Studio "no module"错误
 导入工程后，File -> Sync Project With Gradle File。我发现了一个错误，testApplicationId不能与主ApplicationId一样。删掉这个就testApplicationId就可以了。
