@@ -84,3 +84,23 @@ func main() {
 ```
 https://www.cnblogs.com/Evsward/p/go.html
 
+### 10 Install go
+#### 10.1 使用brew
+
+``` bash
+brew update
+brew install golang
+
+# This is actually your .bashrc file
+export GOPATH=$HOME/go-workspace # don't forget to change your path correctly!
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+```
+
+#### 10.2 下载tar
+> 注意下载正确的版本，linux和mac的编译版本不同，下载了错误的版本，会报`Exec format error`错误。
+https://golang.org/dl/
+
+#### 10.3 pkg安装包
+和普通application一样的安装步骤，不推荐。
