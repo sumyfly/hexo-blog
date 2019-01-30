@@ -98,6 +98,8 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 ```
 
+> $GOROOT是放标准库的，$GOPATH是放非标准库的。所以这两个目录不能一样，如果两个库中都有fmt，那么compiler不知道选择哪一个。
+
 #### 10.2 下载tar
 > 注意下载正确的版本，linux和mac的编译版本不同，下载了错误的版本，会报`Exec format error`错误。
 https://golang.org/dl/
