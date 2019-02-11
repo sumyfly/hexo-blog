@@ -81,3 +81,7 @@ uname -r
 ```
 https://www.cnblogs.com/Eason1024/p/8177665.html
 https://blog.csdn.net/dog250/article/details/52830576
+
+### 3. 一键shadowsocks脚本
+只支持debian和ubuntu
+https://www.tennfy.com/2136.html
