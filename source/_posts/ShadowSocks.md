@@ -85,3 +85,8 @@ https://blog.csdn.net/dog250/article/details/52830576
 ### 3. 一键shadowsocks脚本
 只支持debian和ubuntu
 https://www.tennfy.com/2136.html
+
+### 4. 拷贝公钥给目标服务器
+[root@localhost .ssh]# ssh-copy-id -i id_dsa.pub omd@192.168.25.110              【 使用ssh登录的默认端口22】
+[root@localhost .ssh]# ssh-copy-id -i id_dsa.pub –p 666 omd@192.168.25.120   【使用ssh登录设置的端口666】
+https://www.cnblogs.com/ftl1012/p/ssh.html
