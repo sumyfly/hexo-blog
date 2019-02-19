@@ -72,4 +72,5 @@ configure({ adapter: new Adapter() });
 
 
 ### shallow vs render
-shallow只会渲染当前控件，不会渲染children.render会渲染children.TODO: check?
+shallow只会渲染当前父控件，不会渲染children.
+render会渲染children.TODO: check?
