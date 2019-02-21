@@ -63,3 +63,32 @@ const r = list.splice(1, 1, 'f').splice(2, 1, 'g')
 console.warn('result', r.toJS(), list.toJS())
 // result [ 'a', 'f', 'g', 'd' ] [ 'a', 'b', 'c', 'd' ]
 ```
+
+### 3.null vs undefined
+null, undefined都是primitive type.但是有个错误，typeof null === 'object'。
+
+``` js
+null == undefined // true
+null === undefined // false
+null ==== null
+undefined === undefined
+```
+
+1. null表示一个属性定义了，但是有目的的设为null;undefined表示这个属性没有。
+2. 一般初始化时设为null,然后判断时直接用=== null判断有没有设置值。
+3. 函数参数要是没有实参，默认是undefined.
+
+### 4. 三目运算赋初始值
+我经常这么用` const a = b ? b : defaultValue`,这个其实不是很好的习惯。记住这里b的运算时及时布尔值，而可能我们需要的是undefined这种情况，像0,null,false这中我们给了值，但是是falsy的值，我们如果用了默认defaultValue,就会产生预料之外的情况，就可能有bug.
+``` js
+// !! 和 Boolean功能一样，但是React中用Boolean好一些，因为在jsx中用!!0会有bug.
+// 下面都是primitive value
+!!0 // false
+!!null // false
+!!'' // false
+
+// []是个object,所以空数组也是true
+!![] // true
+!!{} // true
+
+```
