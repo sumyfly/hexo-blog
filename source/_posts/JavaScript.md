@@ -81,6 +81,15 @@ undefined === undefined
 
 https://stackoverflow.com/questions/6604749/what-reason-is-there-to-use-null-instead-of-undefined-in-javascript
 
+Summary
+null is an assigned value. It means nothing.
+undefined typically means a variable has been declared but not defined yet.
+null and undefined are falsy values.
+null and undefined are both primitives. However an error shows that typeof null = object.
+null !== undefined but null == undefined.
+
+https://codeburst.io/javascript-null-vs-undefined-20f955215a2
+
 ### 4. 三目运算赋初始值
 我经常这么用` const a = b ? b : defaultValue`,这个其实不是很好的习惯。记住这里b的运算时及时布尔值，而可能我们需要的是undefined这种情况，像0,null,false这中我们给了值，但是是falsy的值，我们如果用了默认defaultValue,就会产生预料之外的情况，就可能有bug.
 ``` js
@@ -88,6 +97,7 @@ https://stackoverflow.com/questions/6604749/what-reason-is-there-to-use-null-ins
 // 下面都是primitive value
 !!0 // false
 !!null // false
+!!undefined // false
 !!'' // false
 
 // []是个object,所以空数组也是true
