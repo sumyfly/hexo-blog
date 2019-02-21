@@ -77,6 +77,9 @@ undefined === undefined
 1. null表示一个属性定义了，但是有目的的设为null;undefined表示这个属性没有。
 2. 一般初始化时设为null,然后判断时直接用=== null判断有没有设置值。
 3. 函数参数要是没有实参，默认是undefined.
+> When defining a variable that is meant to later hold an object, it is advisable to initialize the variable to **null** as opposed to anything else. That way, you can explicitly check for the value null to determine if the variable has been filled with an object reference at a later time
+
+https://stackoverflow.com/questions/6604749/what-reason-is-there-to-use-null-instead-of-undefined-in-javascript
 
 ### 4. 三目运算赋初始值
 我经常这么用` const a = b ? b : defaultValue`,这个其实不是很好的习惯。记住这里b的运算时及时布尔值，而可能我们需要的是undefined这种情况，像0,null,false这中我们给了值，但是是falsy的值，我们如果用了默认defaultValue,就会产生预料之外的情况，就可能有bug.
