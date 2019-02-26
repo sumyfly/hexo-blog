@@ -104,4 +104,13 @@ https://codeburst.io/javascript-null-vs-undefined-20f955215a2
 !![] // true
 !!{} // true
 
+// 对象的比较是比较引用，如果要deep compare要专门的库函数，如lodash.isEqual
+a = {}
+b = {}
+c = a
+
+a == b // false
+a === b //false
+a == c // true
+a === c // true
 ```
