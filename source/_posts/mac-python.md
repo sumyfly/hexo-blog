@@ -162,3 +162,9 @@ https://blog.csdn.net/liberize/article/details/8882659
 https://www.cnblogs.com/ArsenalfanInECNU/p/5346751.html
 
 
+#### 10. brew安装3.6.5
+因为TensorFlow版本依赖的python问题，我要使用3.6.5。但是brew安装不了3.6.5,要使用特殊的Formula.
+``` bash
+brew unlink python # ONLY if you have installed (with brew) another version of python 3
+brew install --ignore-dependencies https://raw.githubusercontent.com/Homebrew/homebrew-core/f2a764ef944b1080be64bd88dca9a1d80130c558/Formula/python.rb
+```
