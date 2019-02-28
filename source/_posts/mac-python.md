@@ -168,3 +168,5 @@ https://www.cnblogs.com/ArsenalfanInECNU/p/5346751.html
 brew unlink python # ONLY if you have installed (with brew) another version of python 3
 brew install --ignore-dependencies https://raw.githubusercontent.com/Homebrew/homebrew-core/f2a764ef944b1080be64bd88dca9a1d80130c558/Formula/python.rb
 ```
+这个CPU版本的TensorFlow,没有独显的Mac需要这个版本，不然有warning。
+https://github.com/lakshayg/tensorflow-build
