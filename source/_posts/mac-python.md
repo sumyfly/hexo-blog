@@ -170,3 +170,6 @@ brew install --ignore-dependencies https://raw.githubusercontent.com/Homebrew/ho
 ```
 这个CPU版本的TensorFlow,没有独显的Mac需要这个版本，不然有warning。
 https://github.com/lakshayg/tensorflow-build
+
+> 不要直接使用brew upgrade,这个会升级所有的Formula,这个会导致一些版本依赖问题，会自动升级pyton.加上brew pin python保平安。
+https://www.jianshu.com/p/c2bdc1997a9d
