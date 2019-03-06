@@ -686,3 +686,11 @@ https://www.jianshu.com/p/b41037546ef9
 
 ### 56. chrome copy()
 copy(var1)可以复制变量到剪切板，很方便。不需要JSON.stringify转字符串。
+
+### 57. Statusbar 设置了hidden但在安卓上有时候会显示
+原因是getCurrentActivity有时候会返回null.因为currentActivity只有在onHostResume和onNewIntent时候才设置，所以onCreat时没有设置，而React-Native在onCreate时候就开始js的渲染。解决方案是加个延时setTimeout，并没有一个好的方式，所以在gteCurrentActivity时候保证页面已经渲染了，或者加个判断。Cobrowse也会遇到这个问题，所以还是很普遍的。
+https://github.com/facebook/react-native/issues/18345
+onHostResume是ActivityEventListener的方法。onNewIntent是Activity的方法。
+
+### 58. reducer和saga使用的是同一个action
+当reducer和saga监听了同一个action，先是reducer触发，然后是saga,注意一点：不要在reducer里面修改action的payload，不然saga就是接受到修改后的payload,引发bug。如果要有修改需求，可以用Object.assgin做浅复制或者深复制。
