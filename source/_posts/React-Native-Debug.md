@@ -696,7 +696,7 @@ onHostResume是ActivityEventListener的方法。onNewIntent是Activity的方法�
 当reducer和saga监听了同一个action，先是reducer触发，然后是saga,注意一点：不要在reducer里面修改action的payload，不然saga就是接受到修改后的payload,引发bug。如果要有修改需求，可以用Object.assgin做浅复制或者深复制。
 
 ### 59. react中state现在不能修改了
-在16.0之前，state可以修改，但是有warning,16.0之后，state修改就会报错，说不能修改一个immutable或者freeze的object.
+在16.0之前，state可以修改，但是有warning,16.0之后，state修改就会报错，说不能修改一个immutable或者freeze的object.具体表现是，primitive的类型可以修改(number, boolean)，object的类型不能修改(array)。
 
 之前我们为了减少render次数，只想做shallow comparison，用的是react-addons-update，这个可以修改引用。后来有了immutable,功能更加强大。
 https://reactjs.org/docs/update.html
