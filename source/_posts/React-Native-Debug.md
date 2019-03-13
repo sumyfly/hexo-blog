@@ -694,3 +694,16 @@ onHostResume是ActivityEventListener的方法。onNewIntent是Activity的方法�
 
 ### 58. reducer和saga使用的是同一个action
 当reducer和saga监听了同一个action，先是reducer触发，然后是saga,注意一点：不要在reducer里面修改action的payload，不然saga就是接受到修改后的payload,引发bug。如果要有修改需求，可以用Object.assgin做浅复制或者深复制。
+
+### 59. react中state现在不能修改了
+在16.0之前，state可以修改，但是有warning,16.0之后，state修改就会报错，说不能修改一个immutable或者freeze的object.
+
+之前我们为了减少render次数，只想做shallow comparison，用的是react-addons-update，这个可以修改引用。后来有了immutable,功能更加强大。
+https://reactjs.org/docs/update.html
+https://immutable-js.github.io/immutable-js/docs/#/List
+
+但是我们会遇到一个复合类型的state，像{printers:[{name:'', tags:[]}]},这种类型的state，不能在原来基础上修改，immutable是个好的方案，mergeDeep如果没改变，那么引用也不会改变。但是immutable每次都要重新有赋值操作。我在想如果使用lodash.cloneDeep是不是也可以呢？比immutable的劣势就是每次setState都会导致渲染。
+
+这里有两个问题：
+- 如何修改state: 1.lodash.cloneDeep 2.immutable修改
+- 如何减少渲染次数，使用shouldUpdateComponent后者继承PureComponent: 1.immutable state 2.react-addons-update

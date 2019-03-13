@@ -40,29 +40,42 @@ for (let p in objectA){
 >arrayObject.splice(index,howmany,item1,.....,itemX)
 > 这两个都是返回被选定的from start to end，或者length长度的数组。不是返回修改后的数组,也不是参数。
 
-### 2. Array.push
+### 2. Array 操作的坑
+
+#### 2.1 push 不需要重新赋值，不能使用返回值赋值
 js 的push 注意返回值
 ```js
 let arr = [1, 2]
 
-const b = arr.splice(1,1,3) // 错误, arr.splice(1,1,3)返回的start=1,end
+const c = arr.push(3) // 这里push返回的不是数组，是传的参数，这个不是链式调用
+//正确的调用
+// arr.push(3)
+console.log(arr) // [1, 2, 3]
+```
+
+#### 2.2 concat 需要重新赋值，必须使用返回值赋值
+```js
+const a = [1, 2]
+const b = [1, 2].concat([3, 4]) 
+console.log('a: ', a) // [1, 2]
+console.log('b: ', b) // [1, 2, 3, 4]
+```
+
+#### 2.4 splice 不需要重新赋值，不能使用返回值赋值
+```js
+const b = arr.splice(1,1,3) // 错误, arr.splice(1,1,3) 返回的[2], 原位置的值
 // 应该是
 // arr.splice(1,1,3)
-// b = arr
-
-const c = b.push(4) // 这里push返回的不是数组，是传的参数，这个不是链式调用
-//正确的调用
-// b.push(4)
-// c = b
+console.log(arr) // [1, 3]
 ```
 
-Immutable.List和原生的数组是有区别，前者可以链式调用。而且splice还**不修改**原List.
+#### 2.5 slice 需要重新赋值，必须使用返回值赋值
 ```js
-const list = List.of('a', 'b', 'c', 'd')
-const r = list.splice(1, 1, 'f').splice(2, 1, 'g')
-console.warn('result', r.toJS(), list.toJS())
-// result [ 'a', 'f', 'g', 'd' ] [ 'a', 'b', 'c', 'd' ]
+const b = arr.slice(1,2) 
+console.log(arr) // [1, 2] 
+console.log(b) // [2]
 ```
+> slice不修改原数组，splice修改原数组。还有一个区别，第二个参数：slice是下标，可以越界（因为它不包含），splice是长度，不可以越界。
 
 ### 3.null vs undefined
 null, undefined都是primitive type.但是有个错误，typeof null === 'object'。
@@ -113,4 +126,18 @@ a == b // false
 a === b //false
 a == c // true
 a === c // true
+
+// 容易出错的判断
+Boolean(-1) // true
+Boolean(0) // false
+Boolean(1) // true
+```
+
+### 5. immutable List
+Immutable.List和原生的数组是有区别，前者可以链式调用。而且splice还**不修改**原List,因为不可变的特性！
+```js
+const list = List.of('a', 'b', 'c', 'd')
+const r = list.splice(1, 1, 'f').splice(2, 1, 'g')
+console.warn('result', r.toJS(), list.toJS())
+// result [ 'a', 'f', 'g', 'd' ] [ 'a', 'b', 'c', 'd' ]
 ```
