@@ -100,6 +100,8 @@ export PATH=$PATH:$GOROOT/bin
 
 > $GOROOT是放标准库的，$GOPATH是放非标准库的。所以这两个目录不能一样，如果两个库中都有fmt，那么compiler不知道选择哪一个。
 
+> 还有就是go官方推荐使用一个gopath目录，然后使用vendor方式来管理各个项目的依赖。当然，这个有不同的实践，有些喜欢一个项目一个gopath，很少同一个项目使用多个gopath目录的。源代码是放在gopath的src目录下的。
+
 #### 10.2 下载tar
 > 注意下载正确的版本，linux和mac的编译版本不同，下载了错误的版本，会报`Exec format error`错误。
 https://golang.org/dl/
