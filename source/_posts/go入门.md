@@ -59,7 +59,7 @@ https://golang.github.io/dep/docs/installation.html
 
 初始化 `dep init`
 安装 `dep ensure`
-安装新包 `dep ensure -add github.com/dropbox/godropbox/time2`,这里有个限制条件，必须此目录下面有go文件，不然安装不了。
+安装新包 `dep ensure -add github.com/dropbox/godropbox/time2`,这里有个限制条件，必须此目录下面有go文件，不然安装不了。go get也是要求远程目录下有go文件。
 查看安装信息 `dep status`
 
 > 对比一下，dep更加易用，它使用分支。glide也推荐使用dep.
