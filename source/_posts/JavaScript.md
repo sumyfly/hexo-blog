@@ -105,6 +105,8 @@ https://codeburst.io/javascript-null-vs-undefined-20f955215a2
 
 ### 4. 三目运算赋初始值
 我经常这么用` const a = b ? b : defaultValue`,这个其实不是很好的习惯。记住这里b的运算时及时布尔值，而可能我们需要的是undefined这种情况，像0,null,false这中我们给了值，但是是falsy的值，我们如果用了默认defaultValue,就会产生预料之外的情况，就可能有bug.
+我后来觉得三目运算赋值比`&&`赋值好些,`&&`返回的可能是第一个值，更加难以觉察到bug。比如`const a = b && String(b)`, 当b为0时，其实我希望是'0'，而这行代码返回0，就是bug。
+
 ``` js
 // !! 和 Boolean功能一样，但是React中用Boolean好一些，因为在jsx中用!!0会有bug.
 // 下面都是primitive value
