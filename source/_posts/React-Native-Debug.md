@@ -707,3 +707,20 @@ https://immutable-js.github.io/immutable-js/docs/#/List
 这里有两个问题：
 - 如何修改state: 1.lodash.cloneDeep 2.immutable修改
 - 如何减少渲染次数，使用shouldUpdateComponent后者继承PureComponent: 1.immutable state 2.react-addons-update
+
+### 60. realm 的RealmResults的在for循环中的问题
+jscore中for循环RealmResult会有问题，显示iterator不是一个function,而debug的时候因为是chrome的环境，没有这个问题。所以我用了`for (let item of Object.values(record.items))`,如果给其它函数调用这个record,需要重新包装一下，不能在RealResuls中操作，而是重新创建一个对象, 不能在RealmResutls上直接修改。
+```js
+const { items, ...others } = record;
+newRecord = { ...others, items: Object.values(items) };
+```
+### 61. RealmResults的序列化
+由于RealmObject在序列化的时候，遇到外键的情况，可能导致循环引用，那么序列化就会有问题，表现为卡死。TODO:check later?
+而且我的Redux中使用了Immutable作为对象类型，所以必然遇到这样的问题。
+解决方案就是：
+不要把RealmObject放到Redux中，也不要序列化它。可以传一个primaryKey,接收方再次查找一次数据库。
+
+
+### 62. RealmObject是个引用，它的属性是通过方法调用的
+
+比如我们查到一个RealmObject,每次调用它的某个属性，如productName,那么每次都是数据库中的实时存储的值。TODO: check?

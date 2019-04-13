@@ -71,7 +71,7 @@ configure({ adapter: new Adapter() });
 ```
 
 
-### shallow vs render
+### 2. shallow vs render
 render、mount、shallow的区别
 render采用的是第三方库Cheerio的渲染，渲染结果是普通的html结构，对于snapshot使用render比较合适。
 shallow和mount对组件的渲染结果不是html的dom树，而是react树，如果你chrome装了react devtool插件，他的渲染结果就是react devtool tab下查看的组件结构，而render函数的结果是element tab下查看的结果。
@@ -79,3 +79,6 @@ shallow和mount对组件的渲染结果不是html的dom树，而是react树，�
 shallow只渲染当前组件，只能能对当前组件做断言；mount会渲染当前组件以及所有子组件，对所有子组件也可以做上述操作。一般交互测试都会关心到子组件，我使用的都是mount。但是mount耗时更长，内存啥的也都占用的更多，如果没必要操作和断言子组件，可以使用shallow。
 
 链接：https://www.jianshu.com/p/d4e447430c3c
+
+### 3. 测试文件的模块名字
+我遇到一个问题，如果某个文件名定义为transaction, 源文件中使用它`import {funA} from '../utils/transaction'`,如果刚好我有个局部变量，定义为_transaction, 那么这个局部变量改写了模块的变量，会导致这个模块的函数funA是undefiend.这个问题在源码中不会有问题，但是在测试文件中有问题，我觉得是transform这个import的时候导致的。
