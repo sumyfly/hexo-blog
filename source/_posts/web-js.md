@@ -61,7 +61,7 @@ express默认模本，使用缩进不是很方便。
 #### 4.3 handlebars
 Handlebars 是 JavaScript 一个语义模板库，通过对view和data的分离来快速构建Web模板。它采用"Logic-less template"（无逻辑模版）的思路，在加载时被预编译，而不是到了客户端执行到代码时再去编译， 这样可以保证模板加载和运行的速度。Handlebars兼容Mustache，你可以在Handlebars中导入Mustache模板。
 
-#### 4.4 Nunjucks
+#### 4.4 Mustache
 Mustache 是一个轻逻辑的模板语言（ Logic-less templates），mustache 是一个js模板,用于展示和js分离，它的优势在于可以应用在 Javascript、PHP、Python、Perl 等多种编程语言中。原本是基于javascript 实现的模板引擎,类似于 freemark和valicity ，但是比freemark和valicity更加轻量级更加容易使用，经过拓展目前支持javascript，java，.NET，PHP，C++等多种 平台下开发! 
 
 https://github.com/baryshev/template-benchmark
