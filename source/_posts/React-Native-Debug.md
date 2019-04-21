@@ -724,3 +724,7 @@ newRecord = { ...others, items: Object.values(items) };
 ### 62. RealmObject是个引用，它的属性是通过方法调用的
 
 比如我们查到一个RealmObject,每次调用它的某个属性，如productName,那么每次都是数据库中的实时存储的值。TODO: check?
+
+### 63. React-Native-languages的json中的key
+key不能含有`.`字符，不然匹配不到，`?`是可以匹配到的。
+如果有{"info":"{{name}}'s ages is {{age}}"},调用的时候t('info', {name:'xx', age: 10}).
