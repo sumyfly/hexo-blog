@@ -111,3 +111,7 @@ https://golang.org/dl/
 
 ### 11. func定义
 func fn(n , m int) (r int) // 这里n,m是相同的类型，所以n不需要指定类型。 r是返回值，但是也要显示的return.
+https://www.cnblogs.com/skymyyang/p/7659775.html
+
+### 12. 值类型，引用类型
+其实都是值类型，因为指针也是一个值。slice为什么说是引用类型，是因为它的数据结构中有一个指向底层数组的指针。
