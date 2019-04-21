@@ -108,3 +108,6 @@ https://golang.org/dl/
 
 #### 10.3 pkg安装包
 和普通application一样的安装步骤，不推荐。
+
+### 11. func定义
+func fn(n , m int) (r int) // 这里n,m是相同的类型，所以n不需要指定类型。 r是返回值，但是也要显示的return.

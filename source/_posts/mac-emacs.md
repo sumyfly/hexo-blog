@@ -37,13 +37,13 @@ Emacs的临时文件的文件名是使用“#”包围，这种文件一般是�
 
 https://www.emacswiki.org/emacs/AutoSave
 ``` lisp
-    (defconst emacs-tmp-dir (expand-file-name (format "emacs%d" (user-uid)) temporary-file-directory))
-    (setq backup-directory-alist
-        `((".*" . ,emacs-tmp-dir)))
-    (setq auto-save-file-name-transforms
-        `((".*" ,emacs-tmp-dir t)))
-    (setq auto-save-list-file-prefix
-        emacs-tmp-dir)
+(defconst emacs-tmp-dir (expand-file-name (format "emacs%d" (user-uid)) temporary-file-directory))
+(setq backup-directory-alist
+    `((".*" . ,emacs-tmp-dir)))
+(setq auto-save-file-name-transforms
+    `((".*" ,emacs-tmp-dir t)))
+(setq auto-save-list-file-prefix
+    emacs-tmp-dir)
 ```
 
 [Emacs的临时文件和备份文件](http://blog.useasp.net/archive/2014/07/18/emacs-temporary-files-and-backup-files-for-edited-file.aspx)
