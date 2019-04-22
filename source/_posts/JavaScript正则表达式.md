@@ -8,7 +8,7 @@ tags:
 
 ### 1. 正则表达式的修饰符
 #### 1.1 /g
-/g修饰符代表全局匹配, 查找所有匹配而非在找到第一个匹配后停止。
+**/g修饰符代表全局匹配, 查找所有匹配而非在找到第一个匹配后停止。**
 注意string.match和RegExp.exec的区别，前者的正则表达式不需要加上/g，而后者需要加上/g。
 > exec with a global regular expression is meant to be used in a loop, as it will still retrieve all matched subexpressions. So:
 ``` js
@@ -27,3 +27,7 @@ String.match does this for you and discards the captured groups.
 https://javascript.info/regexp-groups
 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions
 https://stackoverflow.com/questions/9214754/what-is-the-difference-between-regexp-s-exec-function-and-string-s-match-fun
+
+### 2. 贪婪
+默认正则表达式是贪婪匹配，匹配优先量词后加上“?”，即变成属于非贪婪模式的量词。
+https://blog.csdn.net/lxcnn/article/details/4756030
