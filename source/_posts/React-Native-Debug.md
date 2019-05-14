@@ -728,3 +728,11 @@ newRecord = { ...others, items: Object.values(items) };
 ### 63. React-Native-languages的json中的key
 key不能含有`.`字符，不然匹配不到，`?`是可以匹配到的。
 如果有{"info":"{{name}}'s ages is {{age}}"},调用的时候t('info', {name:'xx', age: 10}).
+
+### 64. CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory
+export NODE_OPTIONS="--max-old-space-size=4096"
+
+node本身，或者说v8本身有一个默认配置:Currently, by default v8 has a memory limit of 512mb on 32-bit systems, and 1gb on 64-bit systems. The limit can be raised by setting –max-old-space-size to a maximum of ~1gb (32-bit) and ~1.7gb (64-bit), but it is recommended that you split your single process into several workers if you are hitting memory limits. 
+所以我们需要配置一下运行内存。
+
+

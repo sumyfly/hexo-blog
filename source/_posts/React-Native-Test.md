@@ -1,26 +1,33 @@
 ---
 title: React-Native-Test
 date: 2019-02-19 16:46:47
-tags: 
-  - react-native 
+tags:
+  - react-native
   - debug
 categories: React-Native
 ---
+
 ### 1. jest mock
-#### 1.1 mock node_module中的moduel
-手动mock，放到__mocks__目录下面
+
+#### 1.1 mock node_module 中的 moduel
+
+手动 mock，放到**mocks**目录下面
 
 <!-- more -->
 
-#### 1.2 mock源码中的module
-##### 1.2.1 可以用require
-但是mock的结果按需要加上default这个key，也要修改源码
+#### 1.2 mock 源码中的 module
 
-##### 1.2.2 依旧import
-默认jest会加在babel-jest这个transform.但是RN 0.56版本没有使用babel-jest。所以mock不必提升到import之前，这个功能本来是babel-jest中的plugin "jest-hoist"带来的，所以现在要手工在.babelrc中加上这个插件。
+##### 1.2.1 可以用 require
 
-.babelrc文件如下
-``` 
+但是 mock 的结果按需要加上 default 这个 key，也要修改源码
+
+##### 1.2.2 依旧 import
+
+默认 jest 会加在 babel-jest 这个 transform.但是 RN 0.56 版本没有使用 babel-jest。所以 mock 不必提升到 import 之前，这个功能本来是 babel-jest 中的 plugin "jest-hoist"带来的，所以现在要手工在.babelrc 中加上这个插件。
+
+.babelrc 文件如下
+
+```
 {
   "presets": [
     "module:metro-react-native-babel-preset"
@@ -31,7 +38,8 @@ categories: React-Native
 }
 ```
 
-package.json中jest相关配置
+package.json 中 jest 相关配置
+
 ```
   "jest": {
     "preset": "react-native",
@@ -61,24 +69,35 @@ package.json中jest相关配置
   }
 ```
 
-setup.js, 不想要这个文件，也可以安装enzyme的官方文档下载一个moduel做setup.
-``` js
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+setup.js, 不想要这个文件，也可以安装 enzyme 的官方文档下载一个 moduel 做 setup.
+
+```js
+import { configure } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
 
 configure({ adapter: new Adapter() });
-
 ```
 
-
 ### 2. shallow vs render
-render、mount、shallow的区别
-render采用的是第三方库Cheerio的渲染，渲染结果是普通的html结构，对于snapshot使用render比较合适。
-shallow和mount对组件的渲染结果不是html的dom树，而是react树，如果你chrome装了react devtool插件，他的渲染结果就是react devtool tab下查看的组件结构，而render函数的结果是element tab下查看的结果。
-这些只是渲染结果上的差别，更大的差别是shallow和mount的结果是个被封装的ReactWrapper，可以进行多种操作，譬如find()、parents()、children()等选择器进行元素查找；state()、props()进行数据查找，setState()、setprops()操作数据；simulate()模拟事件触发。
-shallow只渲染当前组件，只能能对当前组件做断言；mount会渲染当前组件以及所有子组件，对所有子组件也可以做上述操作。一般交互测试都会关心到子组件，我使用的都是mount。但是mount耗时更长，内存啥的也都占用的更多，如果没必要操作和断言子组件，可以使用shallow。
+
+render、mount、shallow 的区别
+render 采用的是第三方库 Cheerio 的渲染，渲染结果是普通的 html 结构，对于 snapshot 使用 render 比较合适。
+shallow 和 mount 对组件的渲染结果不是 html 的 dom 树，而是 react 树，如果你 chrome 装了 react devtool 插件，他的渲染结果就是 react devtool tab 下查看的组件结构，而 render 函数的结果是 element tab 下查看的结果。
+这些只是渲染结果上的差别，更大的差别是 shallow 和 mount 的结果是个被封装的 ReactWrapper，可以进行多种操作，譬如 find()、parents()、children()等选择器进行元素查找；state()、props()进行数据查找，setState()、setprops()操作数据；simulate()模拟事件触发。
+shallow 只渲染当前组件，只能能对当前组件做断言；mount 会渲染当前组件以及所有子组件，对所有子组件也可以做上述操作。一般交互测试都会关心到子组件，我使用的都是 mount。但是 mount 耗时更长，内存啥的也都占用的更多，如果没必要操作和断言子组件，可以使用 shallow。
 
 链接：https://www.jianshu.com/p/d4e447430c3c
 
 ### 3. 测试文件的模块名字
-我遇到一个问题，如果某个文件名定义为transaction, 源文件中使用它`import {funA} from '../utils/transaction'`,如果刚好我有个局部变量，定义为_transaction, 那么这个局部变量改写了模块的变量，会导致这个模块的函数funA是undefiend.这个问题在源码中不会有问题，但是在测试文件中有问题，我觉得是transform这个import的时候导致的。
+
+我遇到一个问题，如果某个文件名定义为 transaction, 源文件中使用它`import {funA} from '../utils/transaction'`,如果刚好我有个局部变量，定义为\_transaction, 那么这个局部变量改写了模块的变量，会导致这个模块的函数 funA 是 undefiend.这个问题在源码中不会有问题，但是在测试文件中有问题，我觉得是 transform 这个 import 的时候导致的。
+
+### 4. Jest: `it` and `test` must return either a Promise or undefined.
+
+这个是测试sagas时的函数没有用 async 关键字，我不知道generator也需要这个关键字？
+
+```js
+it("test", async () => {
+  return testSata();
+});
+```
