@@ -39,6 +39,7 @@ C:\Users\(用户名)\.gradle\caches\modules-2\files-2.1
 - install debug: ./gradlew installDebug
 - check: ./gradlew check
 - dependencies: ./gradlew androidDependencies
+- favor: ./gradlew -q dependencies app:dependencies --configuration fatDebugRuntimeClasspath
 
 ### 4. Genymotion 2.12在mac 10.13.4上的安装错误
 苹果系统更新了安全限制，virtual box安装不了。解决方案是安装时，**选择自定义安装路径**,这个时候去settings->security中允许安装来自Oracle,回到安装界面再选择自动安装。done.
