@@ -88,3 +88,18 @@ Android Stuido 3.2自带的测试apk启动类是`android.support.test.AndroidJUn
 ### 6 Androd Studio "no module"错误
 导入工程后，File -> Sync Project With Gradle File。我发现了一个错误，testApplicationId不能与主ApplicationId一样。删掉这个就testApplicationId就可以了。
 https://blog.csdn.net/cjm2484836553/article/details/69334941
+
+### 7. 设置设备的hots
+前提设备必须root,不root不行。
+``` bash
+# adb 启用root模式
+# 注意adb shell后，sudo su切换到root, 然后修改props的方法没有效果。如 setprops net.com 127.0.0.1
+adb root
+# pull /etc/hosts
+adb pull /system/etc/hosts
+# 修改hosts文件
+vim hosts
+# push /etc/hosts
+adb push hosts /system/etc/
+```
+这样就可以修改hosts文件，实现DNS的解析修改。
