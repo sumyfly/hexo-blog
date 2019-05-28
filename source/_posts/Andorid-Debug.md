@@ -103,3 +103,28 @@ vim hosts
 adb push hosts /system/etc/
 ```
 这样就可以修改hosts文件，实现DNS的解析修改。
+
+### 8. /sdcard
+#### 8.1 external directory对应 /sdcard
+其实`/sdcard` alias `/storage/emulated/0`。早期的Android手机可以插sdcard，现在的手机还是使用这个名字/sdcard。
+具体app的外部存储,/sdcard/Android/data/packageName/cache
+
+### 8.2 internal directory对应 /data/data/packageName
+这个是内部存储
+/data/data/packageName
+
+#### 8.3 公共存储空间
+/sdcard 下层目录
+Alarms
+Android
+DCIM
+Download
+Movies
+Music
+Notifications
+Pictures
+Podcasts
+Ringtones
+
+https://blog.csdn.net/baidu_17508977/article/details/51007904
+
