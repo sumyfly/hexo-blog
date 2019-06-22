@@ -735,4 +735,10 @@ export NODE_OPTIONS="--max-old-space-size=4096"
 node本身，或者说v8本身有一个默认配置:Currently, by default v8 has a memory limit of 512mb on 32-bit systems, and 1gb on 64-bit systems. The limit can be raised by setting –max-old-space-size to a maximum of ~1gb (32-bit) and ~1.7gb (64-bit), but it is recommended that you split your single process into several workers if you are hitting memory limits. 
 所以我们需要配置一下运行内存。
 
+### 65. redux-persist 发送REHYDRATE
+redux-persist 发送REHYDRATE的时间是redux从持久化文件中恢复成功，此时我让它执行一个自定义的init saga。注意此时页面的执行是并发的，所以如果在页面中依赖的某种状态是在init中设置的，那么从页面的didmount中去改变它是可能是滞后的，导致依赖的这个状态一直不变。有两种方案：
+1.在componentWillReceiveProps中判断更改的props，这个比较麻烦，要判断前后两个props。
+2.在init中改变redux的state后，紧接着发出相应的处理action。这个方案比较优雅，明了。
+
+所以一定不要事先认为saga的执行有先后关系，并依次编写业务，而是要把它们认为是并发的，需要靠action来串行执行。
 
