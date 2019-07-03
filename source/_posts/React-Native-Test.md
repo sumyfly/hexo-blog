@@ -25,6 +25,8 @@ categories: React-Native
 
 默认 jest 会加在 babel-jest 这个 transform.但是 RN 0.56 版本没有使用 babel-jest。所以 mock 不必提升到 import 之前，这个功能本来是 babel-jest 中的 plugin "jest-hoist"带来的，所以现在要手工在.babelrc 中加上这个插件。
 
+> 在加入这jest-hoist之前，node_modules中的模块只能用手动mock（创建__mocks__文件夹），加入jest-hoist后可以使用自动mock(jest.mock('xxx'))
+
 .babelrc 文件如下
 
 ```
