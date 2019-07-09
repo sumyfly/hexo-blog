@@ -25,7 +25,7 @@ categories: React-Native
 
 默认 jest 会加在 babel-jest 这个 transform.但是 RN 0.56 版本没有使用 babel-jest。所以 mock 不必提升到 import 之前，这个功能本来是 babel-jest 中的 plugin "jest-hoist"带来的，所以现在要手工在.babelrc 中加上这个插件。
 
-> 在加入这jest-hoist之前，node_modules中的模块只能用自动mock（创建__mocks__文件夹），加入jest-hoist后可以使用手动mock(jest.mock('xxx'))
+> 在加入这jest-hoist之前，node_modules中的模块只能用文件mock（创建__mocks__文件夹），加入jest-hoist后可以使用函数mock(jest.mock('xxx'))
 
 .babelrc 文件如下
 
@@ -103,3 +103,7 @@ it("test", async () => {
   return testSata();
 });
 ```
+
+### 5. AutoMock
+automock是jest容易搞混的概念，之前的旧版本，jest默认都是automock，也就是所有模块都是mock的。现在的版本配置，automock默认是false。就是因为automock容易搞混，对新手不友好。
+无论是用文件mock，还是函数mock，都不是automock，都是manual mock。
