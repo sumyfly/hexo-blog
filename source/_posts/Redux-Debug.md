@@ -11,4 +11,7 @@ tags:
 2. 多个修改合并到一个action
 我先选择#2
 
+### 2. yield select 连续多个
+好像如果有一个循环，大约100多次，在循环体里面yield select(selctor), 那么可能导致saga不工作，但是redux还是工作的。
+
 <!-- more -->

@@ -133,10 +133,10 @@ https://stackoverflow.com/questions/33715499/what-is-the-difference-between-dock
 > docker-compose up会读取docker-compose.yaml，所以它会更新配置，它也会关闭正在运行的容器，创建新容器。而docker-compose start是启用已有容器，不会更新容器。
 https://www.cnblogs.com/ityouknow/p/8648467.html
 
-#### 4.5 docker for mac
+### 5 docker for mac
 docker for mac是用了mac Os 中的hyperkit功能，不是使用vitural box.但是在做volumes时，映射到是虚拟机的/var/lib/docker/Data/xx目录，不是mac os的目录。如果是service中的volumes是可以用本地目录的。
 
-##### 4.5.1删除volume
+#### 5.1删除volume
 我想要删除虚拟机中的/var/lib/docker/Data/xx中的某个目录。
 ``` bash
 # 查看volume
@@ -151,3 +151,14 @@ docker volume prune # 我清空了大约4.1G
 https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes
 > 查看mount映射信息,`docker inspect $container_id`，就可以发现volume的路径。
 TODO:如果在`docker-compose.yml`中不指定ports,默认是不会导到宿主机器的，但是容器之间通讯是可以的。我的mysql连接不到，`lsof -i tcp:3306`，就是因为没有导出端口。
+
+##### 5.2 关闭docker daemon
+由于mac的docker是一个GUI程序，而且没有关闭按钮。所以可以从命令行关闭app.
+``` bash
+# 关闭docker
+osascript -e 'quit app "Docker"'
+# 启动docker
+open -a Docker
+```
+refs:
+https://danielkorn.io/post/restart-docker-mac/
