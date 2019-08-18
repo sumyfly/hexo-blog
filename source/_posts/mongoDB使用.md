@@ -77,3 +77,6 @@ mongo --eval "db.getSiblingDB('admin').shutdownServer()"
 mongo -u "myUserAdmin" -p "abc123" --authenticationDatabase "admin"
 ```
 现在就没那个警告了：Access control is not enabled for the database.
+
+### 3. mongd --fork 启动失败
+必须要指定log的文件， mongod --fork --logpath /var/log/mongodb.log这个如果不行，就把log的目录改到user的目录下。记得把之前版本的log删掉，我没删就好像出现了兼容问题。
