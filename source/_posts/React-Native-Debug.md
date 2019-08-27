@@ -716,6 +716,18 @@ RN版本是0.58.5，jscore中for循环RealmResult会有问题，显示iterator�
 const { items, ...others } = record;
 newRecord = { ...others, items: Object.values(items) };
 ```
+注意：不能再RealmObject上直接修改值，需要重新浅copy,但是Object.assign({}, realmObject)不行，{...realmObject}也不行，只有{one, ...others} = realmObject, newObject= {one, ...others}可以。但是最后我选择了for...in..循环。
+```js
+    _transactionMergeItems = {};
+    // In case we need to set the serviceCharge,so need a shallow copy of the realm object.
+    for (let key in openOrderTransaction) {
+      if (openOrderTransaction.hasOwnProperty(key)) {
+        _transactionMergeItems[key] = openOrderTransaction[key];
+      }
+    }
+```
+
+
 ### 61. RealmResults的序列化
 由于RealmObject在序列化的时候，遇到外键的情况，可能导致循环引用，那么序列化就会有问题，表现为卡死。TODO:check later?
 而且我的Redux中使用了Immutable作为对象类型，所以必然遇到这样的问题。
