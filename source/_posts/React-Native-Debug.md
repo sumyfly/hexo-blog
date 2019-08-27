@@ -709,7 +709,9 @@ https://immutable-js.github.io/immutable-js/docs/#/List
 - 如何减少渲染次数，使用shouldUpdateComponent后者继承PureComponent: 1.immutable state 2.react-addons-update
 
 ### 60. realm 的RealmResults的在for循环中的问题
-jscore中for循环RealmResult会有问题，显示iterator不是一个function,而debug的时候因为是chrome的环境，没有这个问题。所以我用了`for (let item of Object.values(record.items))`,如果给其它函数调用这个record,需要重新包装一下，不能在RealResuls中操作，而是重新创建一个对象, 不能在RealmResutls上直接修改。
+RN版本是0.58.5，jscore中for循环RealmResult会有问题，显示iterator不是一个function,而debug的时候因为是chrome的环境，没有这个问题。所以我用了`for (let item of Object.values(record.items))`,如果给其它函数调用这个record,需要重新包装一下，不能在RealResuls中操作，而是重新创建一个对象, 不能在RealmResutls上直接修改。
+在RN的0.59.10中好像没有这个问题了。不知道是RN修复了，还是Realm修复了。
+
 ```js
 const { items, ...others } = record;
 newRecord = { ...others, items: Object.values(items) };
