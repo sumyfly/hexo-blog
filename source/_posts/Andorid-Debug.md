@@ -133,6 +133,6 @@ https://blog.csdn.net/baidu_17508977/article/details/51007904
 https://baijiahao.baidu.com/s?id=1627073662429922934&wfr=spider&for=pc
 
 ### 10. TCP流量控制
-发送给打印机的数据要有流量控制，使用mSocket.setSendBufferSize(2048);
+发送给打印机的数据要有流量控制，使用mSocket.setSendBufferSize(2048),这个是设置滑动窗口的size。
 其实最好使用协议控制，一收一答，加上ACK机制。
 线程sleep的方案不好，这是因为线程sleep的粒度大，精确度差。
