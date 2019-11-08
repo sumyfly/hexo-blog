@@ -131,3 +131,8 @@ https://blog.csdn.net/baidu_17508977/article/details/51007904
 ### 9. v4兼容包找不到类
 出现这个v4兼容包找不到类，清除缓存，删除build文件夹都没用，这个是Android Studio的原因，关掉项目，从打开列表中删除它，再重新打开就可以了。所以说这个错误是很奇怪的，解决方法也奇怪。
 https://baijiahao.baidu.com/s?id=1627073662429922934&wfr=spider&for=pc
+
+### 10. TCP流量控制
+发送给打印机的数据要有流量控制，使用mSocket.setSendBufferSize(2048);
+其实最好使用协议控制，一收一答，加上ACK机制。
+线程sleep的方案不好，这是因为线程sleep的粒度大，精确度差。
