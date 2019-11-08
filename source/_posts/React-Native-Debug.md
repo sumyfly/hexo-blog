@@ -628,7 +628,7 @@ https://www.cnblogs.com/EasonJim/p/6850319.html
 ### 48.  Malformed calls from JS: field sizes are different.
 这个是JS调用函数时的参数类型不对，检查参数类型。
 
-### 50.尽量不适用数组的index作为key
+### 50.尽量不使用数组的index作为key
 iOS上Google地图上的markers会有闪烁的问题，一开始我以为是原生地图的绘制问题。后来我发现是<Marker>的key设置问题，我使用了数组的index，但是当新的markers数组请求到，用的还是同一个index，所以Dom diff时候，<Marker>会漂移，因为被当做了同一个组件（相同的key）。我一开始是在fetch的onSuccess的callback中手动关闭Callout，但是体验不好，Callout会消失，需要重新点开，最好在请求结束后保持打开状态，也就是组件不要被Dom diff后替代。
 解决方案：使用maker的_id作为key,这是mongoDB的存储键，是唯一的，完美解决闪烁问题。Dom diff效率还是很高的,选择合适的key会解决这种漂移闪烁问题。
 
@@ -758,3 +758,10 @@ redux-persist 发送REHYDRATE的时间是redux从持久化文件中恢复成功�
 
 ### 66. string,integer使用===
 使用`===`比较时，不但比较值，也比较类型，所以`'1' === 1`的值是`false`, 所以js也许需要注意类型，尽管它会自动转换类型。
+
+### 67. NaN, Infinity
+NaN, Infinity这些JS类型如果传到Native moduel,会导致App crash, 原因是Native无法处理这些类型。
+
+null可以传到Native，Native module可以处理Double类型，但是不能直接getDouble，这样也会报错。要先判断类型，使用readableMap.getType(key)。
+
+undefined的值，在Native直接是key不存在。
