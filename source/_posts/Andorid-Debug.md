@@ -136,3 +136,6 @@ https://baijiahao.baidu.com/s?id=1627073662429922934&wfr=spider&for=pc
 发送给打印机的数据要有流量控制，使用mSocket.setSendBufferSize(2048),这个是设置滑动窗口的size。
 其实最好使用协议控制，一收一答，加上ACK机制。
 线程sleep的方案不好，这是因为线程sleep的粒度大，精确度差。
+
+### 11. ExcutorService OOM
+如果设置的线程数量太多，可能导致了OOM。我在搜索打印机时，一个IP一个线程，导致某些子网的线程数太多，进而OOM。解决方案就是给线程数设个上限。
