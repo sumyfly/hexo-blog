@@ -23,3 +23,6 @@ npm模块的依赖，现在用`yarn`,它的缓存在~/.npm。
 > 注意在安装nvm的情况下，不要再安装node了`brew install yarn --without-node
 
 <!-- more -->
+
+### 3. nvm alias default v8.16.2
+绑定default版本后，然后npm所有安装库都会使用$HOME/.nvm/versions/node/v8.16.2/bin/，所以**绝对不要**复制此路径下的可执行文件到/usr/local/bin/中去，那样会导致找到相关文件的错误。
