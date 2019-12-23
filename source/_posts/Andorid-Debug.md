@@ -139,3 +139,7 @@ https://baijiahao.baidu.com/s?id=1627073662429922934&wfr=spider&for=pc
 
 ### 11. ExcutorService OOM
 如果设置的线程数量太多，可能导致了OOM。我在搜索打印机时，一个IP一个线程，导致某些子网的线程数太多，进而OOM。解决方案就是给线程数设个上限。
+
+### 12. Android Studio Run的时候显示Waitfing for debugger
+选择run模式，也会显示waiting for debugger,重启也没用。
+解决方案：选择菜单栏Run->Attach Debugger to Android process, 选择进程。
