@@ -109,9 +109,28 @@ adb push hosts /system/etc/
 其实`/sdcard` alias `/storage/emulated/0`。早期的Android手机可以插sdcard，现在的手机还是使用这个名字/sdcard。
 具体app的外部存储,/sdcard/Android/data/packageName/cache
 
+这里的文件夹其它App也可以访问。
+``` java
+// 目录是 /storage/emulated/0/Android/data/packagename/cache
+getExternalCacheDir().getAbsolutePath()；
+
+// 目录是 /storage/emulated/0/Android/data/packagename/files/Pictures
+getExternalFilesDir(Environment.DIRECTORY_PICTURES).getAbsolutePath(); //TODO:
+```
+
 ### 8.2 internal directory对应 /data/data/packageName
 这个是内部存储
 /data/data/packageName
+
+这里的文件夹只有本App可以访问。
+``` java
+
+getCacheDir().getAbsolutePath(); // 目录是 /data/data/packagename/cache
+getFilesDir().getAbsolutePath(); // 目录是 /data/data/packagename/files
+
+```
+
+> external storage和internal storage都会在App卸载时删除数据。
 
 #### 8.3 公共存储空间
 /sdcard 下层目录
@@ -127,6 +146,18 @@ Podcasts
 Ringtones
 
 https://blog.csdn.net/baidu_17508977/article/details/51007904
+
+这里文件要有授权才可以访问，但是这里的文件不会随App卸载而默认删除，当然可以手动删除。
+
+``` java
+// 目录是 /storage/emulated/0
+Environment.getExternalStorageDirectory().getAbsolutePath();
+
+// 目录是 /storage/emulated/0/DCIM
+Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath());
+```
+
+> 公共文件夹都是用Environment来调用获取，而External Storage和Interanl Storage都是用context来调用获取，这也说明公共文件夹和任何App无关，而External Storage和Interanl Storage和当前App相关。
 
 ### 9. v4兼容包找不到类
 出现这个v4兼容包找不到类，清除缓存，删除build文件夹都没用，这个是Android Studio的原因，关掉项目，从打开列表中删除它，再重新打开就可以了。所以说这个错误是很奇怪的，解决方法也奇怪。
