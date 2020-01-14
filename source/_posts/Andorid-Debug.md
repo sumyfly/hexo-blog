@@ -105,7 +105,7 @@ adb push hosts /system/etc/
 这样就可以修改hosts文件，实现DNS的解析修改。
 
 ### 8. /sdcard
-#### 8.1 external directory对应 /sdcard
+#### 8.1 external directory对应 /sdcard/Android/data/packagename
 其实`/sdcard` alias `/storage/emulated/0`。早期的Android手机可以插sdcard，现在的手机还是使用这个名字/sdcard。
 具体app的外部存储,/sdcard/Android/data/packageName/cache
 
