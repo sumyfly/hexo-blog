@@ -64,5 +64,34 @@ Upgrade: websocket
 
 
 
+### 5. Socket.IO
+心跳包： 25秒
+Server -> Client: 0x81 0x01 0x33
+Client -> Server: 不固定
+
+强制关闭Server: Client收到RST，尝试重连频率5秒一次。当Server重新启动后，Client会自动重连。然后继续发送心跳包。
+
+Socket.IO和WebSocket不是同一种东西，Socket.IO参照了WebSocket，并且有降级方案，但是本质是它们不一样，握手协议不一样，所以Socket.IO的server不能用标准客户端连接，反之亦然。
 
 
+> Socket.IO是js的库，用于web的开发应用中实现客户端与服务端建立全双工通信。SocketIO主要是基于websocket协议进行的上层封装（包括连接的管理、心跳与维活及提供room的广播机制与异步io等特性），同时在websocket不可用时，提供长轮询作为备选方式获取数据。
+
+这里要注意就是Socket.IO不是Websocket的实现，Socker.IO有自己的协议说明，因此和websocket的server不兼容，Socker.IO握手及数据传输都有自定义的metadata与认证逻辑，比如头部的sid，作者在刚使用时上层接了负载均衡，没有考虑session保持，导致Socket.IO握手时鉴权一直不通过。
+
+### 6. WebSocket 协议控制
+
+#### Control Flags
+1... .... FIN 代表桢结束，不同于TCP的FIN
+.000 .... Reserved
+.... 0001 Opcode
+0... .... Mask
+
+#### 6.1 Payload
+
+https://www.jianshu.com/p/2ec3d20341ab
+
+### 7. WebSocket JAVA
+
+心跳包: 
+Server -> Client: 0x8a 0x00 || 0x89 00
+Client -> Server: 不固定
