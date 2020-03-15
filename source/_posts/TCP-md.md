@@ -34,3 +34,5 @@ Next sequence number: 这个是期待对方返回的Ack值，这个不是在TCP�
 > 注意ACK是标志位, Ack是确认号。大小写不一样，含义也不同。
 
 <!-- more -->
+
+TODO: TCP Server在等待关闭确认时，如果又接到握手信息，那么就会取消关闭，复用当前链接。
