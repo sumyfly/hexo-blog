@@ -34,6 +34,7 @@ C:\Users\(用户名)\.gradle\caches\modules-2\files-2.1
 > 如果设置了`maven { url "https://maven.google.com"}`,那么就不需要用Android SDK Manager下载suport包和buildTools，gralde会自动下载到自己的本地缓存中。
 
 ### 3. 实用命令
+- 列出所有configurations: ./gradlew project --info 不过这个没什么用处，还是看5.2的命令
 - 查找依赖: ./gradlew :app:dependencies --configuration compile
 - clean: ./gradlew clean
 - install debug: ./gradlew installDebug
@@ -51,7 +52,7 @@ Android Studio自带的模拟器，现在是速度快了，按时RN打印PixelRa
 
 ### 5. Android test
 #### 5.1 查看依赖冲突
-`./gradlew ./gradlew :app:dependencies --configuration _debugAndroidTestApk`,很有可能test apk用的库和普通的apk用的库版本不一致，出现版本冲突。修改app/build.gradle中的test部分。
+`./gradlew :app:dependencies --configuration debugAndroidTestApk`,很有可能test apk用的库和普通的apk用的库版本不一致，出现版本冲突。修改app/build.gradle中的test部分。
 
 ``` groovy
     androidTestCompile ('com.android.support.test:runner:1.0.2', {
@@ -76,6 +77,7 @@ Android Stuido 3.2自带的测试apk启动类是`android.support.test.AndroidJUn
 ``` bash
 # 查找Android编译时依赖
 ./gradlew -q dependencies app:dependencies --configuration debugCompileClasspath
+./gradlew -q dependencies app:dependencies --configuration devDebugCompileClasspath (dev是favor)
 
 # 查找Android运行时依赖
 ./gradlew -q dependencies app:dependencies --configuration debugRuntimeClasspath
