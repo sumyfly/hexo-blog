@@ -770,5 +770,5 @@ undefined的值，在Native直接是key不存在。
 Saga的call调用instance方法，如果instance方法中用到了this.value，那么需要传递context，就是绑定this.
 ``` js
 yield call([loggly, loggly.push], logData) // loggly.push中有用到this.属性值，所以需要传递context,不然this指向的值不对。
+yield call(loggly.push.bind(loggly), logData) // 这样也是可以的，但是传递context更好。bind会返回新函数。
 ```
-可以这样吗？ yield call(loggly.push.bind(loggly), logData)
