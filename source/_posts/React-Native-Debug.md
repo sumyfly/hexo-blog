@@ -765,3 +765,10 @@ NaN, Infinity这些JS类型如果传到Native moduel,会导致App crash, 原因�
 null可以传到Native，Native module可以处理Double类型，但是不能直接getDouble，这样也会报错。要先判断类型，使用readableMap.getType(key)。
 
 undefined的值，在Native直接是key不存在。
+
+### 68. Saga的call 调用instance的方法
+Saga的call调用instance方法，如果instance方法中用到了this.value，那么需要传递context，就是绑定this.
+``` js
+yield call([loggly, loggly.push], logData) // loggly.push中有用到this.属性值，所以需要传递context,不然this指向的值不对。
+```
+可以这样吗？ yield call(loggly.push.bind(loggly), logData)
