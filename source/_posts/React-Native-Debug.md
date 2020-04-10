@@ -783,6 +783,7 @@ adb -s 98899a4558304e384f tcpip 8888
 adb connect 10.10.10.60:8888
 
 ```
+之后就可以拔掉USB线进行调试了，如果遇到unauthorized问题，去真机Settings页面，再点下系统版本，打开developer功能。
 
 在Android中找到src/main/java/MainApplication（Android 主入口文件）类名，找到 onCreate方法,代码附上：
 
