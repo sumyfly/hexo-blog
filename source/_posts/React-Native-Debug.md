@@ -772,3 +772,29 @@ Saga的call调用instance方法，如果instance方法中用到了this.value，�
 yield call([loggly, loggly.push], logData) // loggly.push中有用到this.属性值，所以需要传递context,不然this指向的值不对。
 yield call(loggly.push.bind(loggly), logData) // 这样也是可以的，但是传递context更好。bind会返回新函数。
 ```
+
+### 69. 使用WiFi连接调试真机RN
+首先还是需要先用USB连接真机
+``` bash
+# adb -s [device id] tcpip [port] 为需要 wifi 连接的设备指定端口号
+adb -s 98899a4558304e384f tcpip 8888
+
+# 用命令 adb connect [phone ip]:[port] 连接设备
+adb connect 10.10.10.60:8888
+
+```
+
+在Android中找到src/main/java/MainApplication（Android 主入口文件）类名，找到 onCreate方法,代码附上：
+
+``` java
+@Override
+public void onCreate() {
+ super.onCreate();
+ //SoLoader.init(this, /* native exopackage */ false);
+ 
+ SharedPreferences mPreferences =  PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+ mPreferences.edit().putString("debug_http_host","localhost:8099").commit();
+}
+```
+https://blog.csdn.net/captive_rainbow_/article/details/81012704
+https://www.jb51.net/article/119804.htm
