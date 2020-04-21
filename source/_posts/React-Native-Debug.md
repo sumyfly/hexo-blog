@@ -794,7 +794,7 @@ public void onCreate() {
  //SoLoader.init(this, /* native exopackage */ false);
  
  SharedPreferences mPreferences =  PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
- mPreferences.edit().putString("debug_http_host","localhost:8099").commit();
+ mPreferences.edit().putString("debug_http_host","localhost:8081").commit();
 }
 ```
 https://blog.csdn.net/captive_rainbow_/article/details/81012704
