@@ -143,3 +143,32 @@ const r = list.splice(1, 1, 'f').splice(2, 1, 'g')
 console.warn('result', r.toJS(), list.toJS())
 // result [ 'a', 'f', 'g', 'd' ] [ 'a', 'b', 'c', 'd' ]
 ```
+
+### 6. Object.values的key排序问题
+一般来说HashpMap的遍历的顺序都是不确定的，但是JavaScript的顺序是确定的。如果是数字key那么就是按数字大小排序；如果是string，那么按照加入object的顺序排序；如果是Symbols,也是按照加入object的顺序排序。
+
+Own Property Keys:
+
+- Retrieves the keys of all own properties of an object, in the following order:
+    1. First, the string keys that are integer indices (what these are is explained in the next section), in ascending numeric order.
+    2. Then all other string keys, in the order in which they were added to the object.
+    3. Lastly, all symbol keys, in the order in which they were added to the object.
+- Used by: Object.assign(), Object.defineProperties(), Object.getOwnPropertyNames(), Object.getOwnPropertySymbols(), Reflect.ownKeys()
+
+
+https://stackoverflow.com/questions/5467129/sort-javascript-object-by-key/31102605#31102605
+https://exploringjs.com/es6/ch_oop-besides-classes.html#_traversal-order-of-properties
+
+### 7. Array
+JavaScript的数组其实是个Object，它的key是数字值的string。JS只有6种类型，其中5中基本类型（boolean, number, string,null, undefined）和 object。
+但是typeof null == 'object'。这是一个坑。
+
+``` js
+typeof null // 'object'
+typeof undefined // 'undefined'
+
+let a = []
+a[10000] = 1
+a.lenght // 10001 这个数组浪费太多了，所以应该用map。
+
+```
