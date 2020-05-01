@@ -797,5 +797,9 @@ public void onCreate() {
  mPreferences.edit().putString("debug_http_host","localhost:8081").commit();
 }
 ```
+
+- 有时候遇到device offliene, 去开发者选项中把Usb Debug选项打开再关闭下，也能解决网络Debug中的offline问题。
+- adb kill-server 有时候也有用。
+
 https://blog.csdn.net/captive_rainbow_/article/details/81012704
 https://www.jb51.net/article/119804.htm
