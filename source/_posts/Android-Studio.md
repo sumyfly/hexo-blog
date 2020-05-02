@@ -31,3 +31,11 @@ application和library的区别
  - src下面也没有build.gradle.一共只有一个build.gradle.
  - build.gradle没有applicationId
  - AndroidManifest.xml中没有Application.
+
+
+### Android Studio 格式化layout的xml的时，修改了顺序。
+执行如下操作:
+
+Settings -> Editor -> Code Style -> XML-> Set From -> Predefined Style > Android.
+
+https://stackoverflow.com/questions/57685749/android-studio-3-5-formatting-ctrlaltl-the-code-in-xml-file-is-rearranging
