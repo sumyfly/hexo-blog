@@ -24,5 +24,11 @@ $ nc localhost 8000
 
 socat TCP-LISTEN:6142,fork stdout
 
+### 3. pkg-config
+pkg-config一个帮助编译时指定编译依赖路径的工具，它可以避免硬编码参数。
+pkg-config必须有一个.pc结尾的配置文件，读取这个文件产生指定值。
+pkg-config如果需要指定用户的目录，需要导出PKG_CONFIG_PATH环境变量。这个变量会在pkg-config的默认搜索路径前生效。查看pkg-config的默认搜索路径`pkg-config --variable pc_path pkg-config`.
 
-
+``` bash
+pkg-config --libs libsodium //查找sodium的lib位置。
+```
