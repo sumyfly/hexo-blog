@@ -176,3 +176,12 @@ https://baijiahao.baidu.com/s?id=1627073662429922934&wfr=spider&for=pc
 ### 12. Android Studio Run的时候显示Waitfing for debugger
 选择run模式，也会显示waiting for debugger,重启也没用。
 解决方案：选择菜单栏Run->Attach Debugger to Android process, 选择进程。
+
+### 13. gradle构建是的标准
+gradle是用task组织起来的，一个task包含Inputs和Outputs。
+- UP-TO-DATA 代表outputs没有变化
+- FROME-CACHE 代表task outputs可以从之前执行中找到cache
+- SKIPPED task这次没有执行
+- NO-SOURC task 这次不需要执行，因为source是空
+
+https://docs.gradle.org/current/userguide/more_about_tasks.html
