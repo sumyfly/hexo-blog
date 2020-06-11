@@ -12,6 +12,8 @@ tags:
 brew install emacs --with-cocoa
 ```
 
+C-h t # 打开tutorial
+
 ### 2. 配置emacs
 原来是用的[prelude](https://github.com/bbatsov/prelude),后来发现太重，反应有点慢。因为我主要是为了python，所以重新配置。参考了几篇文章:
 * [Emacs：最好的Python编辑器？](http://codingpy.com/article/emacs-the-best-python-editor/)
