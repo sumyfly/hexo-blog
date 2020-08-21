@@ -34,3 +34,8 @@ fun foo(ints: List<Int>) {
 }
 ```
 https://stackoverflow.com/questions/40160489/kotlin-whats-does-return-mean
+
+Non-local returns
+In Kotlin, we can only use a normal, unqualified return to exit a named function or an anonymous function. This means that to exit a lambda, we have to use a label, and a bare return is forbidden inside a lambda, because a lambda cannot make the enclosing function return:
+
+https://kotlinlang.org/docs/reference/inline-functions.html#non-local-returns
