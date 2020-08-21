@@ -13,7 +13,7 @@ tags:
 <!-- more -->
 
 ### 2. runBlocking/coroutineScope
-- 两者都会阻塞当前协程，等待子协程域完成
+- 两者都会阻塞当前协程，等待子协程域或者协程完成
 - runBlocking会阻塞当前线程，coroutineScope不会阻塞当前线程
 - runBlocking可以在任意地方调用，coroutineScope只能在协助中调用
 - runBlocking只用于测试，不用于生产代码
