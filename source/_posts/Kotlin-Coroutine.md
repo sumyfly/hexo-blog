@@ -87,3 +87,9 @@ coroutineScope 可以返回结果
 ### 7. 调度器
 协程的调度器是全局的吗，还是每个线程一个调度器？看资料说是一个线程一个。那么调度器看起来应该是以最外层的协程作用域为单位。那么Dispatchers.IO怎么说？
 
+1）launch默认在调用的协程上下文中执行，即runBlocking所在的主线程。
+2）Dispatchers.Unconfined在调用线程启动以一个协程，挂起之后再次恢复执行在默认的执行者kotlinxcoroutines.DefaultExecutor线程中执行。
+3）Dispatchers.Default默认调度器，开启新线程执行协程。
+4）Dispatchers.IO创建在IO线程执行。
+5）newSingleThreadContext创建一个独立的线程执行。
+
