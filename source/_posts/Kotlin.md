@@ -23,3 +23,14 @@ In fact, the latter is more precise, because the actual value that foo evaluates
 As @marstran correctly noted in the comment on the question, .javaClass once was considered to be deprecated (see the Kotlin 1.1 RC announcement) because it can break type safety (see below), but it was afterwards left as-is because it was widely used and replacing it with the alternative of ::class.java would require adding explicit unchecked casts in the code.
 
 https://stackoverflow.com/questions/46674787/instanceclass-java-vs-instance-javaclass#:~:text=javaClass%20does%20not%20denote%20the,reference%20and%20denotes%20the%20type.
+
+### 3. return@label
+``` kotlin
+fun foo(ints: List<Int>) {
+    ints.forEach {
+        if (it == 0) return@forEach // implicit label for lambda passed to forEach
+        print(it)
+    }
+}
+```
+https://stackoverflow.com/questions/40160489/kotlin-whats-does-return-mean
