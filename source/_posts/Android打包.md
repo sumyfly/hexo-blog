@@ -9,7 +9,7 @@ tags:
 smali/baksmali is an assembler/disassembler for the dex format used by dalvik, Android's Java VM implementation. 
 smali 芬兰语中的编译
 baksmali 芬兰语中的反编译
-dex文件是组装smali后文件格式
+dex文件是组装smali后文件格式: dx工具会把class转为smali，dexdump查看dex中的smali。
 
 Android Dalvik虚拟机
 Java虚拟机运行的是Java字节码，Dalvik虚拟机运行的是Dalvik字节码
