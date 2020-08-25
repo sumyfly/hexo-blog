@@ -44,6 +44,8 @@ openssl x509 -noout -fingerprint -SHA256 -inform pem -in my_pub.key
 `
 https://gist.github.com/henriquemenezes/70feb8fff20a19a65346e48786bedb8f
 
+<!-- more -->
+
 #### 5.2 设置keystore.properties
 
 keystore.properties

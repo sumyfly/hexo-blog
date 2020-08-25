@@ -19,6 +19,8 @@ BindView绑定View,不需要findViewById了。
 - dagger
 Binds等一些类注释工具
 
+<!-- more -->
+
 ### 2.3 kapt
 Kotlin的apt工具
 
@@ -39,4 +41,3 @@ https://blog.csdn.net/Ru_Zhan/article/details/78232851?locationNum=8&fps=1
 
 [butterknife vs dagger](https://blog.csdn.net/geekpark/article/details/38867873)
 
-<!-- more -->
