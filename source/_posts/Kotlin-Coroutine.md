@@ -8,7 +8,7 @@ tags:
 ### 1. 协程
 协程就是轻量级线程，或者称绿色线程，跟线程相似可以并发执行，不同点是：
 - 线程由操作系统调度，协程由协程调度器调度。
-- 线程有单独的线程栈，协程按照语言设计: Golang有协程栈，支持动态扩展协程栈大小；Tokio没有协程栈，使用的是状态机和闭包保存状态。TODO:Kotlin-Coroutine好像是管理的是线程，没有同线程内部调度。每次launch都是启动了一个新的线程。Kotlin-Coroutine也是无栈设计，使用了状态机。
+- 线程有单独的线程栈，协程按照语言设计: Golang有协程栈，支持动态扩展协程栈大小；Tokio没有协程栈，使用的是状态机和闭包保存状态。TODO:Kotlin-Coroutine好像是管理的是线程，没有同线程内部调度。每次launch都是启动了一个新的线程。Kotlin-Coroutine也是无栈设计，使用了状态机。CPS (Continuation Passing Style)
 
 https://www.infoq.cn/article/RuBcSfg9bFt4gwdToyd7
 
