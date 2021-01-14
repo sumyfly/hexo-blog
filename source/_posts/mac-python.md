@@ -173,3 +173,32 @@ https://github.com/lakshayg/tensorflow-build
 
 > 不要直接使用brew upgrade,这个会升级所有的Formula,这个会导致一些版本依赖问题，会自动升级pyton.加上brew pin python保平安。
 https://www.jianshu.com/p/c2bdc1997a9d
+
+这个方法已经brew已经不支持了，所以推荐用pyenv
+
+#### 11. pyenv
+``` bash
+brew install pyenv
+brew install pyenv-virtualenv
+```
+
+修改.bashrc文件,添加以下内容
+``` bash
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+```
+
+#### 1.1 安装python特定版本
+pyenv install 3.6.5
+
+#### 1.2 创建一个virtualenv环境
+pyenv virtualenv 3.6.5 google_sheet
+这个会在$HOME/.pyenv/versions/3.6.5/envs的目录下面，envs里面创建一个virtualenv环境。
+``` bash
+# 激活环境
+pyenv activate google_sheet
+# 退出环境
+pyenv deactivate google_sheet
+```
+
+> 注意同一个versions/3.6.5下面的virtualenv会共享一个python bin目录，但是site-packages第三方包是独立的。
