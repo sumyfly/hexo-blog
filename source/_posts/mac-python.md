@@ -177,6 +177,9 @@ https://www.jianshu.com/p/c2bdc1997a9d
 这个方法已经brew已经不支持了，所以推荐用pyenv
 
 #### 11. pyenv
+virtualenv没有之前好用了，比如安装特定版本的python不方便，所以我现在转到使用pyenv。pyenv支持不同的python版本，支持mac和linux,不支持windows。
+
+
 ``` bash
 brew install pyenv
 brew install pyenv-virtualenv
@@ -188,12 +191,13 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 ```
 
-#### 1.1 安装python特定版本
+#### 11.1 安装python特定版本
 pyenv install 3.6.5
 
-#### 1.2 创建一个virtualenv环境
+#### 11.2 创建一个virtualenv环境
 pyenv virtualenv 3.6.5 google_sheet
 这个会在$HOME/.pyenv/versions/3.6.5/envs的目录下面，envs里面创建一个virtualenv环境。
+
 ``` bash
 # 激活环境
 pyenv activate google_sheet
@@ -202,3 +206,14 @@ pyenv deactivate google_sheet
 ```
 
 > 注意同一个versions/3.6.5下面的virtualenv会共享一个python bin目录，但是site-packages第三方包是独立的。
+
+### 11.3 删除一个virtualenv环境
+``` bash
+pyenv virtualenv-delete google_sheet # 运行后需要输入一个'y',直接回车不会删除。
+```
+
+### 11.4 指定tensorflow版本
+pip install tensorflow==1.14
+
+### 12. 手动编译
+https://medium.com/@thomaschou_9652/customized-tensorflow-for-macos-1fe31110d92c
