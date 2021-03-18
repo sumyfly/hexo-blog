@@ -72,7 +72,7 @@ Android Stuido 3.2自带的测试apk启动类是`android.support.test.AndroidJUn
       }
     }
 ```
-> 被@Text注解的方法不需要以'test'开头做前缀。
+> 被@Test注解的方法不需要以'test'开头做前缀。
 
 ``` bash
 # 查找Android编译时依赖
