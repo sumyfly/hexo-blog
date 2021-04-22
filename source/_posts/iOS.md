@@ -41,3 +41,6 @@ Update cycle 是当应用完成了你的所有事件处理代码后控制流回�
 http://www.cocoachina.com/articles/22418
 
 > Android和iOS都是60FPS的周期调用draw, 所以页面的更改其实不是实时的，而是以一个频率更新。
+
+#### 3. 删除证书
+如果在开发者中心移除一个证书，本地机器里面也要移除对应的证书，不然会显示"untitled"。本地移除证书去keychain Access.app->登录->我的证书，找到证书，删除它。

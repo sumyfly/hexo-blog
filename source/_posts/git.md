@@ -29,7 +29,7 @@ The 1 commit from this branch will be rebased and added to the base branch.
 这里的1 commit我不是很理解，其实是整体一组commits。它们的修改时间（Date)没有变化，但是提交时间(commite Date)时间统一变为rebase命令的执行时间。
 重新Rebase对象的分支，然后所有的commit id和commit Date变了，changes,commit message，Date没变。
 
-> git 做diff时，是按照一个起始点，然后把所以changes显示出来。如果是三方合并，它们是从共同起始点开始，看相同的行有没有修改。所以如果从master到development或者相反的方向，**不要**使用rebase,也不要使用Squash,因为它们会修改**commit的id**，导致merge的时候出现冲突。
+> git 做diff时，是按照一个起始点，然后把所有changes显示出来。如果是三方合并，它们是从共同起始点开始，看相同的行有没有修改。所以如果从master到development或者相反的方向，**不要**使用rebase,也不要使用Squash,因为它们会修改**commit的id**，导致merge的时候出现冲突。
 
 > 默认commit的时候，Date和commit Date是一样的，但是rebase之后commit Date的时间变成了rebase执行时的时间。
 
