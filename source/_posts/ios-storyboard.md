@@ -50,8 +50,8 @@ https://stackoverflow.com/questions/7767049/self-navigationcontroller-is-null
 1. 快捷键`Command + Shift + L`
 2. View->Show Library
 
-#### 5.2 连接inlet, outlet
-界面Split代码和设计视图，鼠标左击控件，拉入代码视图的声明部分是inlet,方法拉入实现部分是outlet
+#### 5.2 连接 IBOutlet， IBAction
+界面Split代码和设计视图，鼠标左击控件，拉入代码视图的声明部分是IBOutlet, 类似Android中的FindViewByID。方法拉入实现部分是IBAction, 比如点击方法。
 
 #### 5.3 跳转
 Ctrl+鼠标左键 或者 鼠标右键 控件，Drag 到目标ViewController, 可以选择Segue(就是路由跳转)，选择其中一个就可以跳转了。
