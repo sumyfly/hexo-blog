@@ -29,6 +29,9 @@ $ dexdump -d Hello.dex # 查看Dalvik字节码
 ```
 
 dx和dexdump在/sdk/build_tools/android目录下
+
+> 2014年6月25日，Android L 正式亮相于召开的谷歌I/O大会，Android L 改动幅度较大，谷歌将直接删除Dalvik，代替它的是传闻已久的ART。
+
 <!-- more -->
 
 ### 2. apk反编译
@@ -42,7 +45,15 @@ dx和dexdump在/sdk/build_tools/android目录下
 #### 2.2 apk/dex -> Java
 jadx可以直接反编译apk/dex到Java文件和资源文件，jadx-GUI可以可视化操作。
 
-
-
-### 3. JDE
+#### 2.3. JDE
 可以反编译，可以debug，收费软件。
+
+### 3. vsersionCode, versionName
+- versionCode：对消费者不可见的版本号，用于我们自己判断新旧版本，一般更新一次版本 versionCode 会增加。应用市场是按照versionCode来判断版本的，Android操作系统也是用versionCode来判断覆盖安装的，所以Instant App的versionCode要小于Installed App的versionCode, 就是保证它能覆盖安装。
+
+- versionName：展示给消费者的版本号，代表应用程序的版本信息。这个只是用来展示，安装时不看这个versionName.
+
+App安装时看applicationId, applicationId如果已经存在，再检查签名是否一样，如果一样可以覆盖安装(versionCode >= 当前app的versionCode)。
+
+### 4. applicationId vs Package
+https://zhuanlan.zhihu.com/p/25621771

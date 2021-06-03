@@ -24,13 +24,22 @@ javac ChatServer.java -cp Java-WebSocket-1.4.0.jar # 生成ChatServer字节码
 
 #### 3.2 运行字节码
 ``` bash
-java -Xbootclasspath/a:Java-WebSocket-1.4.0.jar:slf4j-api-1.7.25.jar ChatServer # Xbootclasspath选择外部包
+java -Xbootclasspath/a:Java-WebSocket-1.4.0.jar:slf4j-api-1.7.25.jar ChatServer # Xbootclasspath选择外部包, 用':'分割多个jar
 ```
 
 #### 3.3 运行jar
 前提是要把字节码文件打包成jar包。
+``` sh
+# 打包jar, 默认MANIFEST.MF文件
+jar cvf test.jar test1.class test2.class test3.class
+# 打包jar, 指定MANIFEST.MF文件， 里面有Main-Class: cn.my.Main
+jar cvfm test.jar --manifest MAINIFEST.MF -C foo/ . # foo是class文件根目录， '.'代表当前目录下？
+# 运行jar包
+java -jar xxx.jar
+```
+https://www.jb51.net/article/131101.htm
 
-##### 3.3.1 使用-cp -class
+##### 3.3.1 使用-cp或-classpath
 -cp和-classpath 一样，是指定类运行所依赖其他类的路径，通常是类库，jar包之类，需要全路径到jar包,window上";"分隔，linux上是":"分隔。不支持通配符，需要列出所有jar包，用"."代表当前路径。
 
 ``` bash
