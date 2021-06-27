@@ -215,5 +215,5 @@ pyenv virtualenv-delete google_sheet # 运行后需要输入一个'y',直接回�
 ### 11.4 指定tensorflow版本
 pip install tensorflow==1.14
 
-### 12. 手动编译
+### 12. 手动编译tensorflow
 https://medium.com/@thomaschou_9652/customized-tensorflow-for-macos-1fe31110d92c

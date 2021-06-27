@@ -185,3 +185,7 @@ gradle是用task组织起来的，一个task包含Inputs和Outputs。
 - NO-SOURC task 这次不需要执行，因为source是空
 
 https://docs.gradle.org/current/userguide/more_about_tasks.html
+
+### 14. Kotlin could not find the required JDK tools in the Java installation
+这个是因为Mac升级到Big Sur之后，系统自带了Java，但是只是JRE，不是JDK。
+https://stackoverflow.com/questions/55286542/kotlin-could-not-find-the-required-jdk-tools-in-the-java-installation
