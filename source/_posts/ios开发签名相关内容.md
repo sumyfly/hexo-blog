@@ -1,8 +1,8 @@
 ---
-title: ios开发签名相关内容
+title: iOS开发签名相关内容
 date: 2017-10-18 09:26:55
 tags:
-  - ios
+  - iOS
   - 签名
 ---
 
@@ -15,7 +15,7 @@ tags:
 管理一个项目的地方，里面有多个scheme
 
 #### 1.3 scheme
-管理一个target,生成一个产品（APP)
+管理一个target,生成一个产品（APP)，勾选Share之后才能共享给他人使用。
 
 #### 1.4 target
 一个管理编译设置和文件引用的配置（.plist文件)，继承project的设置，可以根据需要改写
@@ -29,6 +29,7 @@ tags:
 <!-- more -->
 参考：
 http://www.wenghengcong.com/2016/07/iOS%E8%AF%81%E4%B9%A6%E4%B8%80%E8%A7%88/
+https://www.jianshu.com/p/83b6e781eb51
 
 ### 2. 签名相关
 
@@ -49,8 +50,8 @@ http://www.wenghengcong.com/2016/07/iOS%E8%AF%81%E4%B9%A6%E4%B8%80%E8%A7%88/
 
 #### 2.3 推送
 推送需要Apple Push Notification service SSL (Sandbox)或者Apple Push Notification service SSL (Production)证书。这个证书绑定了一个bundle id,我不知道最多可以申请几个APNS证书，APNS证书和签名证书没关系，相互独立。
-ios只是认bundle id，所以签名打包后，只要bundle id没变，APNS 证书可以更换，而不需要重新签名打包。
-极光推送需要p12文件，这个可以由上述的开发环境推送证书或者生产环境推送证书导出，对应相应的环境。但是用生产环境推送证书导出比较方便，可以用于开发也可以用于生产。TestFight 用的是ad-hoc,打包签名是Distribute证书，环境是生产，最大设备数量100。
+iOS只是认bundle id，所以签名打包后，只要bundle id没变，APNS 证书可以更换，而不需要重新签名打包。
+极光推送需要p12文件，这个可以由上述的开发环境推送证书或者生产环境推送证书导出，对应相应的环境。但是用生产环境推送证书导出比较方便，可以用于开发也可以用于生产。TestFlight 用的是ad-hoc,打包签名是Distribute证书，环境是生产，最大设备数量100。
 
 #### 2.4 .mobileprovison
 .mobileprovision : 对应app 的配置文件。Xcode 其实最终也是需要 这个文件 来进行 对应的app 打包。这个是苹果认证中心签名，个人无法签名，里面存储了可以安装的设备ID,这些设备需要事先添加到苹果MC（Member Center）的Devices里面。对于开发时候的真机调试，原理差不多。都是通过mobileprovision的条目4来做到的。而苹果对于调试和测试用机的数量限制为100台！
@@ -67,7 +68,7 @@ ios只是认bundle id，所以签名打包后，只要bundle id没变，APNS 证
 
 ### 3.自动签名
 自动签名使用team，就不用去走手动签名的过程，只要打包之前，去Perferences->Accounts->Download Manual Profiles.这样就可以了。
-Archive之后，Export的四个选项，App Store, Ad Hoc都需要dispatch 证书，Ad Hoc的环境是和App Store的环境一模一样，是上App Store前的准备，TestFlight可以直接移动过去提交App Store.Enterpise是企业证书，发布In-House时使用。Development只需要Developer证书。
+Archive之后，Export的四个选项，App Store, Ad Hoc都需要dispatch 证书，Ad Hoc的环境是和App Store的环境一模一样，是上App Store前的准备，TestFlight可以直接移动过去提交App Store. Enterpise是企业证书，发布In-House时使用。Development只需要Developer证书。
 
 ### 4.手动签名
 #### 4.1导入证书

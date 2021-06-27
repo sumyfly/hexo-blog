@@ -1,8 +1,8 @@
 ---
-title: ios-storyboard
+title: iOS-storyboard
 date: 2018-10-27 15:37:06
 tags:
-- ios
+- iOS
 ---
 
 ### 1. Storyboard的Entry Point

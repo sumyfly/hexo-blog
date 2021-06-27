@@ -198,7 +198,7 @@ endoceURLComponent方法**不会**对下列字符编码 ASCII字母、数字、~
 所以encodeURLComponent的编码范围更大，适合编码http url中的参数部分,因为:/都被编码了
 
 https://www.cnblogs.com/season-huang/p/3439277.html
-https://www.cnblogs.com/hushuai-ios/p/5500162.html
+https://www.cnblogs.com/hushuai-iOS/p/5500162.html
 
 ### 14.<a> 
  a本身会触发一个链接，a的onclick会触发一个链接，onclick事件执行后会触发a本身的链接，为了阻止a本身链接的触发，需要对onclick事件的函数返回false。

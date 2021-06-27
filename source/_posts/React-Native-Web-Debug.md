@@ -19,7 +19,7 @@ react-native-web中把Image转为了div,使用了bacground-image:url('xxxx'),还
 nginx的缓存设置成{expires -1},意思是永不缓存。
 
 ### 5. div下的View
-比如我用的`react-moda`,在其children中设置`flex:1`,chrome没有问题，ios 11也么有问题，ios就有问题。原因是设置`flex:1`的元素其父容器没有设置width和height。解决方案就是不用flex,用固定width和height。但是我不明白的就是
+比如我用的`react-moda`,在其children中设置`flex:1`,chrome没有问题，iOS 11也么有问题，ios就有问题。原因是设置`flex:1`的元素其父容器没有设置width和height。解决方案就是不用flex,用固定width和height。但是我不明白的就是
 ``` js
 //View 没有任何style。children都设置了width和height
 <View>{children}</View> 
